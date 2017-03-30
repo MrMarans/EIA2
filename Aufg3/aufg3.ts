@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         }
+    console.log("Ende");
     }
 
     document.getElementById("Gruppe").addEventListener("click", function() {
