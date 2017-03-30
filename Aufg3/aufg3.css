@@ -1,0 +1,19 @@
+div {
+	background-color: black;
+	width: 20px;
+	height: 20px;
+}
+
+div:nth-child(8) {
+	
+}
+
+.schwarz {
+	background-color: black;
+	color: white;
+}
+
+.weis {
+	background-color: white;
+	color: black;
+}
