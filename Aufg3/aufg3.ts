@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 for (let Feld: number = 0; Feld < SpaltenKastenzahl; Feld++) {
                     if (Feld % 2 == 0) {
-                        let elem: HTMLDivElement = document.createElement("div");
+                        let elem: HTMLDivElement = document.createElement('div');
                         console.log("erstes IF schwarz");
                         elem.className = "schwarz";
 
                     }
                     else {
-                        let elem: HTMLDivElement = document.createElement("div");
+                        let elem: HTMLDivElement = document.createElement('div');
                            console.log("erstes IF weis");
                         elem.className = "weis";
                     }
@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 for (let Feld: number = 0; Feld < SpaltenKastenzahl; Feld++) {
 
                     if (Feld % 2 == 0) {
-                        let elem: HTMLDivElement = document.createElement("div");
+                        let elem: HTMLDivElement = document.createElement('div');
                         elem.className = "schwarz";
                            console.log("zweites IF schwarz");
 
                     }
                     else {
-                        let elem: HTMLDivElement = document.createElement("div");
+                        let elem: HTMLDivElement = document.createElement('div');
                          console.log("zweites IF weis");
                         elem.className = "weis";
                     }
