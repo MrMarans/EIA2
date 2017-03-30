@@ -1,19 +1,33 @@
 div {
-	background-color: black;
-	width: 20px;
-	height: 20px;
+	width: 12.5%;
+	color: gray;
+	float: left;
 }
 
-div:nth-child(8) {
-	
+div:before, div:after {
+	content: '';
+	display: block;
+	padding-top: 50%;
+}
+
+div:nth-child(9) {
+	clear: left;
 }
 
 .schwarz {
 	background-color: black;
 	color: white;
+	line-height: 0;
+	text-align: center;
 }
 
 .weis {
-	background-color: white;
+	background-color: gray;
 	color: black;
+	line-height: 0;
+	text-align: center;
+}
+
+section {
+	width: 1500px;
 }
