@@ -10,9 +10,6 @@ div:before, div:after {
 	padding-top: 50%;
 }
 
-div:nth-child(9) {
-	clear: left;
-}
 
 .schwarz {
 	background-color: black;
