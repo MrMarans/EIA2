@@ -1,0 +1,13 @@
+div {
+	border: solid 4px black;
+	display: inline;
+	textAlign: center;
+	font-Size: 2em;
+	background-color: "#aaa";
+	width: 4em;
+	height: 6em ! immportant;
+}
+
+#Friedhof {
+	height: 6em;
+}

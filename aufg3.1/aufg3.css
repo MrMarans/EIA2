@@ -1,0 +1,48 @@
+div {
+	width: 12.5%;
+	color: gray;
+	float: left;
+}
+
+div:before, div:after {
+	content: '';
+	display: block;
+	padding-top: 50%;
+}
+
+.schwarz {
+	background-color: black;
+	color: white;
+	line-height: 0;
+	text-align: center;
+}
+
+.weis {
+	background-color: gray;
+	color: black;
+	line-height: 0;
+	text-align: center;
+}
+
+section {
+	width: 1500px;
+}
+
+.Auswahl {
+	border-color: red;
+	background-color: blue;
+}
+
+#AuswahlRechner{
+	padding: 0.5em;
+	font-family: 'Herlvetica';
+	z-index: 100;
+	color: #000;
+	position: absolute;
+	border: solid 2px blau;
+	background-color: green;
+	fontsize: 1em;
+	height: 4em
+	width: 2em;
+	text-align: center;
+}
