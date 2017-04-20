@@ -12,6 +12,7 @@ namespace L4_Canvas {
         crc2 = canvas.getContext("2d");
         console.log(crc2);
         drawHimmel(0, 0, 0, "#BCEDDD", "#9CEDEC");
+        drawWolke(200, 70, 0, "#FFFFFF", "#FFFFFF");
         drawWiese2(0, 0, 180, "#98F2B7", "#98F2B7");
         drawWiese(0, 0, 90, "#45F273", "#45F273");
         drawWiesenschraege(0, 150, "#00F500", "#00F500");
@@ -19,6 +20,7 @@ namespace L4_Canvas {
         drawDach(50, 50, "#705040", "#705040");
         drawTuer(110, 100, "#5E3B24", "#5E3B24");
         drawFenster(150, 50, "#F0F0F0", "#F0F0F0");
+        drawBlume(250, 250, "#FF0000", "#FF0000");
     }
 
 
@@ -27,6 +29,17 @@ namespace L4_Canvas {
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
         crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
+    function drawWolke(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.ellipse(_x + 100, _y + 0, 7, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 100, _y + 0, 10, 7, 0 * Math.PI / 180, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
@@ -65,8 +78,6 @@ namespace L4_Canvas {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-
-
     }
 
     function drawHaus(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
@@ -118,6 +129,22 @@ namespace L4_Canvas {
     }
 
 
-
-
+    function drawBlume(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFFFF";
+        crc2.strokeStyle = "#FFFFFF";
+        crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+    }
 }
