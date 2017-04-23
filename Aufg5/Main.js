@@ -17,6 +17,10 @@ var L4_Canvas;
             var b = Math.floor((Math.random() * 25) + 15);
             drawWolke(x, y, a, b);
         }
+        drawBerg(200, 150);
+        drawBergspitze(261, 19);
+        drawBerg(320, 150);
+        drawBergspitze(381, 19);
         drawWiese2(0, 0, 180, "#98F2B7", "#98F2B7");
         drawWiese(0, 0, 90, "#45F273", "#45F273");
         drawWiesenschraege(0, 150, "#00F500", "#00F500");
@@ -45,6 +49,28 @@ var L4_Canvas;
         crc2.strokeStyle = "#FFFFFF";
         crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
         crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawBerg(_x, _y) {
+        crc2.beginPath();
+        crc2.fillStyle = "#BBBBBB";
+        crc2.strokeStyle = "#BBBBBB";
+        crc2.lineTo(_x + 70, _y - 150);
+        crc2.lineTo(_x + 140, _y + 0);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawBergspitze(_x, _y) {
+        crc2.beginPath();
+        crc2.fillStyle = "#EEEEEE";
+        crc2.strokeStyle = "#DDDDDD";
+        crc2.lineTo(_x + 9.3, _y - 20);
+        crc2.lineTo(_x + (9.3 * 2), _y - 0);
+        crc2.lineTo(_x + 0, _y + 0);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
