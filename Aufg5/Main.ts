@@ -36,7 +36,7 @@ namespace L4_Canvas {
         drawTuer(110, 100, "#5E3B24", "#5E3B24");
         drawFenster(150, 50, "#F0F0F0", "#F0F0F0");
         
-         for(let i: number = 0; i < 40; i++){
+         for(let i: number = 0; i < 100; i++){
          let x: number = Math.floor((Math.random()*400)+0);
          let y:number = Math.floor((Math.random()*145)+155);
          drawBlume(x,y);        

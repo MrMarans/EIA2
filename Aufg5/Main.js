@@ -28,7 +28,7 @@ var L4_Canvas;
         drawDach(50, 50, "#705040", "#705040");
         drawTuer(110, 100, "#5E3B24", "#5E3B24");
         drawFenster(150, 50, "#F0F0F0", "#F0F0F0");
-        for (var i = 0; i < 40; i++) {
+        for (var i = 0; i < 100; i++) {
             var x = Math.floor((Math.random() * 400) + 0);
             var y = Math.floor((Math.random() * 145) + 155);
             drawBlume(x, y);
