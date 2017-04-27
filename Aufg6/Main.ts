@@ -2,11 +2,12 @@
 namespace L4_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
-    let n: number = 300;
+    let n: number = 10;
     let xBiene: number[] = []
     let yBiene: number[] = []
     let saveBG: ImageData;
 
+    window.addEventListener("click", neueBiene);
 
     function init(_event: Event): void {
         console.log("Hallo");
@@ -53,8 +54,8 @@ namespace L4_Canvas {
 
         /////Bienen, also Anfang Auf        
         for (let i: number = 0; i < n; i++) {
-            xBiene[i] = Math.random() * 200;
-            yBiene[i] = Math.random() * 200;
+            xBiene[i] = Math.floor(Math.random() * 0) + 190;
+            yBiene[i] = Math.floor(Math.random() * 0) + 150;
         }
         window.setTimeout(animate, 20);
     }
@@ -63,8 +64,8 @@ namespace L4_Canvas {
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
         for (let i: number = 0; i < n; i++) {
-            xBiene[i] += Math.floor(Math.random() * -5) + 2;
-            yBiene[i] += Math.random() * 4 - 2;
+            xBiene[i] += Math.floor(Math.random() * 11) - 6;
+            yBiene[i] += Math.floor(Math.random() * 11) - 5;
 
             if (xBiene[i] < 0) {
                 xBiene[i] = 400;
@@ -75,188 +76,190 @@ namespace L4_Canvas {
             if (yBiene[i] < 0) {
                 yBiene[i] = 400;
             }
-            if (yBiene[i] > 400)
-                {
-                    yBiene[i] = 0;
-                }
-
-
-
-
-
-                drawBiene(xBiene[i], yBiene[i]);
+            if (yBiene[i] > 400) {
+                yBiene[i] = 0;
             }
-            window.setTimeout(animate, 20);
+            drawBiene(xBiene[i], yBiene[i]);
         }
+        window.setTimeout(animate, 20);
+    }
 
-        function drawBiene(_xBiene: number, _yBiene: number): void {
-            crc2.beginPath();
-            crc2.lineTo(_xBiene + 5, _yBiene + 5);
-            crc2.lineTo(_xBiene + 5, _yBiene + 0);
-            crc2.lineTo(_xBiene + 0, _yBiene + 0);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
+        function neueBiene(_event: Event): void {
+        xBiene.push(200);
+        yBiene.push(150);
+        n++;
+        console.log("neueBiene");
+    }
 
-        function drawHimmel(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
+    
+    function drawBiene(_xBiene: number, _yBiene: number): void {
+        crc2.beginPath();
+        crc2.lineTo(_xBiene + 5, _yBiene + 5);
+        crc2.lineTo(_xBiene + 5, _yBiene + 0);
+        crc2.lineTo(_xBiene + 0, _yBiene + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
 
-        function drawWolke(_x: number, _y: number, _a: number, _b: number): void {
-            crc2.beginPath();
-            crc2.fillStyle = "#FFFFFF";
-            crc2.strokeStyle = "#FFFFFF";
-            crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
+    function drawHimmel(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
 
-        function drawBerg(_x: number, _y: number): void {
-            crc2.beginPath();
-            crc2.fillStyle = "#BBBBBB";
-            crc2.strokeStyle = "#BBBBBB";
-            crc2.lineTo(_x + 70, _y - 150);
-            crc2.lineTo(_x + 140, _y + 0);
-            crc2.lineTo(_x + 0, _y + 0);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-        function drawBergspitze(_x: number, _y: number): void {
-            crc2.beginPath();
-            crc2.fillStyle = "#EEEEEE";
-            crc2.strokeStyle = "#DDDDDD";
-            crc2.lineTo(_x + 9.3, _y - 20);
-            crc2.lineTo(_x + (9.3 * 2), _y - 0);
-            crc2.lineTo(_x + 0, _y + 0);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
+    function drawWolke(_x: number, _y: number, _a: number, _b: number): void {
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFFFF";
+        crc2.strokeStyle = "#FFFFFF";
+        crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
 
-        }
-
-
-        function drawWiese(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            //        crc2.lineTo(_x + 400, _y + 0);
-            //        crc2.lineTo(_x + 400, _y + 150);
-            //        crc2.lineTo(_x + 0, _y + 150);
-            //        crc2.lineTo(_x + 0, _y + 0);
-            crc2.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-        function drawWiese2(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-
-        function drawWiesenschraege(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.lineTo(_x + 400, _y + 150);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-
-        function drawHaus(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.lineTo(_x + 200, _y + 0);
-            crc2.lineTo(_x + 200, _y + 100);
-            crc2.lineTo(_x + 0, _y + 100);
-            crc2.lineTo(_x + 0, _y + 0);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-        function drawDach(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.lineTo(_x + 200, _y + 0);
-            crc2.lineTo(_x + 100, _y - 50);
-            crc2.lineTo(_x + 0, _y + 0);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-        function drawTuer(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.lineTo(_x + 25, _y + 0);
-            crc2.lineTo(_x + 25, _y + 50);
-            crc2.lineTo(_x + 0, _y + 50);
-            crc2.lineTo(_x + 0, _y + 0);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-        function drawFenster(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
-            crc2.beginPath();
-            crc2.fillStyle = _fillColor;
-            crc2.strokeStyle = _strokeColor;
-            crc2.lineTo(_x + 25, _y + 0);
-            crc2.lineTo(_x + 25, _y + 25);
-            crc2.lineTo(_x + 0, _y + 25);
-            crc2.lineTo(_x + 0, _y + 0);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-        }
-
-
-        function drawBlume(_x: number, _y: number): void {
-            crc2.beginPath();
-
-            var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-                + Math.floor(Math.random() * 255) + ")";
-
-
-            crc2.fillStyle = color;
-            crc2.strokeStyle = color;
-            crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-            crc2.stroke();
-            crc2.beginPath();
-            crc2.fillStyle = "#FFFFFF";
-            crc2.strokeStyle = "#FFFFFF";
-            crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
-            crc2.closePath();
-            crc2.fill();
-        }
-
-
-
-
+    function drawBerg(_x: number, _y: number): void {
+        crc2.beginPath();
+        crc2.fillStyle = "#BBBBBB";
+        crc2.strokeStyle = "#BBBBBB";
+        crc2.lineTo(_x + 70, _y - 150);
+        crc2.lineTo(_x + 140, _y + 0);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawBergspitze(_x: number, _y: number): void {
+        crc2.beginPath();
+        crc2.fillStyle = "#EEEEEE";
+        crc2.strokeStyle = "#DDDDDD";
+        crc2.lineTo(_x + 9.3, _y - 20);
+        crc2.lineTo(_x + (9.3 * 2), _y - 0);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
 
     }
+
+
+    function drawWiese(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        //        crc2.lineTo(_x + 400, _y + 0);
+        //        crc2.lineTo(_x + 400, _y + 150);
+        //        crc2.lineTo(_x + 0, _y + 150);
+        //        crc2.lineTo(_x + 0, _y + 0);
+        crc2.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawWiese2(_x: number, _y: number, _z: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
+    function drawWiesenschraege(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.lineTo(_x + 400, _y + 150);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
+    function drawHaus(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.lineTo(_x + 200, _y + 0);
+        crc2.lineTo(_x + 200, _y + 100);
+        crc2.lineTo(_x + 0, _y + 100);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawDach(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.lineTo(_x + 200, _y + 0);
+        crc2.lineTo(_x + 100, _y - 50);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawTuer(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.lineTo(_x + 25, _y + 0);
+        crc2.lineTo(_x + 25, _y + 50);
+        crc2.lineTo(_x + 0, _y + 50);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+    function drawFenster(_x: number, _y: number, _strokeColor: string, _fillColor: string): void {
+        crc2.beginPath();
+        crc2.fillStyle = _fillColor;
+        crc2.strokeStyle = _strokeColor;
+        crc2.lineTo(_x + 25, _y + 0);
+        crc2.lineTo(_x + 25, _y + 25);
+        crc2.lineTo(_x + 0, _y + 25);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+    }
+
+
+    function drawBlume(_x: number, _y: number): void {
+        crc2.beginPath();
+
+        var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 255) + ")";
+
+
+        crc2.fillStyle = color;
+        crc2.strokeStyle = color;
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFFFF";
+        crc2.strokeStyle = "#FFFFFF";
+        crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+    }
+
+
+
+
+
+}
 
 
 

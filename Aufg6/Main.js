@@ -2,10 +2,11 @@ var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
     var crc2;
-    var n = 300;
+    var n = 10;
     var xBiene = [];
     var yBiene = [];
     var saveBG;
+    window.addEventListener("click", neueBiene);
     function init(_event) {
         console.log("Hallo");
         var canvas;
@@ -40,8 +41,8 @@ var L4_Canvas;
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         /////Bienen, also Anfang Auf        
         for (var i = 0; i < n; i++) {
-            xBiene[i] = Math.random() * 200;
-            yBiene[i] = Math.random() * 200;
+            xBiene[i] = Math.floor(Math.random() * 0) + 190;
+            yBiene[i] = Math.floor(Math.random() * 0) + 150;
         }
         window.setTimeout(animate, 20);
     }
@@ -50,8 +51,8 @@ var L4_Canvas;
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
         for (var i = 0; i < n; i++) {
-            xBiene[i] += Math.floor(Math.random() * -5) + 2;
-            yBiene[i] += Math.random() * 4 - 2;
+            xBiene[i] += Math.floor(Math.random() * 11) - 6;
+            yBiene[i] += Math.floor(Math.random() * 11) - 5;
             if (xBiene[i] < 0) {
                 xBiene[i] = 400;
             }
@@ -67,6 +68,12 @@ var L4_Canvas;
             drawBiene(xBiene[i], yBiene[i]);
         }
         window.setTimeout(animate, 20);
+    }
+    function neueBiene(_event) {
+        xBiene.push(200);
+        yBiene.push(150);
+        n++;
+        console.log("neueBiene");
     }
     function drawBiene(_xBiene, _yBiene) {
         crc2.beginPath();
