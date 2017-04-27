@@ -2,6 +2,9 @@ var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
     var crc2;
+    var n = 20;
+    var xBiene = [];
+    var yBiene = [];
     function init(_event) {
         console.log("Hallo");
         var canvas;
@@ -33,6 +36,29 @@ var L4_Canvas;
             var y = Math.floor((Math.random() * 145) + 155);
             drawBlume(x, y);
         }
+        for (var i = 0; i < n; i++) {
+            xBiene[i] = Math.random() * 200;
+            yBiene[i] = Math.random() * 200;
+        }
+        window.setTimeout(animate, 20);
+        function animate() {
+            console.log("Animate startet");
+            crc2.fillStyle = "#FF0000";
+            for (var k = 0; k < n; k++) {
+                xBiene[k] += Math.random() * 4 - 2;
+                yBiene[k] += Math.random() * 4 - 2;
+                drawBiene(xBiene[k], yBiene[k]);
+            }
+        }
+    }
+    function drawBiene(_xBiene, _yBiene) {
+        crc2.beginPath();
+        crc2.lineTo(_xBiene + 5, _yBiene + 5);
+        crc2.lineTo(_xBiene + 5, _yBiene + 0);
+        crc2.lineTo(_xBiene + 0, _yBiene + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
     }
     function drawHimmel(_x, _y, _z, _strokeColor, _fillColor) {
         crc2.beginPath();
