@@ -2,7 +2,7 @@
 namespace L4_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
-    let n: number = 20;
+    let n: number = 300;
     let xBiene: number[] = []
     let yBiene: number[] = []
 
@@ -46,37 +46,37 @@ namespace L4_Canvas {
         }
 
 
-        for (let i = 0; i < n; i++) {
+        var ctx = canvas.getContext('2d');
+        crc2.rect(10, 10, 100, 100);
+
+
+
+        /////Bienen, also Anfang Auf        
+        for (let i: number = 0; i < n; i++) {
             xBiene[i] = Math.random() * 200;
             yBiene[i] = Math.random() * 200;
         }
         window.setTimeout(animate, 20);
-
-        function animate() {
-            console.log("Animate startet");
-            crc2.fillStyle = "#FF0000";
-            for (let k: number = 0; k < n; k++) {
-                xBiene[k] += Math.random() * 4 - 2;
-                yBiene[k] += Math.random() * 4 - 2;
-                drawBiene(xBiene[k], yBiene[k]);
-            }
-
-
+    }
+    function animate() {
+        console.log("Animate startet");
+        crc2.fillStyle = "#FF0000";
+        for (let i: number = 0; i < n; i++) {
+            xBiene[i] += Math.random() * 4 - 2;
+            yBiene[i] += Math.random() * 4 - 2;
+            drawBiene(xBiene[i], yBiene[i]);
         }
-
-
-
-
-
-
+        var imgData = crc2.getImageData(10, 10, 10, 10);
+    crc2.putImageData(imgData, 10, 20);
+        window.setTimeout(animate, 20);
     }
 
 
     function drawBiene(_xBiene: number, _yBiene: number): void {
         crc2.beginPath();
-        crc2.lineTo(_xBiene+5, _yBiene+5);
-        crc2.lineTo(_xBiene+5, _yBiene+0);
-        crc2.lineTo(_xBiene+0, _yBiene+0);
+        crc2.lineTo(_xBiene + 5, _yBiene + 5);
+        crc2.lineTo(_xBiene + 5, _yBiene + 0);
+        crc2.lineTo(_xBiene + 0, _yBiene + 0);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
@@ -240,6 +240,8 @@ namespace L4_Canvas {
 
 
 }
+
+
 
 
 

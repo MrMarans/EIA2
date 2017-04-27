@@ -2,7 +2,7 @@ var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
     var crc2;
-    var n = 20;
+    var n = 300;
     var xBiene = [];
     var yBiene = [];
     function init(_event) {
@@ -36,20 +36,26 @@ var L4_Canvas;
             var y = Math.floor((Math.random() * 145) + 155);
             drawBlume(x, y);
         }
+        var ctx = canvas.getContext('2d');
+        crc2.rect(10, 10, 100, 100);
+        /////Bienen, also Anfang Auf        
         for (var i = 0; i < n; i++) {
             xBiene[i] = Math.random() * 200;
             yBiene[i] = Math.random() * 200;
         }
         window.setTimeout(animate, 20);
-        function animate() {
-            console.log("Animate startet");
-            crc2.fillStyle = "#FF0000";
-            for (var k = 0; k < n; k++) {
-                xBiene[k] += Math.random() * 4 - 2;
-                yBiene[k] += Math.random() * 4 - 2;
-                drawBiene(xBiene[k], yBiene[k]);
-            }
+    }
+    function animate() {
+        console.log("Animate startet");
+        crc2.fillStyle = "#FF0000";
+        for (var i = 0; i < n; i++) {
+            xBiene[i] += Math.random() * 4 - 2;
+            yBiene[i] += Math.random() * 4 - 2;
+            drawBiene(xBiene[i], yBiene[i]);
         }
+        var imgData = crc2.getImageData(10, 10, 10, 10);
+        crc2.putImageData(imgData, 10, 20);
+        window.setTimeout(animate, 20);
     }
     function drawBiene(_xBiene, _yBiene) {
         crc2.beginPath();
