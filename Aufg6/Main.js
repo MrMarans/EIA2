@@ -52,6 +52,18 @@ var L4_Canvas;
         for (var i = 0; i < n; i++) {
             xBiene[i] += Math.floor(Math.random() * -5) + 2;
             yBiene[i] += Math.random() * 4 - 2;
+            if (xBiene[i] < 0) {
+                xBiene[i] = 400;
+            }
+            if (xBiene[i] > 400) {
+                xBiene[i] = 0;
+            }
+            if (yBiene[i] < 0) {
+                yBiene[i] = 400;
+            }
+            if (yBiene[i] > 400) {
+                yBiene[i] = 0;
+            }
             drawBiene(xBiene[i], yBiene[i]);
         }
         window.setTimeout(animate, 20);
