@@ -5,6 +5,8 @@ namespace L4_Canvas {
     let n: number = 300;
     let xBiene: number[] = []
     let yBiene: number[] = []
+    let saveBG: ImageData;
+
 
     function init(_event: Event): void {
         console.log("Hallo");
@@ -46,9 +48,7 @@ namespace L4_Canvas {
         }
 
 
-        var ctx = canvas.getContext('2d');
-        crc2.rect(10, 10, 100, 100);
-
+        saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
         /////Bienen, also Anfang Auf        
@@ -59,18 +59,16 @@ namespace L4_Canvas {
         window.setTimeout(animate, 20);
     }
     function animate() {
+        crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
         for (let i: number = 0; i < n; i++) {
-            xBiene[i] += Math.random() * 4 - 2;
+            xBiene[i] += Math.floor(Math.random()*-5)+2;
             yBiene[i] += Math.random() * 4 - 2;
             drawBiene(xBiene[i], yBiene[i]);
         }
-        var imgData = crc2.getImageData(10, 10, 10, 10);
-    crc2.putImageData(imgData, 10, 20);
         window.setTimeout(animate, 20);
     }
-
 
     function drawBiene(_xBiene: number, _yBiene: number): void {
         crc2.beginPath();
