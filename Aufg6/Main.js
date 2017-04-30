@@ -2,7 +2,7 @@ var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
     var crc2;
-    var n = 10;
+    var n = 100;
     var xBiene = [];
     var yBiene = [];
     var saveBG;
@@ -29,10 +29,12 @@ var L4_Canvas;
         drawWiese2(0, 0, 180, "#98F2B7", "#98F2B7");
         drawWiese(0, 0, 90, "#45F273", "#45F273");
         drawWiesenschraege(0, 150, "#00F500", "#00F500");
-        drawHaus(50, 50, "#8F6552", "#8F6552");
+        drawBienenHaus(50, 50, "#8F6552", "#8F6552");
         drawDach(50, 50, "#705040", "#705040");
         drawTuer(110, 100, "#5E3B24", "#5E3B24");
         drawFenster(150, 50, "#F0F0F0", "#F0F0F0");
+        drawNest(190, 150);
+        //Nest wird warum auch immer nicht generiert, daher kommen die vorl�ufig erst einmal aus dem "Bienenhaus
         for (var i = 0; i < 100; i++) {
             var x = Math.floor((Math.random() * 400) + 0);
             var y = Math.floor((Math.random() * 145) + 155);
@@ -41,8 +43,8 @@ var L4_Canvas;
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         /////Bienen, also Anfang Auf        
         for (var i = 0; i < n; i++) {
-            xBiene[i] = Math.floor(Math.random() * 0) + 190;
-            yBiene[i] = Math.floor(Math.random() * 0) + 150;
+            xBiene[i] = Math.floor(Math.random() * 0) + 160;
+            yBiene[i] = Math.floor(Math.random() * 0) + 60;
         }
         window.setTimeout(animate, 20);
     }
@@ -69,16 +71,42 @@ var L4_Canvas;
         }
         window.setTimeout(animate, 20);
     }
+    function drawNest(_x, _y) {
+        crc2.beginPath();
+        crc2.fillStyle = "#FF0000";
+        crc2.strokeStyle = "#76523a";
+        crc2.ellipse(_x + 100, _y + 0, 100, 100, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+    }
     function neueBiene(_event) {
-        xBiene.push(200);
-        yBiene.push(150);
+        xBiene.push(160);
+        yBiene.push(60);
         n++;
         console.log("neueBiene");
     }
     function drawBiene(_xBiene, _yBiene) {
         crc2.beginPath();
-        crc2.lineTo(_xBiene + 5, _yBiene + 5);
-        crc2.lineTo(_xBiene + 5, _yBiene + 0);
+        crc2.fillStyle = "#000000";
+        crc2.strokeStyle = "#000000";
+        crc2.lineTo(_xBiene - 1, _yBiene + 0);
+        crc2.lineTo(_xBiene - 1, _yBiene + 1);
+        crc2.lineTo(_xBiene + 0, _yBiene + 1);
+        crc2.lineTo(_xBiene + 0, _yBiene - 2);
+        crc2.lineTo(_xBiene - 1, _yBiene - 2);
+        crc2.lineTo(_xBiene - 1, _yBiene - 1);
+        crc2.lineTo(_xBiene - 2, _yBiene + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFF00";
+        crc2.lineTo(_xBiene + 4, _yBiene + 0);
+        crc2.lineTo(_xBiene + 4, _yBiene - 1);
+        crc2.lineTo(_xBiene + 5, _yBiene - 1);
+        crc2.lineTo(_xBiene + 5, _yBiene - 2);
+        crc2.lineTo(_xBiene + 4, _yBiene - 2);
+        crc2.lineTo(_xBiene + 4, _yBiene - 3);
+        crc2.lineTo(_xBiene + 0, _yBiene - 3);
         crc2.lineTo(_xBiene + 0, _yBiene + 0);
         crc2.closePath();
         crc2.fill();
@@ -157,7 +185,7 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
     }
-    function drawHaus(_x, _y, _strokeColor, _fillColor) {
+    function drawBienenHaus(_x, _y, _strokeColor, _fillColor) {
         crc2.beginPath();
         crc2.fillStyle = _fillColor;
         crc2.strokeStyle = _strokeColor;
