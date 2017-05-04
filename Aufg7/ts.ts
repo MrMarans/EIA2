@@ -1,6 +1,11 @@
 namespace StudiVZ {
     interface StudentData {
-        // hier ist noch die richtige Datenstruktur festzulegen
+        matrikelnr: number;
+        name: string;
+        vorname: string;
+        alter: number;
+        geschlecht: boolean;
+        kommentar: string;
     }
     var students: StudentData[] = [];
     var stop: boolean = false;
@@ -26,58 +31,53 @@ namespace StudiVZ {
     }
 
     function saveData(_input: string): string {
-        let List: string[] = _input.split(", ");
-        let i: StudentData = {
-            studentnumber: parseInt(List[0]),
-            surname: List[1],
-            name: List[2],
-            age: parseInt(List[3]),
-            sex: parseInt(List[4]),
-            comment: List[5],
+        let array: string[] = _input.split(", ");
+        let s: StudentData = {
+            matrikelnr: parseInt(array[0]),
+            name: array[1],
+            vorname: array[2],
+            alter: parseInt(array[3]),
+            geschlecht: parseInt(array[4]) == 1,
+            kommentar: array[5]
 
         };
-        let sexNumb: number = List[4];
+
         students.push(s);
 
-        let sex: String;
-        switch (sexNumb) {
-            case 0:
-                {
-                    sex == Male;
-                    break;
-                }
-            case 1:
-                {
-                    sex == Female;
-                    break;
-                }
-            case 2:
-                {
-                    sex == apache_helicopter;
-                    break;
-                }
-
+        let geschlecht: String;
+        if (s.geschlecht == true) {
+            geschlecht = "m";
+        }
+        else {
+            geschlecht = "w";
         }
 
-        return "Daten gespeichert\nMatrikelnr: " + s.matrikelnr + "\nName: " + s.surname + "\nVorname: " + s.name + "\nAlter: " + s.age + "\nGeschlecht: " + sex + "\nKommentar: " + s.comment;
+
+       return "Folgende Daten wurden gespeichert: \nMatrikelnummer: " + s.matrikelnr + "\nName: " + s.name + "\nVorname: " + s.vorname + "\nAlter: " + s.alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + s.kommentar;
     }
-}
-function queryData(_matrikel: number): string {
 
-    for (let i: number = 0; i < List.length; i++) {
-        if (students[i].matrikelnr == _matrikel) {
-            let sex: string;
+    function queryData(_matrikel: number): string {
 
-            if (students[i].sex == true) {
-                sex = "m";
+        for (let i: number = 0; i < students.length; i++) {
+            if (students[i].matrikelnr == _matrikel) {
+                let sex: string;
+
+                if (students[i].geschlecht == true) {
+                    sex = "m";
+                }
+                else {
+                    sex = "w";
+                }
+
+                return "Matrikelnummer: " + students[i].matrikelnr + "\nName: " + students[i].name + "\nVorname: " + students[i].vorname + "\nAlter: " + students[i].alter + "\nGeschlecht: " + geschlecht + "\nKommentar: " + students[i].kommentar;
             }
-            else {
-                sex = "w";
-            }
-
-            return "Matrikelnr: " + students[i].matrikelnr + "\nName: " + students[i].surname + "\nVorname: " + students[i].name + "\nAlter: " + students[i].age + "\nGeschlecht: " + sex + "\nKommentar: " + students[i].comment;
+            else{}
         }
-        else { }
     }
 }
+
+            }
+            else { }
+        }
+    }
 }
