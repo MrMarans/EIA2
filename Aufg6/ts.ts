@@ -144,9 +144,8 @@ namespace L4_Canvas {
 
 
     function neueBiene(_event: Event): void {
-        let b: bee = { x: 0, y: 0 }
-        b.x.push(160);
-        b.y.push(60);
+       let b: bee = { x:150, y:150};
+        bees.push(b);
         n++;
         console.log("neueBiene");
     }

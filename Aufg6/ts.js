@@ -92,9 +92,8 @@ var L4_Canvas;
         crc2.closePath();
     }
     function neueBiene(_event) {
-        var b = { x: 0, y: 0 };
-        b.x.push(160);
-        b.y.push(60);
+        var b = { x: 150, y: 150 };
+        bees.push(b);
         n++;
         console.log("neueBiene");
     }
