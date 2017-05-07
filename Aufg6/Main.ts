@@ -2,9 +2,15 @@
 namespace L4_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
+    interface bee {
+        x: number;
+        y: number;
+    }
+
+    let bees: bee[] = [];
     let n: number = 100;
-    let xBiene: number[] = []
-    let yBiene: number[] = []
+    //    let xBiene: number[] = []
+    //    let yBiene: number[] = []
     let saveBG: ImageData;
 
     window.addEventListener("click", neueBiene);
@@ -43,7 +49,7 @@ namespace L4_Canvas {
         drawFenster(150, 50, "#F0F0F0", "#F0F0F0");
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorläufig erst einmal aus dem "Bienenhaus
-        
+
         for (let i: number = 0; i < 100; i++) {
             let x: number = Math.floor((Math.random() * 400) + 0);
             let y: number = Math.floor((Math.random() * 145) + 155);
@@ -56,8 +62,12 @@ namespace L4_Canvas {
 
         /////Bienen, also Anfang Auf        
         for (let i: number = 0; i < n; i++) {
-            xBiene[i] = Math.floor(Math.random() * 0) + 160;
-            yBiene[i] = Math.floor(Math.random() * 0) + 60;
+            let b: bee = { x: 0, y: 0 }
+            b.x = 150;
+            b.y = 150;
+
+            //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
+            //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
         }
         window.setTimeout(animate, 20);
     }
@@ -66,28 +76,50 @@ namespace L4_Canvas {
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
         for (let i: number = 0; i < n; i++) {
-            xBiene[i] += Math.floor(Math.random() * 11) - 6;
-            yBiene[i] += Math.floor(Math.random() * 11) - 5;
+            let b: bee = { x: 0, y: 0 }
+            bees[i] = b;
+            b.x += Math.floor(Math.random() * 11) - 6;
+            b.y += Math.floor(Math.random() * 11) - 5;
+            if (b.x < 0) {
+                b.x = 400;
+            }
+            if (b.x > 400) {
+                b.x = 0;
+            }
+            if (b.y < 0) {
+                b.y = 400;
+            }
+            if (b.y > 400) {
+                b.y = 0;
+            }
 
-            if (xBiene[i] < 0) {
-                xBiene[i] = 400;
-            }
-            if (xBiene[i] > 400) {
-                xBiene[i] = 0;
-            }
-            if (yBiene[i] < 0) {
-                yBiene[i] = 400;
-            }
-            if (yBiene[i] > 400) {
-                yBiene[i] = 0;
-            }
-            drawBiene(xBiene[i], yBiene[i]);
+            drawBiene(b.x, b.y);
+
+
+
+
+            //            xBiene[i] += Math.floor(Math.random() * 11) - 6;
+            //            yBiene[i] += Math.floor(Math.random() * 11) - 5;
+            //
+            //            if (xBiene[i] < 0) {
+            //                xBiene[i] = 400;
+            //            }
+            //            if (xBiene[i] > 400) {
+            //                xBiene[i] = 0;
+            //            }
+            //            if (yBiene[i] < 0) {
+            //                yBiene[i] = 400;
+            //            }
+            //            if (yBiene[i] > 400) {
+            //                yBiene[i] = 0;
+            //            }
+            //            drawBiene(xBiene[i], yBiene[i]);
         }
         window.setTimeout(animate, 20);
     }
 
 
-     function drawNest(_x: number, _y: number): void {
+    function drawNest(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.fillStyle = "#FF0000";
         crc2.strokeStyle = "#76523a";
@@ -98,37 +130,38 @@ namespace L4_Canvas {
 
 
     function neueBiene(_event: Event): void {
-        xBiene.push(160);
-        yBiene.push(60);
+        let b: bee = { x: 0, y: 0 }
+        b.x.push(160);
+        b.y.push(60);
         n++;
         console.log("neueBiene");
     }
 
 
-    function drawBiene(_xBiene: number, _yBiene: number): void {
+    function drawBiene(_x: number, _y: number): void {
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
-        crc2.lineTo(_xBiene - 1, _yBiene + 0);
-        crc2.lineTo(_xBiene - 1, _yBiene + 1);
-        crc2.lineTo(_xBiene + 0, _yBiene + 1);
-        crc2.lineTo(_xBiene + 0, _yBiene - 2);
-        crc2.lineTo(_xBiene - 1, _yBiene - 2);
-        crc2.lineTo(_xBiene - 1, _yBiene - 1);
-        crc2.lineTo(_xBiene - 2, _yBiene + 0);
+        crc2.lineTo(_x - 1, _y + 0);
+        crc2.lineTo(_x - 1, _y + 1);
+        crc2.lineTo(_x + 0, _y + 1);
+        crc2.lineTo(_x + 0, _y - 2);
+        crc2.lineTo(_x - 1, _y - 2);
+        crc2.lineTo(_x - 1, _y - 1);
+        crc2.lineTo(_x - 2, _y + 0);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
         crc2.beginPath();
         crc2.fillStyle = "#FFFF00";
-        crc2.lineTo(_xBiene + 4, _yBiene + 0);
-        crc2.lineTo(_xBiene + 4, _yBiene - 1);
-        crc2.lineTo(_xBiene + 5, _yBiene - 1);
-        crc2.lineTo(_xBiene + 5, _yBiene - 2);
-        crc2.lineTo(_xBiene + 4, _yBiene - 2);
-        crc2.lineTo(_xBiene + 4, _yBiene - 3);
-        crc2.lineTo(_xBiene + 0, _yBiene - 3);
-        crc2.lineTo(_xBiene + 0, _yBiene + 0);
+        crc2.lineTo(_x + 4, _y + 0);
+        crc2.lineTo(_x + 4, _y - 1);
+        crc2.lineTo(_x + 5, _y - 1);
+        crc2.lineTo(_x + 5, _y - 2);
+        crc2.lineTo(_x + 4, _y - 2);
+        crc2.lineTo(_x + 4, _y - 3);
+        crc2.lineTo(_x + 0, _y - 3);
+        crc2.lineTo(_x + 0, _y + 0);
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
