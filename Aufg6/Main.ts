@@ -11,7 +11,7 @@ namespace L4_Canvas {
     let n: number = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
-    let saveBG: ImageData;
+    let saveBG: ImageData; 
 
     window.addEventListener("click", neueBiene);
 
