@@ -1,3 +1,13 @@
+/*
+Aufgabe: 6a
+Name: Ron Metzger
+Matrikel:  254878
+Datum: 07.05.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+
+
 namespace StudiVZ {
     interface StudentData {
         matrikelnr: number;
