@@ -52,7 +52,7 @@ var L4_Canvas;
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         /////Bienen, also Anfang Auf        
         for (var i = 0; i < n; i++) {
-            var b = { x: 150, y: 150 };
+            var b = { x: 0, y: 0 };
             b.x = 150;
             b.y = 150;
         }
@@ -63,7 +63,8 @@ var L4_Canvas;
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
         for (var i = 0; i < n; i++) {
-            var b = bees[i];
+            var b = { x: 0, y: 0 };
+            bees[i] = b;
             b.x += Math.floor(Math.random() * 11) - 6;
             b.y += Math.floor(Math.random() * 11) - 5;
             if (b.x < 0) {

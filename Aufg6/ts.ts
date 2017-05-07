@@ -8,6 +8,8 @@ Datum: 07.05.17
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 
+
+
 namespace L4_Canvas {
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
@@ -20,7 +22,7 @@ namespace L4_Canvas {
     let n: number = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
-    let saveBG: ImageData;
+    let saveBG: ImageData; 
 
     window.addEventListener("click", neueBiene);
 
@@ -71,7 +73,7 @@ namespace L4_Canvas {
 
         /////Bienen, also Anfang Auf        
         for (let i: number = 0; i < n; i++) {
-            let b: bee = { x: 150, y: 150 }
+            let b: bee = { x: 0, y: 0 }
             b.x = 150;
             b.y = 150;
 
@@ -84,8 +86,9 @@ namespace L4_Canvas {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
-        for (let i: number = 0; i < n; i++) { // Zufällige Bewegung der Bienen
-            let b: bee = bees[i];
+        for (let i: number = 0; i < n; i++) {
+            let b: bee = { x: 0, y: 0 }
+            bees[i] = b;
             b.x += Math.floor(Math.random() * 11) - 6;
             b.y += Math.floor(Math.random() * 11) - 5;
             if (b.x < 0) {
@@ -334,14 +337,3 @@ namespace L4_Canvas {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-

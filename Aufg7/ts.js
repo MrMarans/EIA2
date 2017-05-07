@@ -4,7 +4,7 @@ Name: Ron Metzger
 Matrikel:  254878
 Datum: 07.05.17
     
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben ha  be. Er wurde nicht kopiert und auch nicht diktiert.
 */
 var StudiVZ;
 (function (StudiVZ) {
