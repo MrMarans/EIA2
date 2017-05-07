@@ -22,7 +22,7 @@ namespace L4_Canvas {
     let n: number = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
-    let saveBG: ImageData; 
+    let saveBG: ImageData;
 
     window.addEventListener("click", neueBiene);
 
@@ -71,23 +71,15 @@ namespace L4_Canvas {
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
 
-        /////Bienen, also Anfang Auf        
-        for (let i: number = 0; i < n; i++) {
-            let b: bee = { x: 0, y: 0 }
-            b.x = 150;
-            b.y = 150;
-
-            //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
-            //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
-        }
         window.setTimeout(animate, 20);
     }
     function animate() {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
+        let b: bee = { x: 150, y: 150 }
         for (let i: number = 0; i < n; i++) {
-            let b: bee = { x: 0, y: 0 }
+
             bees[i] = b;
             b.x += Math.floor(Math.random() * 11) - 6;
             b.y += Math.floor(Math.random() * 11) - 5;

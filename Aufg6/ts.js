@@ -50,20 +50,14 @@ var L4_Canvas;
             drawBlume(x, y);
         }
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        /////Bienen, also Anfang Auf        
-        for (var i = 0; i < n; i++) {
-            var b = { x: 0, y: 0 };
-            b.x = 150;
-            b.y = 150;
-        }
         window.setTimeout(animate, 20);
     }
     function animate() {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
+        var b = { x: 150, y: 150 };
         for (var i = 0; i < n; i++) {
-            var b = { x: 0, y: 0 };
             bees[i] = b;
             b.x += Math.floor(Math.random() * 11) - 6;
             b.y += Math.floor(Math.random() * 11) - 5;
