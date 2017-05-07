@@ -70,6 +70,17 @@ namespace L4_Canvas {
 
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
+        
+        
+        
+        for (let i: number = 0; i<n; i++) {
+            let b: bee = {x:150,y:150};
+            bees[i] = b;
+            }
+
+        /////Bienen, also Anfang Auf        
+        //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
+        //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
 
         window.setTimeout(animate, 20);
     }
@@ -79,8 +90,8 @@ namespace L4_Canvas {
         crc2.fillStyle = "#FF0000";
         let b: bee = { x: 150, y: 150 }
         for (let i: number = 0; i < n; i++) {
+            let b: bee = bees[i];
 
-            bees[i] = b;
             b.x += Math.floor(Math.random() * 11) - 6;
             b.y += Math.floor(Math.random() * 11) - 5;
             if (b.x < 0) {

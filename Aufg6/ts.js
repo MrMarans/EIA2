@@ -50,6 +50,13 @@ var L4_Canvas;
             drawBlume(x, y);
         }
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        for (var i = 0; i < n; i++) {
+            var b = { x: 150, y: 150 };
+            bees[i] = b;
+        }
+        /////Bienen, also Anfang Auf        
+        //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
+        //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
         window.setTimeout(animate, 20);
     }
     function animate() {
@@ -58,22 +65,22 @@ var L4_Canvas;
         crc2.fillStyle = "#FF0000";
         var b = { x: 150, y: 150 };
         for (var i = 0; i < n; i++) {
-            bees[i] = b;
-            b.x += Math.floor(Math.random() * 11) - 6;
-            b.y += Math.floor(Math.random() * 11) - 5;
-            if (b.x < 0) {
-                b.x = 400;
+            var b_1 = bees[i];
+            b_1.x += Math.floor(Math.random() * 11) - 6;
+            b_1.y += Math.floor(Math.random() * 11) - 5;
+            if (b_1.x < 0) {
+                b_1.x = 400;
             }
-            if (b.x > 400) {
-                b.x = 0;
+            if (b_1.x > 400) {
+                b_1.x = 0;
             }
-            if (b.y < 0) {
-                b.y = 400;
+            if (b_1.y < 0) {
+                b_1.y = 400;
             }
-            if (b.y > 400) {
-                b.y = 0;
+            if (b_1.y > 400) {
+                b_1.y = 0;
             }
-            drawBiene(b.x, b.y);
+            drawBiene(b_1.x, b_1.y);
         }
         window.setTimeout(animate, 20);
     }
