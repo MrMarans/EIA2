@@ -10,6 +10,7 @@ var L4_Canvas;
 (function (L4_Canvas) {
     window.addEventListener("load", init);
     var crc2;
+    var flower = 100;
     var bees = [];
     var n = 100;
     //    let xBiene: number[] = []
@@ -44,15 +45,17 @@ var L4_Canvas;
         drawFenster(150, 50, "#F0F0F0", "#F0F0F0");
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorl�ufig erst einmal aus dem "Bienenhaus
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < flower; i++) {
             var x = Math.floor((Math.random() * 400) + 0);
             var y = Math.floor((Math.random() * 145) + 155);
             drawBlume(x, y);
         }
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
-            var b = { x: 150, y: 150 };
+            var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: " " };
             bees[i] = b;
+            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                + Math.floor(Math.random() * 0) + ")";
         }
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
@@ -63,11 +66,27 @@ var L4_Canvas;
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
-        var b = { x: 150, y: 150 };
+        var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
         for (var i = 0; i < n; i++) {
             var b_1 = bees[i];
-            b_1.x += Math.floor(Math.random() * 11) - 6;
-            b_1.y += Math.floor(Math.random() * 11) - 5;
+            if (b_1.leftpush % 20 == 1) {
+                b_1.x -= 5;
+                b_1.rightpush++;
+                if (b_1.leftpush % 100 == 1) {
+                    b_1.gelehmt = true;
+                    console.log("gelehmt");
+                }
+                else { }
+            }
+            else { }
+            if (b_1.rightpush % 5 == 1) {
+                b_1.x += 10;
+            }
+            else {
+                b_1.x += Math.floor(Math.random() * 11) - 6;
+                b_1.y += Math.floor(Math.random() * 11) - 5;
+                b_1.leftpush++;
+            }
             if (b_1.x < 0) {
                 b_1.x = 400;
             }
@@ -80,7 +99,7 @@ var L4_Canvas;
             if (b_1.y > 400) {
                 b_1.y = 0;
             }
-            drawBiene(b_1.x, b_1.y);
+            drawBiene(b_1.x, b_1.y, b_1.color);
         }
         window.setTimeout(animate, 20);
     }
@@ -92,12 +111,14 @@ var L4_Canvas;
         crc2.closePath();
     }
     function neueBiene(_event) {
-        var b = { x: 150, y: 150 };
+        var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
         bees.push(b);
+        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 0) + ")";
         n++;
         console.log("neueBiene");
     }
-    function drawBiene(_x, _y) {
+    function drawBiene(_x, _y, _color) {
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -112,7 +133,7 @@ var L4_Canvas;
         crc2.fill();
         crc2.stroke();
         crc2.beginPath();
-        crc2.fillStyle = "#FFFF00";
+        crc2.fillStyle = _color;
         crc2.lineTo(_x + 4, _y + 0);
         crc2.lineTo(_x + 4, _y - 1);
         crc2.lineTo(_x + 5, _y - 1);

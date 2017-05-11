@@ -16,8 +16,12 @@ namespace L4_Canvas {
     interface bee {
         x: number;
         y: number;
+        leftpush: number;
+        rightpush: number;
+        color: string;
+        gelehmt: boolean;
     }
-
+    let flower: number = 100;
     let bees: bee[] = [];
     let n: number = 100;
     //    let xBiene: number[] = []
@@ -61,22 +65,26 @@ namespace L4_Canvas {
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorläufig erst einmal aus dem "Bienenhaus
 
-        for (let i: number = 0; i < 100; i++) {
+        for (let i: number = 0; i < flower; i++) {
             let x: number = Math.floor((Math.random() * 400) + 0);
             let y: number = Math.floor((Math.random() * 145) + 155);
             drawBlume(x, y);
         }
 
 
+
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        
-        
-        
-        for (let i: number = 0; i<n; i++) {
-            let b: bee = {x:150,y:150};
+
+
+
+        for (let i: number = 0; i < n; i++) {
+            let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: " " };
             bees[i] = b;
-            }
+
+            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                + Math.floor(Math.random() * 0) + ")";
+        }
 
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
@@ -88,12 +96,31 @@ namespace L4_Canvas {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
-        let b: bee = { x: 150, y: 150 }
+        let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false }
         for (let i: number = 0; i < n; i++) {
             let b: bee = bees[i];
 
-            b.x += Math.floor(Math.random() * 11) - 6;
-            b.y += Math.floor(Math.random() * 11) - 5;
+
+            if (b.leftpush % 20 == 1) {
+                b.x -= 5;
+                b.rightpush++
+                if (b.leftpush % 100 == 1) {
+                    b.gelehmt = true;
+                    console.log("gelehmt")
+                }
+                else { }
+            }
+
+            else { }
+
+            if (b.rightpush % 5 == 1)
+            { b.x += 10 }
+            else {
+                b.x += Math.floor(Math.random() * 11) - 6;
+                b.y += Math.floor(Math.random() * 11) - 5;
+                b.leftpush++
+            }
+
             if (b.x < 0) {
                 b.x = 400;
             }
@@ -107,7 +134,10 @@ namespace L4_Canvas {
                 b.y = 0;
             }
 
-            drawBiene(b.x, b.y);
+
+
+
+            drawBiene(b.x, b.y, b.color);
 
 
 
@@ -144,14 +174,16 @@ namespace L4_Canvas {
 
 
     function neueBiene(_event: Event): void {
-       let b: bee = { x:150, y:150};
+        let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
         bees.push(b);
+        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 0) + ")";
         n++;
         console.log("neueBiene");
     }
 
 
-    function drawBiene(_x: number, _y: number): void {
+    function drawBiene(_x: number, _y: number, _color: string): void {
         crc2.beginPath();
         crc2.fillStyle = "#000000";
         crc2.strokeStyle = "#000000";
@@ -166,7 +198,7 @@ namespace L4_Canvas {
         crc2.fill();
         crc2.stroke();
         crc2.beginPath();
-        crc2.fillStyle = "#FFFF00";
+        crc2.fillStyle = _color;
         crc2.lineTo(_x + 4, _y + 0);
         crc2.lineTo(_x + 4, _y - 1);
         crc2.lineTo(_x + 5, _y - 1);
