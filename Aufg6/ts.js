@@ -52,7 +52,7 @@ var L4_Canvas;
         }
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
-            var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: " " };
+            var b = { x: 150, y: 60, leftpush: 0, rightpush: 0, color: " ", gelehmt: false };
             bees[i] = b;
             b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                 + Math.floor(Math.random() * 0) + ")";
@@ -66,7 +66,7 @@ var L4_Canvas;
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
-        var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
+        var b = { x: 150, y: 60, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
         for (var i = 0; i < n; i++) {
             var b_1 = bees[i];
             if (b_1.leftpush % 20 == 1) {

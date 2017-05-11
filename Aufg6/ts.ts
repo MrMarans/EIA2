@@ -79,7 +79,7 @@ namespace L4_Canvas {
 
 
         for (let i: number = 0; i < n; i++) {
-            let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: " " };
+            let b: bee = { x: 150, y: 60, leftpush: 0, rightpush: 0, color: " ", gelehmt: false };
             bees[i] = b;
 
             b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
@@ -96,10 +96,9 @@ namespace L4_Canvas {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
-        let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false }
+        let b: bee = { x: 150, y: 60, leftpush: 0, rightpush: 0, color: "", gelehmt: false }
         for (let i: number = 0; i < n; i++) {
             let b: bee = bees[i];
-
 
             if (b.leftpush % 20 == 1) {
                 b.x -= 5;
