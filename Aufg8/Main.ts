@@ -10,19 +10,11 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 
 
-namespace L4_Canvas {
+namespace L4_Classes {
     window.addEventListener("load", init);
-    let crc2: CanvasRenderingContext2D;
-    interface bee {
-        x: number;
-        y: number;
-        leftpush: number;
-        rightpush: number;
-        color: string;
-        gelehmt: boolean;
-    }
+    export let crc2: CanvasRenderingContext2D;
     let flower: number = 100;
-    let bees: bee[] = [];
+    export let bees: bee[] = [];
     let n: number = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
@@ -79,7 +71,7 @@ namespace L4_Canvas {
 
 
         for (let i: number = 0; i < n; i++) {
-            let b: bee = { x: 150, y: 60, leftpush: 0, rightpush: 0, color: " ", gelehmt: false };
+            let b: bee = new bee(150, 60);
             bees[i] = b;
 
             b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
@@ -96,7 +88,7 @@ namespace L4_Canvas {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
-        let b: bee = { x: 150, y: 60, leftpush: 0, rightpush: 0, color: "", gelehmt: false }
+        let b: bee = new bee(150, 60);
         for (let i: number = 0; i < n; i++) {
             let b: bee = bees[i];
 
@@ -120,19 +112,7 @@ namespace L4_Canvas {
                 b.leftpush++
             }
 
-            if (b.x < 0) {
-                b.x = 400;
-            }
-            if (b.x > 400) {
-                b.x = 0;
-            }
-            if (b.y < 0) {
-                b.y = 400;
-            }
-            if (b.y > 400) {
-                b.y = 0;
-            }
-
+            b.overflow();
 
 
 
