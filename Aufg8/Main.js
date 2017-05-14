@@ -9,7 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var hive_Classes;
 (function (hive_Classes) {
     window.addEventListener("load", init);
-    var flowerN = 50;
+    var flowerN = 100;
     var flowers = [];
     var bees = [];
     var n = 100;
@@ -46,16 +46,17 @@ var hive_Classes;
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorl�ufig erst einmal aus dem "Bienenhaus
         for (var i = 0; i < flowerN; i++) {
-            var x = Math.floor((Math.random() * 400) + 0);
-            var y = Math.floor((Math.random() * 145) + 155);
-            drawFlower(x, y);
+            var fr = new hive_Classes.flowerSettings();
+            fr.randomFlowerPos();
+            flowers[i] = fr;
+            console.log(fr);
         }
         saveBG = hive_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
             var b = new hive_Classes.bee(150, 60);
-            bees[i] = b;
             b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                 + Math.floor(Math.random() * 0) + ")";
+            bees[i] = b;
         }
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
@@ -81,7 +82,7 @@ var hive_Classes;
     }
     function neueBiene(_event) {
         var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
-        bees.push(b);
+        bees.push();
         b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
             + Math.floor(Math.random() * 0) + ")";
         n++;
@@ -206,26 +207,6 @@ var hive_Classes;
         hive_Classes.crc2.closePath();
         hive_Classes.crc2.fill();
         hive_Classes.crc2.stroke();
-    }
-    function drawFlower(_x, _y) {
-        hive_Classes.crc2.beginPath();
-        var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 255) + ")";
-        hive_Classes.crc2.fillStyle = color;
-        hive_Classes.crc2.strokeStyle = color;
-        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
-        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
-        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
-        hive_Classes.crc2.closePath();
-        hive_Classes.crc2.fill();
-        hive_Classes.crc2.stroke();
-        hive_Classes.crc2.beginPath();
-        hive_Classes.crc2.fillStyle = "#FFFFFF";
-        hive_Classes.crc2.strokeStyle = "#FFFFFF";
-        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        hive_Classes.crc2.closePath();
-        hive_Classes.crc2.fill();
     }
 })(hive_Classes || (hive_Classes = {}));
 //# sourceMappingURL=Main.js.map

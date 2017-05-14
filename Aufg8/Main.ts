@@ -12,7 +12,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace hive_Classes {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
-    let flowerN: number = 50;
+    let flowerN: number = 100;
     let flowers:flowerSettings[] = [];
     let bees: bee[] = [];
     let n: number = 100;
@@ -58,9 +58,13 @@ namespace hive_Classes {
         //Nest wird warum auch immer nicht generiert, daher kommen die vorläufig erst einmal aus dem "Bienenhaus
 
         for (let i: number = 0; i < flowerN; i++) {
-            let x: number = Math.floor((Math.random() * 400) + 0);
-            let y: number = Math.floor((Math.random() * 145) + 155);
-            drawFlower(x, y);
+           let fr: flowerSettings = new flowerSettings();
+            fr.randomFlowerPos();
+            flowers[i] = fr;
+            console.log(fr);
+            
+            
+         
         }
 
 
@@ -72,10 +76,10 @@ namespace hive_Classes {
 
         for (let i: number = 0; i < n; i++) {
             let b: bee = new bee(150, 60);
-            bees[i] = b;
-
             b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-                + Math.floor(Math.random() * 0) + ")";
+            + Math.floor(Math.random() * 0) + ")";
+            bees[i] = b;
+                       
         }
 
         /////Bienen, also Anfang Auf        
@@ -130,7 +134,7 @@ namespace hive_Classes {
 
     function neueBiene(_event: Event): void {
         let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
-        bees.push(b);
+        bees.push();
         b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
             + Math.floor(Math.random() * 0) + ")";
         n++;
@@ -266,31 +270,6 @@ namespace hive_Classes {
         crc2.closePath();
         crc2.fill();
         crc2.stroke();
-    }
-
-
-     function drawFlower(_x: number, _y: number): void {
-        crc2.beginPath();
-
-        var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 255) + ")";
-
-
-        crc2.fillStyle = color;
-        crc2.strokeStyle = color;
-        crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
-        crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
-        crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.fillStyle = "#FFFFFF";
-        crc2.strokeStyle = "#FFFFFF";
-        crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
     }
 
 
