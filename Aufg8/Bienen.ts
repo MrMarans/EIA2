@@ -47,6 +47,17 @@ namespace L4_Classes {
           }  
       }
         
+      NeueBienen():void{
+      let b: bee = { this.x: 150, this.y: 150, this.leftpush: 0, this.rightpush: 0, this.color: "", this.gelehmt: false };
+        bees.push(b);
+        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 0) + ")";
+        n++;
+        console.log("neueBiene");    
+      
+      }  
+        
+        
         
        Bienenanimation():void{
         for (let i: number = 0; i <n; i++) {

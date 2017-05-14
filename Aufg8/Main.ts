@@ -98,12 +98,7 @@ namespace L4_Classes {
 
 
     function neueBiene(_event: Event): void {
-        let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
-        bees.push(b);
-        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 0) + ")";
-        n++;
-        console.log("neueBiene");
+        NeueBienen();
     }
 
 

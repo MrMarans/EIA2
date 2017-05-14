@@ -26,6 +26,14 @@ var L4_Classes;
                     + Math.floor(Math.random() * 0) + ")";
             }
         };
+        bee.prototype.NeueBienen = function () {
+            var b = { this: .x, 150: , this: .y, 150: , this: .leftpush, 0: , this: .rightpush, 0: , this: .color, "": , this: .gelehmt, false:  };
+            L4_Classes.bees.push(b);
+            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                + Math.floor(Math.random() * 0) + ")";
+            L4_Classes.n++;
+            console.log("neueBiene");
+        };
         bee.prototype.Bienenanimation = function () {
             for (var i = 0; i < L4_Classes.n; i++) {
                 var b = L4_Classes.bees[i];

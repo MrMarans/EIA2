@@ -73,12 +73,7 @@ var L4_Classes;
         L4_Classes.crc2.closePath();
     }
     function neueBiene(_event) {
-        var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
-        L4_Classes.bees.push(b);
-        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 0) + ")";
-        L4_Classes.n++;
-        console.log("neueBiene");
+        NeueBienen();
     }
     function drawBiene(_x, _y, _color) {
         drawBienenBienenTS();
