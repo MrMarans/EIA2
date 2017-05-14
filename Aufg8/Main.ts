@@ -13,7 +13,7 @@ namespace hive_Classes {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     let flowerN: number = 50;
-    let flowers:flowerSet[] = [];
+    let flowers:flowerSettings[] = [];
     let bees: bee[] = [];
     let n: number = 100;
     //    let xBiene: number[] = []

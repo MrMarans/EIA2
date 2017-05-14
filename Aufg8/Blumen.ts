@@ -1,7 +1,7 @@
 namespace hive_Classes {
 
 
-    export class flowerSet {
+    export class flowerSettings {
         x: number;
         y: number;
         color: string;

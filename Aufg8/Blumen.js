@@ -1,11 +1,11 @@
 var hive_Classes;
 (function (hive_Classes) {
-    var flowerSet = (function () {
-        function flowerSet() {
+    var flowerSettings = (function () {
+        function flowerSettings() {
         }
-        return flowerSet;
+        return flowerSettings;
     }());
-    hive_Classes.flowerSet = flowerSet;
+    hive_Classes.flowerSettings = flowerSettings;
     constructor(_x, number, _y, number, _color, string);
     {
         this.x = _x;
