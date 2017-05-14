@@ -1,5 +1,5 @@
-var Bienenschwarm_Classes;
-(function (Bienenschwarm_Classes) {
+var hive_Classes;
+(function (hive_Classes) {
     var bee = (function () {
         function bee(_x, _y, _leftpush, _rightpush, _color) {
             this.x = _x;
@@ -13,32 +13,32 @@ var Bienenschwarm_Classes;
             this.move();
         };
         bee.prototype.draw = function () {
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.fillStyle = "#000000";
-            Bienenschwarm_Classes.crc2.strokeStyle = "#000000";
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 1, this.y + 0);
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 1, this.y + 1);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 0, this.y + 1);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 0, this.y - 2);
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 1, this.y - 2);
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 1, this.y - 1);
-            Bienenschwarm_Classes.crc2.lineTo(this.x - 2, this.y + 0);
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fill();
-            Bienenschwarm_Classes.crc2.stroke();
-            Bienenschwarm_Classes.crc2.beginPath();
-            Bienenschwarm_Classes.crc2.fillStyle = this.color;
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 4, this.y + 0);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 4, this.y - 1);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 5, this.y - 1);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 5, this.y - 2);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 4, this.y - 2);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 4, this.y - 3);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 0, this.y - 3);
-            Bienenschwarm_Classes.crc2.lineTo(this.x + 0, this.y + 0);
-            Bienenschwarm_Classes.crc2.closePath();
-            Bienenschwarm_Classes.crc2.fill();
-            Bienenschwarm_Classes.crc2.stroke();
+            hive_Classes.crc2.beginPath();
+            hive_Classes.crc2.fillStyle = "#000000";
+            hive_Classes.crc2.strokeStyle = "#000000";
+            hive_Classes.crc2.lineTo(this.x - 1, this.y + 0);
+            hive_Classes.crc2.lineTo(this.x - 1, this.y + 1);
+            hive_Classes.crc2.lineTo(this.x + 0, this.y + 1);
+            hive_Classes.crc2.lineTo(this.x + 0, this.y - 2);
+            hive_Classes.crc2.lineTo(this.x - 1, this.y - 2);
+            hive_Classes.crc2.lineTo(this.x - 1, this.y - 1);
+            hive_Classes.crc2.lineTo(this.x - 2, this.y + 0);
+            hive_Classes.crc2.closePath();
+            hive_Classes.crc2.fill();
+            hive_Classes.crc2.stroke();
+            hive_Classes.crc2.beginPath();
+            hive_Classes.crc2.fillStyle = this.color;
+            hive_Classes.crc2.lineTo(this.x + 4, this.y + 0);
+            hive_Classes.crc2.lineTo(this.x + 4, this.y - 1);
+            hive_Classes.crc2.lineTo(this.x + 5, this.y - 1);
+            hive_Classes.crc2.lineTo(this.x + 5, this.y - 2);
+            hive_Classes.crc2.lineTo(this.x + 4, this.y - 2);
+            hive_Classes.crc2.lineTo(this.x + 4, this.y - 3);
+            hive_Classes.crc2.lineTo(this.x + 0, this.y - 3);
+            hive_Classes.crc2.lineTo(this.x + 0, this.y + 0);
+            hive_Classes.crc2.closePath();
+            hive_Classes.crc2.fill();
+            hive_Classes.crc2.stroke();
         };
         bee.prototype.move = function () {
             if (this.leftpush % 20 == 1) {
@@ -70,6 +70,6 @@ var Bienenschwarm_Classes;
         };
         return bee;
     }());
-    Bienenschwarm_Classes.bee = bee;
-})(Bienenschwarm_Classes || (Bienenschwarm_Classes = {}));
+    hive_Classes.bee = bee;
+})(hive_Classes || (hive_Classes = {}));
 //# sourceMappingURL=Bienen.js.map

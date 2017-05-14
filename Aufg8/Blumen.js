@@ -1,11 +1,11 @@
-var Bienenschwarm_Classes;
-(function (Bienenschwarm_Classes) {
+var hive_Classes;
+(function (hive_Classes) {
     var flower = (function () {
         function flower() {
         }
         return flower;
     }());
-    Bienenschwarm_Classes.flower = flower;
+    hive_Classes.flower = flower;
     constructor(_x, number, _y, number, _color, string);
     {
         this.x = _x;
@@ -14,5 +14,5 @@ var Bienenschwarm_Classes;
     }
     flower();
     void {};
-})(Bienenschwarm_Classes || (Bienenschwarm_Classes = {}));
+})(hive_Classes || (hive_Classes = {}));
 //# sourceMappingURL=Blumen.js.map

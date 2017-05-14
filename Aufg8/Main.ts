@@ -9,7 +9,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 
 
 
-namespace Bienenschwarm_Classes {
+namespace hive_Classes {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     let flower: number = 50;

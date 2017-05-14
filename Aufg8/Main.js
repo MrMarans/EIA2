@@ -6,8 +6,8 @@ Datum: 07.05.17
     
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
-var Bienenschwarm_Classes;
-(function (Bienenschwarm_Classes) {
+var hive_Classes;
+(function (hive_Classes) {
     window.addEventListener("load", init);
     var flower = 50;
     var bees = [];
@@ -21,8 +21,8 @@ var Bienenschwarm_Classes;
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        Bienenschwarm_Classes.crc2 = canvas.getContext("2d");
-        console.log(Bienenschwarm_Classes.crc2);
+        hive_Classes.crc2 = canvas.getContext("2d");
+        console.log(hive_Classes.crc2);
         drawHimmel(0, 0, 0, "#BCEDDD", "#9CEDEC");
         for (var j = 0; j < 20; j++) {
             var x = Math.floor((Math.random() * 400) - 100);
@@ -49,9 +49,9 @@ var Bienenschwarm_Classes;
             var y = Math.floor((Math.random() * 145) + 155);
             drawBlume(x, y);
         }
-        saveBG = Bienenschwarm_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
+        saveBG = hive_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
-            var b = new Bienenschwarm_Classes.bee(150, 60);
+            var b = new bee(150, 60);
             bees[i] = b;
             b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                 + Math.floor(Math.random() * 0) + ")";
@@ -62,9 +62,9 @@ var Bienenschwarm_Classes;
         window.setTimeout(animate, 20);
     }
     function animate() {
-        Bienenschwarm_Classes.crc2.putImageData(saveBG, 0, 0);
+        hive_Classes.crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
-        Bienenschwarm_Classes.crc2.fillStyle = "#FF0000";
+        hive_Classes.crc2.fillStyle = "#FF0000";
         for (var i = 0; i < n; i++) {
             var b = bees[i];
             bees[i].update();
@@ -72,11 +72,11 @@ var Bienenschwarm_Classes;
         window.setTimeout(animate, 20);
     }
     function drawNest(_x, _y) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = "#FF0000";
-        Bienenschwarm_Classes.crc2.strokeStyle = "#76523a";
-        Bienenschwarm_Classes.crc2.ellipse(_x + 100, _y + 0, 100, 100, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = "#FF0000";
+        hive_Classes.crc2.strokeStyle = "#76523a";
+        hive_Classes.crc2.ellipse(_x + 100, _y + 0, 100, 100, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.closePath();
     }
     function neueBiene(_event) {
         var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
@@ -87,144 +87,144 @@ var Bienenschwarm_Classes;
         console.log("neueBiene");
     }
     function drawHimmel(_x, _y, _z, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawWolke(_x, _y, _a, _b) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = "#FFFFFF";
-        Bienenschwarm_Classes.crc2.strokeStyle = "#FFFFFF";
-        Bienenschwarm_Classes.crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = "#FFFFFF";
+        hive_Classes.crc2.strokeStyle = "#FFFFFF";
+        hive_Classes.crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawBerg(_x, _y) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = "#BBBBBB";
-        Bienenschwarm_Classes.crc2.strokeStyle = "#BBBBBB";
-        Bienenschwarm_Classes.crc2.lineTo(_x + 70, _y - 150);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 140, _y + 0);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 0);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = "#BBBBBB";
+        hive_Classes.crc2.strokeStyle = "#BBBBBB";
+        hive_Classes.crc2.lineTo(_x + 70, _y - 150);
+        hive_Classes.crc2.lineTo(_x + 140, _y + 0);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 0);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawBergspitze(_x, _y) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = "#EEEEEE";
-        Bienenschwarm_Classes.crc2.strokeStyle = "#DDDDDD";
-        Bienenschwarm_Classes.crc2.lineTo(_x + 9.3, _y - 20);
-        Bienenschwarm_Classes.crc2.lineTo(_x + (9.3 * 2), _y - 0);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 0);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = "#EEEEEE";
+        hive_Classes.crc2.strokeStyle = "#DDDDDD";
+        hive_Classes.crc2.lineTo(_x + 9.3, _y - 20);
+        hive_Classes.crc2.lineTo(_x + (9.3 * 2), _y - 0);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 0);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawWiese(_x, _y, _z, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
         //        crc2.lineTo(_x + 400, _y + 0);
         //        crc2.lineTo(_x + 400, _y + 150);
         //        crc2.lineTo(_x + 0, _y + 150);
         //        crc2.lineTo(_x + 0, _y + 0);
-        Bienenschwarm_Classes.crc2.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawWiese2(_x, _y, _z, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawWiesenschraege(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.lineTo(_x + 400, _y + 150);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.lineTo(_x + 400, _y + 150);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawBienenHaus(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.lineTo(_x + 200, _y + 0);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 200, _y + 100);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 100);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 0);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.lineTo(_x + 200, _y + 0);
+        hive_Classes.crc2.lineTo(_x + 200, _y + 100);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 100);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 0);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawDach(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.lineTo(_x + 200, _y + 0);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 100, _y - 50);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 0);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.lineTo(_x + 200, _y + 0);
+        hive_Classes.crc2.lineTo(_x + 100, _y - 50);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 0);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawTuer(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.lineTo(_x + 25, _y + 0);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 25, _y + 50);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 50);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 0);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.lineTo(_x + 25, _y + 0);
+        hive_Classes.crc2.lineTo(_x + 25, _y + 50);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 50);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 0);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawFenster(_x, _y, _strokeColor, _fillColor) {
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = _fillColor;
-        Bienenschwarm_Classes.crc2.strokeStyle = _strokeColor;
-        Bienenschwarm_Classes.crc2.lineTo(_x + 25, _y + 0);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 25, _y + 25);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 25);
-        Bienenschwarm_Classes.crc2.lineTo(_x + 0, _y + 0);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = _fillColor;
+        hive_Classes.crc2.strokeStyle = _strokeColor;
+        hive_Classes.crc2.lineTo(_x + 25, _y + 0);
+        hive_Classes.crc2.lineTo(_x + 25, _y + 25);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 25);
+        hive_Classes.crc2.lineTo(_x + 0, _y + 0);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
     }
     function drawBlume(_x, _y) {
-        Bienenschwarm_Classes.crc2.beginPath();
+        hive_Classes.crc2.beginPath();
         var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
             + Math.floor(Math.random() * 255) + ")";
-        Bienenschwarm_Classes.crc2.fillStyle = color;
-        Bienenschwarm_Classes.crc2.strokeStyle = color;
-        Bienenschwarm_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
-        Bienenschwarm_Classes.crc2.stroke();
-        Bienenschwarm_Classes.crc2.beginPath();
-        Bienenschwarm_Classes.crc2.fillStyle = "#FFFFFF";
-        Bienenschwarm_Classes.crc2.strokeStyle = "#FFFFFF";
-        Bienenschwarm_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Bienenschwarm_Classes.crc2.closePath();
-        Bienenschwarm_Classes.crc2.fill();
+        hive_Classes.crc2.fillStyle = color;
+        hive_Classes.crc2.strokeStyle = color;
+        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
+        hive_Classes.crc2.stroke();
+        hive_Classes.crc2.beginPath();
+        hive_Classes.crc2.fillStyle = "#FFFFFF";
+        hive_Classes.crc2.strokeStyle = "#FFFFFF";
+        hive_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        hive_Classes.crc2.closePath();
+        hive_Classes.crc2.fill();
     }
-})(Bienenschwarm_Classes || (Bienenschwarm_Classes = {}));
+})(hive_Classes || (hive_Classes = {}));
 //# sourceMappingURL=Main.js.map

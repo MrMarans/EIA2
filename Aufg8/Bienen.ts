@@ -1,4 +1,4 @@
-namespace Bienenschwarm_Classes {
+namespace hive_Classes {
 
 
 
