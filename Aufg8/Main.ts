@@ -1,4 +1,3 @@
-
 /*
 Aufgabe: 6a
 Name: Ron Metzger
@@ -15,7 +14,7 @@ namespace L4_Classes {
     export let crc2: CanvasRenderingContext2D;
     let flower: number = 100;
     export let bees: bee[] = [];
-    export let n: number = 100;
+    let n: number = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
     let saveBG: ImageData;
@@ -58,30 +57,85 @@ namespace L4_Classes {
         //Nest wird warum auch immer nicht generiert, daher kommen die vorläufig erst einmal aus dem "Bienenhaus
 
         for (let i: number = 0; i < flower; i++) {
-            FlowerRandomPlace();
+            let x: number = Math.floor((Math.random() * 400) + 0);
+            let y: number = Math.floor((Math.random() * 145) + 155);
+            drawBlume(x, y);
         }
 
 
 
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
-        let b: bee
-            b.Bienencolor();
+
+
+
+
+        for (let i: number = 0; i < n; i++) {
+            let b: bee = new bee(150, 60);
+            bees[i] = b;
+
+            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                + Math.floor(Math.random() * 0) + ")";
+        }
 
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
         //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
 
         window.setTimeout(animate, 20);
-    
+    }
     function animate() {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
         let b: bee = new bee(150, 60);
-        
-        b.Bienenanimation();
+        for (let i: number = 0; i < n; i++) {
+            let b: bee = bees[i];
+
+            if (b.leftpush % 20 == 1) {
+                b.x -= 5;
+                b.rightpush++
+                if (b.leftpush % 100 == 1) {
+                    b.gelehmt = true;
+                    console.log("gelehmt")
+                }
+                else { }
+            }
+
+            else { }
+
+            if (b.rightpush % 5 == 1)
+            { b.x += 10 }
+            else {
+                b.x += Math.floor(Math.random() * 11) - 6;
+                b.y += Math.floor(Math.random() * 11) - 5;
+                b.leftpush++
+            }
+
             b.overflow();
+
+
+
             drawBiene(b.x, b.y, b.color);
+
+
+
+
+            //            xBiene[i] += Math.floor(Math.random() * 11) - 6;
+            //            yBiene[i] += Math.floor(Math.random() * 11) - 5;
+            //
+            //            if (xBiene[i] < 0) {
+            //                xBiene[i] = 400;
+            //            }
+            //            if (xBiene[i] > 400) {
+            //                xBiene[i] = 0;
+            //            }
+            //            if (yBiene[i] < 0) {
+            //                yBiene[i] = 400;
+            //            }
+            //            if (yBiene[i] > 400) {
+            //                yBiene[i] = 0;
+            //            }
+            //            drawBiene(xBiene[i], yBiene[i]);
         }
         window.setTimeout(animate, 20);
     }
@@ -98,12 +152,42 @@ namespace L4_Classes {
 
 
     function neueBiene(_event: Event): void {
-        NeueBienen();
+        let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
+        bees.push(b);
+        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 0) + ")";
+        n++;
+        console.log("neueBiene");
     }
 
 
     function drawBiene(_x: number, _y: number, _color: string): void {
-       drawBienenBienenTS();
+        crc2.beginPath();
+        crc2.fillStyle = "#000000";
+        crc2.strokeStyle = "#000000";
+        crc2.lineTo(_x - 1, _y + 0);
+        crc2.lineTo(_x - 1, _y + 1);
+        crc2.lineTo(_x + 0, _y + 1);
+        crc2.lineTo(_x + 0, _y - 2);
+        crc2.lineTo(_x - 1, _y - 2);
+        crc2.lineTo(_x - 1, _y - 1);
+        crc2.lineTo(_x - 2, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = _color;
+        crc2.lineTo(_x + 4, _y + 0);
+        crc2.lineTo(_x + 4, _y - 1);
+        crc2.lineTo(_x + 5, _y - 1);
+        crc2.lineTo(_x + 5, _y - 2);
+        crc2.lineTo(_x + 4, _y - 2);
+        crc2.lineTo(_x + 4, _y - 3);
+        crc2.lineTo(_x + 0, _y - 3);
+        crc2.lineTo(_x + 0, _y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
 
     }
 
@@ -237,7 +321,27 @@ namespace L4_Classes {
 
 
     function drawBlume(_x: number, _y: number): void {
-       drawFlower();
+        crc2.beginPath();
+
+        var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 255) + ")";
+
+
+        crc2.fillStyle = color;
+        crc2.strokeStyle = color;
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = "#FFFFFF";
+        crc2.strokeStyle = "#FFFFFF";
+        crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        crc2.closePath();
+        crc2.fill();
     }
 
 
@@ -245,4 +349,3 @@ namespace L4_Classes {
 
 
 }
-

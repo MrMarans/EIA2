@@ -11,7 +11,7 @@ var L4_Classes;
     window.addEventListener("load", init);
     var flower = 100;
     L4_Classes.bees = [];
-    L4_Classes.n = 100;
+    var n = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
     var saveBG;
@@ -28,8 +28,8 @@ var L4_Classes;
             var x = Math.floor((Math.random() * 400) - 100);
             var y = Math.floor((Math.random() * 150) + 0);
             var a = Math.floor((Math.random() * 25) + 17);
-            var b_1 = Math.floor((Math.random() * 25) + 15);
-            drawWolke(x, y, a, b_1);
+            var b = Math.floor((Math.random() * 25) + 15);
+            drawWolke(x, y, a, b);
         }
         drawBerg(200, 150);
         drawBergspitze(261, 19);
@@ -45,23 +45,49 @@ var L4_Classes;
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorl�ufig erst einmal aus dem "Bienenhaus
         for (var i = 0; i < flower; i++) {
-            FlowerRandomPlace();
+            var x = Math.floor((Math.random() * 400) + 0);
+            var y = Math.floor((Math.random() * 145) + 155);
+            drawBlume(x, y);
         }
         saveBG = L4_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        var b;
-        b.Bienencolor();
+        for (var i = 0; i < n; i++) {
+            var b = new L4_Classes.bee(150, 60);
+            L4_Classes.bees[i] = b;
+            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                + Math.floor(Math.random() * 0) + ")";
+        }
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
         //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
         window.setTimeout(animate, 20);
-        function animate() {
-            L4_Classes.crc2.putImageData(saveBG, 0, 0);
-            console.log("Animate startet");
-            L4_Classes.crc2.fillStyle = "#FF0000";
-            var b = new L4_Classes.bee(150, 60);
-            b.Bienenanimation();
-            b.overflow();
-            drawBiene(b.x, b.y, b.color);
+    }
+    function animate() {
+        L4_Classes.crc2.putImageData(saveBG, 0, 0);
+        console.log("Animate startet");
+        L4_Classes.crc2.fillStyle = "#FF0000";
+        var b = new L4_Classes.bee(150, 60);
+        for (var i = 0; i < n; i++) {
+            var b_1 = L4_Classes.bees[i];
+            if (b_1.leftpush % 20 == 1) {
+                b_1.x -= 5;
+                b_1.rightpush++;
+                if (b_1.leftpush % 100 == 1) {
+                    b_1.gelehmt = true;
+                    console.log("gelehmt");
+                }
+                else { }
+            }
+            else { }
+            if (b_1.rightpush % 5 == 1) {
+                b_1.x += 10;
+            }
+            else {
+                b_1.x += Math.floor(Math.random() * 11) - 6;
+                b_1.y += Math.floor(Math.random() * 11) - 5;
+                b_1.leftpush++;
+            }
+            b_1.overflow();
+            drawBiene(b_1.x, b_1.y, b_1.color);
         }
         window.setTimeout(animate, 20);
     }
@@ -73,10 +99,40 @@ var L4_Classes;
         L4_Classes.crc2.closePath();
     }
     function neueBiene(_event) {
-        NeueBienen();
+        var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
+        L4_Classes.bees.push(b);
+        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 0) + ")";
+        n++;
+        console.log("neueBiene");
     }
     function drawBiene(_x, _y, _color) {
-        drawBienenBienenTS();
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = "#000000";
+        L4_Classes.crc2.strokeStyle = "#000000";
+        L4_Classes.crc2.lineTo(_x - 1, _y + 0);
+        L4_Classes.crc2.lineTo(_x - 1, _y + 1);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 1);
+        L4_Classes.crc2.lineTo(_x + 0, _y - 2);
+        L4_Classes.crc2.lineTo(_x - 1, _y - 2);
+        L4_Classes.crc2.lineTo(_x - 1, _y - 1);
+        L4_Classes.crc2.lineTo(_x - 2, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _color;
+        L4_Classes.crc2.lineTo(_x + 4, _y + 0);
+        L4_Classes.crc2.lineTo(_x + 4, _y - 1);
+        L4_Classes.crc2.lineTo(_x + 5, _y - 1);
+        L4_Classes.crc2.lineTo(_x + 5, _y - 2);
+        L4_Classes.crc2.lineTo(_x + 4, _y - 2);
+        L4_Classes.crc2.lineTo(_x + 4, _y - 3);
+        L4_Classes.crc2.lineTo(_x + 0, _y - 3);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
     }
     function drawHimmel(_x, _y, _z, _strokeColor, _fillColor) {
         L4_Classes.crc2.beginPath();
@@ -199,7 +255,24 @@ var L4_Classes;
         L4_Classes.crc2.stroke();
     }
     function drawBlume(_x, _y) {
-        drawFlower();
+        L4_Classes.crc2.beginPath();
+        var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 255) + ")";
+        L4_Classes.crc2.fillStyle = color;
+        L4_Classes.crc2.strokeStyle = color;
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = "#FFFFFF";
+        L4_Classes.crc2.strokeStyle = "#FFFFFF";
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
     }
 })(L4_Classes || (L4_Classes = {}));
 //# sourceMappingURL=Main.js.map
