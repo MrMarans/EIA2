@@ -1,3 +1,12 @@
+/*
+Aufgabe: 6a
+Name: Ron Metzger
+Matrikel:  254878
+Datum: 14.05.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Janett hatte mir zu Anfang mit der Aufgabe geholfen.
+*/
 var hive_Classes;
 (function (hive_Classes) {
     var bee = (function () {
