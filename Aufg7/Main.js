@@ -47,7 +47,7 @@ var hive_Classes;
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorl�ufig erst einmal aus dem "Bienenhaus
         for (var i = 0; i < flowerN; i++) {
-            var LF = new hive_Classes.flowerSettings();
+            var LF = new hive_Classes.flowerSettings(100, 160);
             LF.randomFlowerPos();
             flowers[i] = LF;
             console.log(LF);

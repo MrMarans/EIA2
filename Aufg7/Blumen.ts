@@ -1,3 +1,14 @@
+/*
+Aufgabe: 6a
+Name: Ron Metzger
+Matrikel:  254878
+Datum: 14.05.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Janett hatte mir zu Anfang mit der Aufgabe geholfen.
+*/
+
+
 namespace hive_Classes {
 
 
@@ -14,8 +25,9 @@ namespace hive_Classes {
 
         }
         randomFlowerPos(): void {
-            let x: number = Math.floor((Math.random() * 400) + 0);
-            let y: number = Math.floor((Math.random() * 145) + 155);
+                
+            this.x: number = Math.floor((Math.random() * 400) + 0);
+            this.y: number = Math.floor((Math.random() * 145) + 155);
             this.drawFlower();
         }
 

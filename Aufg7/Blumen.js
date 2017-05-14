@@ -1,3 +1,12 @@
+/*
+Aufgabe: 6a
+Name: Ron Metzger
+Matrikel:  254878
+Datum: 14.05.17
+    
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Janett hatte mir zu Anfang mit der Aufgabe geholfen.
+*/
 var hive_Classes;
 (function (hive_Classes) {
     var flowerSettings = (function () {
@@ -7,8 +16,10 @@ var hive_Classes;
             this.color = _color;
         }
         flowerSettings.prototype.randomFlowerPos = function () {
-            var x = Math.floor((Math.random() * 400) + 0);
-            var y = Math.floor((Math.random() * 145) + 155);
+            this.x;
+            number = Math.floor((Math.random() * 400) + 0);
+            this.y;
+            number = Math.floor((Math.random() * 145) + 155);
             this.drawFlower();
         };
         flowerSettings.prototype.drawFlower = function () {
