@@ -25,9 +25,15 @@ namespace hive_Classes {
 
         }
         randomFlowerPos(): void {
-                
-            this.x: number = Math.floor((Math.random() * 400) + 0);
-            this.y: number = Math.floor((Math.random() * 145) + 155);
+
+            this.x = Math.floor((Math.random() * 400) + 0);
+            this.y = Math.floor((Math.random() * 145) + 155);
+            
+         
+           
+            
+            
+            
             this.drawFlower();
         }
 

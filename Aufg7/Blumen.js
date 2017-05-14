@@ -16,10 +16,8 @@ var hive_Classes;
             this.color = _color;
         }
         flowerSettings.prototype.randomFlowerPos = function () {
-            this.x;
-            number = Math.floor((Math.random() * 400) + 0);
-            this.y;
-            number = Math.floor((Math.random() * 145) + 155);
+            this.x = Math.floor((Math.random() * 400) + 0);
+            this.y = Math.floor((Math.random() * 145) + 155);
             this.drawFlower();
         };
         flowerSettings.prototype.drawFlower = function () {
