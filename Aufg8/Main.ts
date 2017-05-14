@@ -12,7 +12,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace hive_Classes {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
-    let flower: number = 50;
+    let flowerN: number = 50;
+    let flowers:flowerSet[] = [];
     let bees: bee[] = [];
     let n: number = 100;
     //    let xBiene: number[] = []
@@ -56,10 +57,10 @@ namespace hive_Classes {
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorläufig erst einmal aus dem "Bienenhaus
 
-        for (let i: number = 0; i < flower; i++) {
+        for (let i: number = 0; i < flowerN; i++) {
             let x: number = Math.floor((Math.random() * 400) + 0);
             let y: number = Math.floor((Math.random() * 145) + 155);
-            drawBlume(x, y);
+            drawFlower(x, y);
         }
 
 
@@ -268,7 +269,7 @@ namespace hive_Classes {
     }
 
 
-    function drawBlume(_x: number, _y: number): void {
+     function drawFlower(_x: number, _y: number): void {
         crc2.beginPath();
 
         var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
@@ -291,6 +292,7 @@ namespace hive_Classes {
         crc2.closePath();
         crc2.fill();
     }
+
 
 
 

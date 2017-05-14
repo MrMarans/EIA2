@@ -1,12 +1,11 @@
 namespace hive_Classes {
 
 
-    export class flower {
+    export class flowerSet {
         x: number;
         y: number;
         color: string;
     }
-
 
     constructor(_x: number, _y: number, _color:string) {
         this.x = _x;
@@ -14,8 +13,8 @@ namespace hive_Classes {
         this.color = _color;
     }
 
-    flower():void {
-    }
+
+
 
 
 }

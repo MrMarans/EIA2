@@ -9,7 +9,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var hive_Classes;
 (function (hive_Classes) {
     window.addEventListener("load", init);
-    var flower = 50;
+    var flowerN = 50;
+    var flowers = [];
     var bees = [];
     var n = 100;
     //    let xBiene: number[] = []
@@ -44,14 +45,14 @@ var hive_Classes;
         drawFenster(150, 50, "#F0F0F0", "#F0F0F0");
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorl�ufig erst einmal aus dem "Bienenhaus
-        for (var i = 0; i < flower; i++) {
+        for (var i = 0; i < flowerN; i++) {
             var x = Math.floor((Math.random() * 400) + 0);
             var y = Math.floor((Math.random() * 145) + 155);
-            drawBlume(x, y);
+            drawFlower(x, y);
         }
         saveBG = hive_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
-            var b = new bee(150, 60);
+            var b = new hive_Classes.bee(150, 60);
             bees[i] = b;
             b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                 + Math.floor(Math.random() * 0) + ")";
@@ -206,7 +207,7 @@ var hive_Classes;
         hive_Classes.crc2.fill();
         hive_Classes.crc2.stroke();
     }
-    function drawBlume(_x, _y) {
+    function drawFlower(_x, _y) {
         hive_Classes.crc2.beginPath();
         var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
             + Math.floor(Math.random() * 255) + ")";
