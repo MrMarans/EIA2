@@ -45,9 +45,7 @@ var L4_Classes;
         drawNest(190, 150);
         //Nest wird warum auch immer nicht generiert, daher kommen die vorl�ufig erst einmal aus dem "Bienenhaus
         for (var i = 0; i < flower; i++) {
-            var x = Math.floor((Math.random() * 400) + 0);
-            var y = Math.floor((Math.random() * 145) + 155);
-            drawBlume(x, y);
+            FlowerRandomPlace();
         }
         saveBG = L4_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
         var b;
@@ -206,24 +204,7 @@ var L4_Classes;
         L4_Classes.crc2.stroke();
     }
     function drawBlume(_x, _y) {
-        L4_Classes.crc2.beginPath();
-        var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 255) + ")";
-        L4_Classes.crc2.fillStyle = color;
-        L4_Classes.crc2.strokeStyle = color;
-        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
-        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
-        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
-        L4_Classes.crc2.closePath();
-        L4_Classes.crc2.fill();
-        L4_Classes.crc2.stroke();
-        L4_Classes.crc2.beginPath();
-        L4_Classes.crc2.fillStyle = "#FFFFFF";
-        L4_Classes.crc2.strokeStyle = "#FFFFFF";
-        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        L4_Classes.crc2.closePath();
-        L4_Classes.crc2.fill();
+        drawFlower();
     }
 })(L4_Classes || (L4_Classes = {}));
 //# sourceMappingURL=Main.js.map
