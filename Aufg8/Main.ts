@@ -15,7 +15,7 @@ namespace L4_Classes {
     export let crc2: CanvasRenderingContext2D;
     let flower: number = 100;
     export let bees: bee[] = [];
-    let n: number = 100;
+    export let n: number = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
     let saveBG: ImageData;
@@ -66,17 +66,7 @@ namespace L4_Classes {
 
 
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
-
-
-
-
-        for (let i: number = 0; i < n; i++) {
-            let b: bee = new bee(150, 60);
-            bees[i] = b;
-
-            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-                + Math.floor(Math.random() * 0) + ")";
-        }
+            Bienencolor();
 
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
@@ -89,54 +79,10 @@ namespace L4_Classes {
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
         let b: bee = new bee(150, 60);
-        for (let i: number = 0; i < n; i++) {
-            let b: bee = bees[i];
-
-            if (b.leftpush % 20 == 1) {
-                b.x -= 5;
-                b.rightpush++
-                if (b.leftpush % 100 == 1) {
-                    b.gelehmt = true;
-                    console.log("gelehmt")
-                }
-                else { }
-            }
-
-            else { }
-
-            if (b.rightpush % 5 == 1)
-            { b.x += 10 }
-            else {
-                b.x += Math.floor(Math.random() * 11) - 6;
-                b.y += Math.floor(Math.random() * 11) - 5;
-                b.leftpush++
-            }
-
+        
+        b.Bienenanimation();
             b.overflow();
-
-
-
             drawBiene(b.x, b.y, b.color);
-
-
-
-
-            //            xBiene[i] += Math.floor(Math.random() * 11) - 6;
-            //            yBiene[i] += Math.floor(Math.random() * 11) - 5;
-            //
-            //            if (xBiene[i] < 0) {
-            //                xBiene[i] = 400;
-            //            }
-            //            if (xBiene[i] > 400) {
-            //                xBiene[i] = 0;
-            //            }
-            //            if (yBiene[i] < 0) {
-            //                yBiene[i] = 400;
-            //            }
-            //            if (yBiene[i] > 400) {
-            //                yBiene[i] = 0;
-            //            }
-            //            drawBiene(xBiene[i], yBiene[i]);
         }
         window.setTimeout(animate, 20);
     }
@@ -163,32 +109,7 @@ namespace L4_Classes {
 
 
     function drawBiene(_x: number, _y: number, _color: string): void {
-        crc2.beginPath();
-        crc2.fillStyle = "#000000";
-        crc2.strokeStyle = "#000000";
-        crc2.lineTo(_x - 1, _y + 0);
-        crc2.lineTo(_x - 1, _y + 1);
-        crc2.lineTo(_x + 0, _y + 1);
-        crc2.lineTo(_x + 0, _y - 2);
-        crc2.lineTo(_x - 1, _y - 2);
-        crc2.lineTo(_x - 1, _y - 1);
-        crc2.lineTo(_x - 2, _y + 0);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.fillStyle = _color;
-        crc2.lineTo(_x + 4, _y + 0);
-        crc2.lineTo(_x + 4, _y - 1);
-        crc2.lineTo(_x + 5, _y - 1);
-        crc2.lineTo(_x + 5, _y - 2);
-        crc2.lineTo(_x + 4, _y - 2);
-        crc2.lineTo(_x + 4, _y - 3);
-        crc2.lineTo(_x + 0, _y - 3);
-        crc2.lineTo(_x + 0, _y + 0);
-        crc2.closePath();
-        crc2.fill();
-        crc2.stroke();
+       drawBienenBienenTS();
 
     }
 
