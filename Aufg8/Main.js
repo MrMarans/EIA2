@@ -28,8 +28,8 @@ var L4_Classes;
             var x = Math.floor((Math.random() * 400) - 100);
             var y = Math.floor((Math.random() * 150) + 0);
             var a = Math.floor((Math.random() * 25) + 17);
-            var b = Math.floor((Math.random() * 25) + 15);
-            drawWolke(x, y, a, b);
+            var b_1 = Math.floor((Math.random() * 25) + 15);
+            drawWolke(x, y, a, b_1);
         }
         drawBerg(200, 150);
         drawBergspitze(261, 19);
@@ -50,179 +50,180 @@ var L4_Classes;
             drawBlume(x, y);
         }
         saveBG = L4_Classes.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        Bienencolor();
+        var b;
+        b.Bienencolor();
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
         //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
         window.setTimeout(animate, 20);
+        function animate() {
+            L4_Classes.crc2.putImageData(saveBG, 0, 0);
+            console.log("Animate startet");
+            L4_Classes.crc2.fillStyle = "#FF0000";
+            var b = new L4_Classes.bee(150, 60);
+            b.Bienenanimation();
+            b.overflow();
+            drawBiene(b.x, b.y, b.color);
+        }
+        window.setTimeout(animate, 20);
     }
-    function animate() {
-        L4_Classes.crc2.putImageData(saveBG, 0, 0);
-        console.log("Animate startet");
+    function drawNest(_x, _y) {
+        L4_Classes.crc2.beginPath();
         L4_Classes.crc2.fillStyle = "#FF0000";
-        var b = new L4_Classes.bee(150, 60);
-        b.Bienenanimation();
-        b.overflow();
-        drawBiene(b.x, b.y, b.color);
+        L4_Classes.crc2.strokeStyle = "#76523a";
+        L4_Classes.crc2.ellipse(_x + 100, _y + 0, 100, 100, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
     }
-    window.setTimeout(animate, 20);
+    function neueBiene(_event) {
+        var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
+        L4_Classes.bees.push(b);
+        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 0) + ")";
+        L4_Classes.n++;
+        console.log("neueBiene");
+    }
+    function drawBiene(_x, _y, _color) {
+        drawBienenBienenTS();
+    }
+    function drawHimmel(_x, _y, _z, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawWolke(_x, _y, _a, _b) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = "#FFFFFF";
+        L4_Classes.crc2.strokeStyle = "#FFFFFF";
+        L4_Classes.crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawBerg(_x, _y) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = "#BBBBBB";
+        L4_Classes.crc2.strokeStyle = "#BBBBBB";
+        L4_Classes.crc2.lineTo(_x + 70, _y - 150);
+        L4_Classes.crc2.lineTo(_x + 140, _y + 0);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawBergspitze(_x, _y) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = "#EEEEEE";
+        L4_Classes.crc2.strokeStyle = "#DDDDDD";
+        L4_Classes.crc2.lineTo(_x + 9.3, _y - 20);
+        L4_Classes.crc2.lineTo(_x + (9.3 * 2), _y - 0);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawWiese(_x, _y, _z, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        //        crc2.lineTo(_x + 400, _y + 0);
+        //        crc2.lineTo(_x + 400, _y + 150);
+        //        crc2.lineTo(_x + 0, _y + 150);
+        //        crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawWiese2(_x, _y, _z, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawWiesenschraege(_x, _y, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.lineTo(_x + 400, _y + 150);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawBienenHaus(_x, _y, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.lineTo(_x + 200, _y + 0);
+        L4_Classes.crc2.lineTo(_x + 200, _y + 100);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 100);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawDach(_x, _y, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.lineTo(_x + 200, _y + 0);
+        L4_Classes.crc2.lineTo(_x + 100, _y - 50);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawTuer(_x, _y, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.lineTo(_x + 25, _y + 0);
+        L4_Classes.crc2.lineTo(_x + 25, _y + 50);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 50);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawFenster(_x, _y, _strokeColor, _fillColor) {
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = _fillColor;
+        L4_Classes.crc2.strokeStyle = _strokeColor;
+        L4_Classes.crc2.lineTo(_x + 25, _y + 0);
+        L4_Classes.crc2.lineTo(_x + 25, _y + 25);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 25);
+        L4_Classes.crc2.lineTo(_x + 0, _y + 0);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+    }
+    function drawBlume(_x, _y) {
+        L4_Classes.crc2.beginPath();
+        var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+            + Math.floor(Math.random() * 255) + ")";
+        L4_Classes.crc2.fillStyle = color;
+        L4_Classes.crc2.strokeStyle = color;
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+        L4_Classes.crc2.stroke();
+        L4_Classes.crc2.beginPath();
+        L4_Classes.crc2.fillStyle = "#FFFFFF";
+        L4_Classes.crc2.strokeStyle = "#FFFFFF";
+        L4_Classes.crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        L4_Classes.crc2.closePath();
+        L4_Classes.crc2.fill();
+    }
 })(L4_Classes || (L4_Classes = {}));
-function drawNest(_x, _y) {
-    crc2.beginPath();
-    crc2.fillStyle = "#FF0000";
-    crc2.strokeStyle = "#76523a";
-    crc2.ellipse(_x + 100, _y + 0, 100, 100, 0 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.closePath();
-}
-function neueBiene(_event) {
-    var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
-    bees.push(b);
-    b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-        + Math.floor(Math.random() * 0) + ")";
-    n++;
-    console.log("neueBiene");
-}
-function drawBiene(_x, _y, _color) {
-    drawBienenBienenTS();
-}
-function drawHimmel(_x, _y, _z, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawWolke(_x, _y, _a, _b) {
-    crc2.beginPath();
-    crc2.fillStyle = "#FFFFFF";
-    crc2.strokeStyle = "#FFFFFF";
-    crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawBerg(_x, _y) {
-    crc2.beginPath();
-    crc2.fillStyle = "#BBBBBB";
-    crc2.strokeStyle = "#BBBBBB";
-    crc2.lineTo(_x + 70, _y - 150);
-    crc2.lineTo(_x + 140, _y + 0);
-    crc2.lineTo(_x + 0, _y + 0);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawBergspitze(_x, _y) {
-    crc2.beginPath();
-    crc2.fillStyle = "#EEEEEE";
-    crc2.strokeStyle = "#DDDDDD";
-    crc2.lineTo(_x + 9.3, _y - 20);
-    crc2.lineTo(_x + (9.3 * 2), _y - 0);
-    crc2.lineTo(_x + 0, _y + 0);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawWiese(_x, _y, _z, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    //        crc2.lineTo(_x + 400, _y + 0);
-    //        crc2.lineTo(_x + 400, _y + 150);
-    //        crc2.lineTo(_x + 0, _y + 150);
-    //        crc2.lineTo(_x + 0, _y + 0);
-    crc2.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawWiese2(_x, _y, _z, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawWiesenschraege(_x, _y, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.lineTo(_x + 400, _y + 150);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawBienenHaus(_x, _y, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.lineTo(_x + 200, _y + 0);
-    crc2.lineTo(_x + 200, _y + 100);
-    crc2.lineTo(_x + 0, _y + 100);
-    crc2.lineTo(_x + 0, _y + 0);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawDach(_x, _y, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.lineTo(_x + 200, _y + 0);
-    crc2.lineTo(_x + 100, _y - 50);
-    crc2.lineTo(_x + 0, _y + 0);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawTuer(_x, _y, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.lineTo(_x + 25, _y + 0);
-    crc2.lineTo(_x + 25, _y + 50);
-    crc2.lineTo(_x + 0, _y + 50);
-    crc2.lineTo(_x + 0, _y + 0);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawFenster(_x, _y, _strokeColor, _fillColor) {
-    crc2.beginPath();
-    crc2.fillStyle = _fillColor;
-    crc2.strokeStyle = _strokeColor;
-    crc2.lineTo(_x + 25, _y + 0);
-    crc2.lineTo(_x + 25, _y + 25);
-    crc2.lineTo(_x + 0, _y + 25);
-    crc2.lineTo(_x + 0, _y + 0);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-}
-function drawBlume(_x, _y) {
-    crc2.beginPath();
-    var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-        + Math.floor(Math.random() * 255) + ")";
-    crc2.fillStyle = color;
-    crc2.strokeStyle = color;
-    crc2.ellipse(_x + 0, _y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.ellipse(_x + 0, _y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.ellipse(_x + 0, _y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.ellipse(_x + 0, _y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.closePath();
-    crc2.fill();
-    crc2.stroke();
-    crc2.beginPath();
-    crc2.fillStyle = "#FFFFFF";
-    crc2.strokeStyle = "#FFFFFF";
-    crc2.ellipse(_x + 0, _y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
-    crc2.closePath();
-    crc2.fill();
-}
 //# sourceMappingURL=Main.js.map

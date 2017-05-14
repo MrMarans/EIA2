@@ -66,14 +66,15 @@ namespace L4_Classes {
 
 
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
-            Bienencolor();
+        let b: bee
+            b.Bienencolor();
 
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
         //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
 
         window.setTimeout(animate, 20);
-    }
+    
     function animate() {
         crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
@@ -271,3 +272,4 @@ namespace L4_Classes {
 
 
 }
+
