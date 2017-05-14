@@ -12,9 +12,12 @@ namespace L4_Classes {
 
 
 
-        constructor(_x: number, _y: number) {
+        constructor(_x: number, _y: number, _leftpush: number, _rightpush:number, _color: string) {
             this.x = _x;
             this.y = _y;
+            this.leftpush = _leftpush;
+            this.rightpush=_rightpush;
+            this.color = _color;
         }
 
 

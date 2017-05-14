@@ -1,9 +1,12 @@
 var L4_Classes;
 (function (L4_Classes) {
     var bee = (function () {
-        function bee(_x, _y) {
+        function bee(_x, _y, _leftpush, _rightpush, _color) {
             this.x = _x;
             this.y = _y;
+            this.leftpush = _leftpush;
+            this.rightpush = _rightpush;
+            this.color = _color;
         }
         bee.prototype.overflow = function () {
             if (this.x < 0)
