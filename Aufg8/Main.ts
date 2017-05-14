@@ -58,10 +58,10 @@ namespace hive_Classes {
         //Nest wird warum auch immer nicht generiert, daher kommen die vorläufig erst einmal aus dem "Bienenhaus
 
         for (let i: number = 0; i < flowerN; i++) {
-           let fr: flowerSettings = new flowerSettings();
-            fr.randomFlowerPos();
-            flowers[i] = fr;
-            console.log(fr);
+           let AF: flowerSettings = new flowerSettings();
+            AF.randomFlowerPos();
+            flowers[i] = AF;
+            console.log(AF);
             
             
          
