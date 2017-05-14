@@ -59,7 +59,7 @@ namespace hive_Classes {
         //Nest wird warum auch immer nicht generiert, daher kommen die vorläufig erst einmal aus dem "Bienenhaus
 
         for (let i: number = 0; i < flowerN; i++) {
-           let LF: flowerSettings = new flowerSettings(100,160);
+           let LF: flowerSettings = new flowerSettings();
             LF.randomFlowerPos();
             flowers[i] = LF;
             console.log(LF);
@@ -134,7 +134,6 @@ namespace hive_Classes {
 
 
     function neueBiene(_event: Event): void {
-        
         bees.push(new bee(150, 60));
         n++;
         console.log("neueBiene");
