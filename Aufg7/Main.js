@@ -82,10 +82,7 @@ var hive_Classes;
         hive_Classes.crc2.closePath();
     }
     function neueBiene(_event) {
-        var b = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
-        bees.push();
-        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 0) + ")";
+        bees.push(new hive_Classes.bee(150, 60));
         n++;
         console.log("neueBiene");
     }

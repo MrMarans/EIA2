@@ -21,6 +21,7 @@ namespace hive_Classes {
         }
 
         update():void{
+         
         this.draw();
             this.move();    
         }

@@ -16,7 +16,7 @@ namespace hive_Classes {
     let flowerN: number = 100;
     let flowers:flowerSettings[] = [];
     let bees: bee[] = [];
-    let n: number = 100;
+   let n: number = 100;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
     let saveBG: ImageData;
@@ -134,10 +134,8 @@ namespace hive_Classes {
 
 
     function neueBiene(_event: Event): void {
-        let b: bee = { x: 150, y: 150, leftpush: 0, rightpush: 0, color: "", gelehmt: false };
-        bees.push();
-        b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 0) + ")";
+        
+        bees.push(new bee(150, 60));
         n++;
         console.log("neueBiene");
     }
