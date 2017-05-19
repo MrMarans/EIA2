@@ -13,7 +13,8 @@ var hive_Classes;
     var flowerN = 100;
     var flowers = [];
     var bees = [];
-    var n = 100;
+    var n = 10;
+    var Honeybee = 10;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
     var saveBG;
