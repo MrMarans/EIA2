@@ -10,7 +10,7 @@ Janett hatte mir zu Anfang mit der Aufgabe geholfen.
 
 
 
-namespace Aufg8_Hive {
+namespace Aufg8_Main {
     window.addEventListener("load", init);
     export let crc3: CanvasRenderingContext2D;
     let flowerN: number = 100;

@@ -7,8 +7,8 @@ Datum: 14.05.17
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 Janett hatte mir zu Anfang mit der Aufgabe geholfen.
 */
-var Aufg8_Hive;
-(function (Aufg8_Hive) {
+var Aufg8_Main;
+(function (Aufg8_Main) {
     var bee = (function () {
         function bee(_x, _y, _leftpush, _rightpush, _color) {
             this.x = _x;
@@ -22,32 +22,32 @@ var Aufg8_Hive;
             this.move();
         };
         bee.prototype.draw = function () {
-            Aufg8_Hive.crc3.beginPath();
-            Aufg8_Hive.crc3.fillStyle = "#000000";
-            Aufg8_Hive.crc3.strokeStyle = "#000000";
-            Aufg8_Hive.crc3.lineTo(this.x - 1, this.y + 0);
-            Aufg8_Hive.crc3.lineTo(this.x - 1, this.y + 1);
-            Aufg8_Hive.crc3.lineTo(this.x + 0, this.y + 1);
-            Aufg8_Hive.crc3.lineTo(this.x + 0, this.y - 2);
-            Aufg8_Hive.crc3.lineTo(this.x - 1, this.y - 2);
-            Aufg8_Hive.crc3.lineTo(this.x - 1, this.y - 1);
-            Aufg8_Hive.crc3.lineTo(this.x - 2, this.y + 0);
-            Aufg8_Hive.crc3.closePath();
-            Aufg8_Hive.crc3.fill();
-            Aufg8_Hive.crc3.stroke();
-            Aufg8_Hive.crc3.beginPath();
-            Aufg8_Hive.crc3.fillStyle = this.color;
-            Aufg8_Hive.crc3.lineTo(this.x + 4, this.y + 0);
-            Aufg8_Hive.crc3.lineTo(this.x + 4, this.y - 1);
-            Aufg8_Hive.crc3.lineTo(this.x + 5, this.y - 1);
-            Aufg8_Hive.crc3.lineTo(this.x + 5, this.y - 2);
-            Aufg8_Hive.crc3.lineTo(this.x + 4, this.y - 2);
-            Aufg8_Hive.crc3.lineTo(this.x + 4, this.y - 3);
-            Aufg8_Hive.crc3.lineTo(this.x + 0, this.y - 3);
-            Aufg8_Hive.crc3.lineTo(this.x + 0, this.y + 0);
-            Aufg8_Hive.crc3.closePath();
-            Aufg8_Hive.crc3.fill();
-            Aufg8_Hive.crc3.stroke();
+            crc3.beginPath();
+            crc3.fillStyle = "#000000";
+            crc3.strokeStyle = "#000000";
+            crc3.lineTo(this.x - 1, this.y + 0);
+            crc3.lineTo(this.x - 1, this.y + 1);
+            crc3.lineTo(this.x + 0, this.y + 1);
+            crc3.lineTo(this.x + 0, this.y - 2);
+            crc3.lineTo(this.x - 1, this.y - 2);
+            crc3.lineTo(this.x - 1, this.y - 1);
+            crc3.lineTo(this.x - 2, this.y + 0);
+            crc3.closePath();
+            crc3.fill();
+            crc3.stroke();
+            crc3.beginPath();
+            crc3.fillStyle = this.color;
+            crc3.lineTo(this.x + 4, this.y + 0);
+            crc3.lineTo(this.x + 4, this.y - 1);
+            crc3.lineTo(this.x + 5, this.y - 1);
+            crc3.lineTo(this.x + 5, this.y - 2);
+            crc3.lineTo(this.x + 4, this.y - 2);
+            crc3.lineTo(this.x + 4, this.y - 3);
+            crc3.lineTo(this.x + 0, this.y - 3);
+            crc3.lineTo(this.x + 0, this.y + 0);
+            crc3.closePath();
+            crc3.fill();
+            crc3.stroke();
         };
         bee.prototype.move = function () {
             if (this.leftpush % 20 == 1) {
@@ -79,6 +79,6 @@ var Aufg8_Hive;
         };
         return bee;
     }());
-    Aufg8_Hive.bee = bee;
-})(Aufg8_Hive || (Aufg8_Hive = {}));
+    Aufg8_Main.bee = bee;
+})(Aufg8_Main || (Aufg8_Main = {}));
 //# sourceMappingURL=Bienen.js.map
