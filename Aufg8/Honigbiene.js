@@ -5,13 +5,13 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Aufg8_Main;
 (function (Aufg8_Main) {
-    var Honeybee = (function (_super) {
-        __extends(Honeybee, _super);
-        function Honeybee(_x, _y) {
+    var HoneyBee = (function (_super) {
+        __extends(HoneyBee, _super);
+        function HoneyBee(_x, _y) {
             _super.call(this, _x, _y);
         }
-        return Honeybee;
+        return HoneyBee;
     }(Aufg8_Main.bee));
-    Aufg8_Main.Honeybee = Honeybee;
+    Aufg8_Main.HoneyBee = HoneyBee;
 })(Aufg8_Main || (Aufg8_Main = {}));
 //# sourceMappingURL=Honigbiene.js.map
