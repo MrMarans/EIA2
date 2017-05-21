@@ -58,8 +58,8 @@ namespace Aufg8_Main {
             }
             else{
             this.pausecounter+=1;
-                console.log(this.pausecounter);
-                if(this.pausecounter>100)
+                console.log("Sie Saugen gerade und sind zu " + this.pausecounter + "% voll");
+                if(this.pausecounter>99)
                 {this.status="SIE FLIEGEN"}    
             }
        }

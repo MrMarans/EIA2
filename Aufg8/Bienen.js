@@ -55,7 +55,6 @@ var Aufg8_Main;
                 this.rightpush++;
                 if (this.leftpush % 100 == 1) {
                     this.gelehmt = true;
-                    console.log("gelehmt");
                 }
                 else { }
             }

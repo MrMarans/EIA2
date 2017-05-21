@@ -10,7 +10,7 @@ Janett hatte mir zu Anfang mit der Aufgabe geholfen.
 var Aufg8_Main;
 (function (Aufg8_Main) {
     window.addEventListener("load", init);
-    var flowerN = 10;
+    var flowerN = 100;
     var flowers = [];
     var bees = [];
     var n = 10;
