@@ -23,11 +23,11 @@ namespace Aufg8_Main{
 
 
 
-        constructor(_x: number, _y: number, _leftpush: number,   _rightpush: number, _color:string) {
+        constructor(_x: number, _y: number, _color:string) {
             this.x = _x;
             this.y = _y;
-            this.leftpush = _leftpush;
-            this.rightpush = _rightpush;
+            this.leftpush = 0;
+            this.rightpush = 0;
             this.color = _color;
         }
 

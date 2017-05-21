@@ -10,11 +10,11 @@ Janett hatte mir zu Anfang mit der Aufgabe geholfen.
 var Aufg8_Main;
 (function (Aufg8_Main) {
     var bee = (function () {
-        function bee(_x, _y, _leftpush, _rightpush, _color) {
+        function bee(_x, _y, _color) {
             this.x = _x;
             this.y = _y;
-            this.leftpush = _leftpush;
-            this.rightpush = _rightpush;
+            this.leftpush = 0;
+            this.rightpush = 0;
             this.color = _color;
         }
         bee.prototype.update = function () {

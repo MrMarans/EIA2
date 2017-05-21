@@ -10,8 +10,8 @@ namespace Aufg8_Main {
         pausecounter : number;
         flowerx : number;
         flowery:number;
-        constructor(_x: number, _y: number, _leftpush: number, _rightpush: number, _color: string, _hungry: boolean, _flowers: flowerSettings[]) {
-            super(_x, _y, _leftpush, _rightpush, _color);
+        constructor(_x: number, _y: number, _color: string, _hungry: boolean, _flowers: flowerSettings[]) {
+            super(_x, _y, _color);
             this.hungry = _hungry;
             this.flowers = _flowers;
             this.pausecounter = 0;  
@@ -23,9 +23,9 @@ namespace Aufg8_Main {
         }
         FlowerSelect(): void {
             this.hungry=true;
-        let i: number = Math.floor(Math.random() * (flowerSettings.length - 1));
-            this.flowerx = flowerSettings[i].x;
-            this.flowery = flowerSettings[i].y;
+        let i: number = Math.floor(Math.random() * (this.flowers.length - 1));
+            this.flowerx = this.flowers[i].x;
+            this.flowery = this.flowers[i].y;
            // this.flower = this.flowers[Math.floor(Math.random() * 100)];
         }
         moveToFlower():void{

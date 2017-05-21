@@ -78,14 +78,14 @@ namespace Aufg8_Main {
 
        for (let i: number = 0; i<n; i++) {
             if (i%2==0) {
-                let b: bee = new bee(150,60);
-                b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                let color: string = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
             + Math.floor(Math.random() * 0) + ")";
+                let b: bee = new bee(150,60, color);
                 bees.push(b)
             }
             else {
-                let hb: HoneyBee = new HoneyBee(150,60);
-                hb.color = "#FFFFFF";
+                let color: string = "#FFFFFF";
+                let hb: HoneyBee = new HoneyBee(150,60,color, true, flowers);
                 bees.push(hb)
             }
         }

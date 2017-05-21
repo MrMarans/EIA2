@@ -56,14 +56,14 @@ var Aufg8_Main;
         saveBG = Aufg8_Main.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
             if (i % 2 == 0) {
-                var b = new Aufg8_Main.bee(150, 60);
-                b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                     + Math.floor(Math.random() * 0) + ")";
+                var b = new Aufg8_Main.bee(150, 60, color);
                 bees.push(b);
             }
             else {
-                var hb = new Aufg8_Main.HoneyBee(150, 60);
-                hb.color = "#FFFFFF";
+                var color = "#FFFFFF";
+                var hb = new Aufg8_Main.HoneyBee(150, 60, color, true, flowers);
                 bees.push(hb);
             }
         }

@@ -7,8 +7,8 @@ var Aufg8_Main;
 (function (Aufg8_Main) {
     var HoneyBee = (function (_super) {
         __extends(HoneyBee, _super);
-        function HoneyBee(_x, _y, _leftpush, _rightpush, _color, _hungry, _flowers) {
-            _super.call(this, _x, _y, _leftpush, _rightpush, _color);
+        function HoneyBee(_x, _y, _color, _hungry, _flowers) {
+            _super.call(this, _x, _y, _color);
             this.hungry = _hungry;
             this.flowers = _flowers;
             this.pausecounter = 0;
@@ -20,9 +20,9 @@ var Aufg8_Main;
         };
         HoneyBee.prototype.FlowerSelect = function () {
             this.hungry = true;
-            var i = Math.floor(Math.random() * (Aufg8_Main.flowerSettings.length - 1));
-            this.flowerx = Aufg8_Main.flowerSettings[i].x;
-            this.flowery = Aufg8_Main.flowerSettings[i].y;
+            var i = Math.floor(Math.random() * (this.flowers.length - 1));
+            this.flowerx = this.flowers[i].x;
+            this.flowery = this.flowers[i].y;
             // this.flower = this.flowers[Math.floor(Math.random() * 100)];
         };
         HoneyBee.prototype.moveToFlower = function () {

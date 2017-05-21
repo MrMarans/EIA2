@@ -10,10 +10,7 @@ Janett hatte mir zu Anfang mit der Aufgabe geholfen.
 var Aufg8_Main;
 (function (Aufg8_Main) {
     var flowerSettings = (function () {
-        function flowerSettings(_x, _y, _color) {
-            this.x = _x;
-            this.y = _y;
-            this.color = _color;
+        function flowerSettings() {
         }
         flowerSettings.prototype.randomFlowerPos = function () {
             this.x = Math.floor((Math.random() * 400) + 0);
