@@ -24,8 +24,8 @@ var Aufg8_Main;
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        Aufg8_Main.crc3 = canvas.getContext("2d");
-        console.log(Aufg8_Main.crc3);
+        Aufg8_Main.crc2 = canvas.getContext("2d");
+        console.log(Aufg8_Main.crc2);
         drawHimmel(0, 0, 0, "#BCEDDD", "#9CEDEC");
         for (var j = 0; j < 20; j++) {
             var x = Math.floor((Math.random() * 400) - 100);
@@ -53,61 +53,48 @@ var Aufg8_Main;
             flowers[i] = LF;
             console.log(LF);
         }
-        saveBG = Aufg8_Main.crc3.getImageData(0, 0, canvas.width, canvas.height);
+        saveBG = Aufg8_Main.crc2.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
             if (i % 2 == 0) {
-                var b = new Aufg8_Main.bee(0, 0);
+                var b = new Aufg8_Main.bee(150, 60);
+                b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                    + Math.floor(Math.random() * 0) + ")";
                 bees.push(b);
             }
             else {
-                var honeyb = new Aufg8_Main.HoneyBee(0, 0);
-                bees.push(honeyb);
+                var hb = new Aufg8_Main.HoneyBee(150, 60);
+                hb.color = "#FFFFFF";
+                bees.push(hb);
             }
         }
-        //  for (let i: number = 0; i < n; i++) {
-        //      let b: bee = new bee(150, 60);
-        //     b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-        //     + Math.floor(Math.random() * 0) + ")";
-        //     bees[i] = b;              
-        // }
+        console.log(bees);
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
         //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
         window.setTimeout(animate, 20);
     }
     function animate() {
-        Aufg8_Main.crc3.putImageData(saveBG, 0, 0);
+        Aufg8_Main.crc2.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
-        Aufg8_Main.crc3.fillStyle = "#FF0000";
-        for (var i = 0; i < n; i++) {
-            var b = bees[i];
-            bees[i].update();
+        Aufg8_Main.crc2.fillStyle = "#FF0000";
+        for (var i = 0; i < bees.length; i++) {
+            if (i % 2 == 0) {
+                var b = bees[i];
+                b.update();
+            }
+            else {
+                var b = bees[i];
+                b.update;
+            }
         }
-        console.log(bees);
-        //            xBiene[i] += Math.floor(Math.random() * 11) - 6;
-        //            yBiene[i] += Math.floor(Math.random() * 11) - 5;
-        //
-        //            if (xBiene[i] < 0) {
-        //                xBiene[i] = 400;
-        //            }
-        //            if (xBiene[i] > 400) {
-        //                xBiene[i] = 0;
-        //            }
-        //            if (yBiene[i] < 0) {
-        //                yBiene[i] = 400;
-        //            }
-        //            if (yBiene[i] > 400) {
-        //                yBiene[i] = 0;
-        //            }
-        //            drawBiene(xBiene[i], yBiene[i]);
         window.setTimeout(animate, 20);
     }
     function drawNest(_x, _y) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = "#FF0000";
-        Aufg8_Main.crc3.strokeStyle = "#76523a";
-        Aufg8_Main.crc3.ellipse(_x + 100, _y + 0, 100, 100, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Aufg8_Main.crc3.closePath();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = "#FF0000";
+        Aufg8_Main.crc2.strokeStyle = "#76523a";
+        Aufg8_Main.crc2.ellipse(_x + 100, _y + 0, 100, 100, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        Aufg8_Main.crc2.closePath();
     }
     function neueBiene(_event) {
         bees.push(new Aufg8_Main.bee(150, 60));
@@ -115,124 +102,124 @@ var Aufg8_Main;
         console.log("neueBiene");
     }
     function drawHimmel(_x, _y, _z, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.ellipse(_x + 100, _y + 345, 1000, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawWolke(_x, _y, _a, _b) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = "#FFFFFF";
-        Aufg8_Main.crc3.strokeStyle = "#FFFFFF";
-        Aufg8_Main.crc3.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Aufg8_Main.crc3.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = "#FFFFFF";
+        Aufg8_Main.crc2.strokeStyle = "#FFFFFF";
+        Aufg8_Main.crc2.ellipse(_x + 100, _y + 0, _a + 0, _b + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        Aufg8_Main.crc2.ellipse(_x + 100, _y + 0, _b + 0, _a + 0, 0 * Math.PI / 180, 0, 2 * Math.PI);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawBerg(_x, _y) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = "#BBBBBB";
-        Aufg8_Main.crc3.strokeStyle = "#BBBBBB";
-        Aufg8_Main.crc3.lineTo(_x + 70, _y - 150);
-        Aufg8_Main.crc3.lineTo(_x + 140, _y + 0);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 0);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = "#BBBBBB";
+        Aufg8_Main.crc2.strokeStyle = "#BBBBBB";
+        Aufg8_Main.crc2.lineTo(_x + 70, _y - 150);
+        Aufg8_Main.crc2.lineTo(_x + 140, _y + 0);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 0);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawBergspitze(_x, _y) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = "#EEEEEE";
-        Aufg8_Main.crc3.strokeStyle = "#DDDDDD";
-        Aufg8_Main.crc3.lineTo(_x + 9.3, _y - 20);
-        Aufg8_Main.crc3.lineTo(_x + (9.3 * 2), _y - 0);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 0);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = "#EEEEEE";
+        Aufg8_Main.crc2.strokeStyle = "#DDDDDD";
+        Aufg8_Main.crc2.lineTo(_x + 9.3, _y - 20);
+        Aufg8_Main.crc2.lineTo(_x + (9.3 * 2), _y - 0);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 0);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawWiese(_x, _y, _z, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        //        crc3.lineTo(_x + 400, _y + 0);
-        //        crc3.lineTo(_x + 400, _y + 150);
-        //        crc3.lineTo(_x + 0, _y + 150);
-        //        crc3.lineTo(_x + 0, _y + 0);
-        Aufg8_Main.crc3.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        //        crc2.lineTo(_x + 400, _y + 0);
+        //        crc2.lineTo(_x + 400, _y + 150);
+        //        crc2.lineTo(_x + 0, _y + 150);
+        //        crc2.lineTo(_x + 0, _y + 0);
+        Aufg8_Main.crc2.ellipse(_x + 100, _y + 345, 200, 1000, _z * Math.PI / 180, 0, 2 * Math.PI);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawWiese2(_x, _y, _z, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.ellipse(_x + 300, _y + 200, 200, 100, _z * Math.PI / 180, 0, 2 * Math.PI);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawWiesenschraege(_x, _y, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.lineTo(_x + 400, _y + 150);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.lineTo(_x + 400, _y + 150);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawBienenHaus(_x, _y, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.lineTo(_x + 200, _y + 0);
-        Aufg8_Main.crc3.lineTo(_x + 200, _y + 100);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 100);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 0);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.lineTo(_x + 200, _y + 0);
+        Aufg8_Main.crc2.lineTo(_x + 200, _y + 100);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 100);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 0);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawDach(_x, _y, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.lineTo(_x + 200, _y + 0);
-        Aufg8_Main.crc3.lineTo(_x + 100, _y - 50);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 0);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.lineTo(_x + 200, _y + 0);
+        Aufg8_Main.crc2.lineTo(_x + 100, _y - 50);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 0);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawTuer(_x, _y, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.lineTo(_x + 25, _y + 0);
-        Aufg8_Main.crc3.lineTo(_x + 25, _y + 50);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 50);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 0);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.lineTo(_x + 25, _y + 0);
+        Aufg8_Main.crc2.lineTo(_x + 25, _y + 50);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 50);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 0);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
     function drawFenster(_x, _y, _strokeColor, _fillColor) {
-        Aufg8_Main.crc3.beginPath();
-        Aufg8_Main.crc3.fillStyle = _fillColor;
-        Aufg8_Main.crc3.strokeStyle = _strokeColor;
-        Aufg8_Main.crc3.lineTo(_x + 25, _y + 0);
-        Aufg8_Main.crc3.lineTo(_x + 25, _y + 25);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 25);
-        Aufg8_Main.crc3.lineTo(_x + 0, _y + 0);
-        Aufg8_Main.crc3.closePath();
-        Aufg8_Main.crc3.fill();
-        Aufg8_Main.crc3.stroke();
+        Aufg8_Main.crc2.beginPath();
+        Aufg8_Main.crc2.fillStyle = _fillColor;
+        Aufg8_Main.crc2.strokeStyle = _strokeColor;
+        Aufg8_Main.crc2.lineTo(_x + 25, _y + 0);
+        Aufg8_Main.crc2.lineTo(_x + 25, _y + 25);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 25);
+        Aufg8_Main.crc2.lineTo(_x + 0, _y + 0);
+        Aufg8_Main.crc2.closePath();
+        Aufg8_Main.crc2.fill();
+        Aufg8_Main.crc2.stroke();
     }
 })(Aufg8_Main || (Aufg8_Main = {}));
 //# sourceMappingURL=Main.js.map

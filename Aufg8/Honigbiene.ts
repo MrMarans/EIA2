@@ -17,7 +17,7 @@ namespace Aufg8_Main {
             this.pausecounter = 0;  
 
         }
-        HoneybeeUpdate(): void {
+            update(): void {
             this.draw();
             this.FlowerSelect();
             this.moveToFlower();
@@ -31,9 +31,9 @@ namespace Aufg8_Main {
         }
         moveToFlower():void{
             
-            if(this.hungry==true)
+            if(this.hungry=true)
             {
-                this.x += Math.floor(Math.random() * 8) - 4;
+                this.x += Math.floor(Math.random() * 1);
                 this.y += (this.flowery - this.y)*0.05;
                 
                  if (this.x < 0)

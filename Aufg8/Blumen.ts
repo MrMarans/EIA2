@@ -39,27 +39,27 @@ namespace Aufg8_Main {
 
 
         drawFlower(): void {
-            crc3.beginPath();
+            crc2.beginPath();
 
             let color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                 + Math.floor(Math.random() * 255) + ")";
 
 
-            crc3.fillStyle = color;
-            crc3.strokeStyle = color;
-            crc3.ellipse(this.x + 0, this.y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
-            crc3.ellipse(this.x + 0, this.y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
-            crc3.ellipse(this.x + 0, this.y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
-            crc3.ellipse(this.x + 0, this.y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
-            crc3.closePath();
-            crc3.fill();
-            crc3.stroke();
-            crc3.beginPath();
-            crc3.fillStyle = "#FFFFFF";
-            crc3.strokeStyle = "#FFFFFF";
-            crc3.ellipse(this.x + 0, this.y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
-            crc3.closePath();
-            crc3.fill();
+            crc2.fillStyle = color;
+            crc2.strokeStyle = color;
+            crc2.ellipse(this.x + 0, this.y + 0, 4, 10, 0 * Math.PI / 180, 0, 2 * Math.PI);
+            crc2.ellipse(this.x + 0, this.y + 0, 4, 10, 45 * Math.PI / 180, 0, 2 * Math.PI);
+            crc2.ellipse(this.x + 0, this.y + 0, 4, 10, 90 * Math.PI / 180, 0, 2 * Math.PI);
+            crc2.ellipse(this.x + 0, this.y + 0, 4, 10, 135 * Math.PI / 180, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
+            crc2.stroke();
+            crc2.beginPath();
+            crc2.fillStyle = "#FFFFFF";
+            crc2.strokeStyle = "#FFFFFF";
+            crc2.ellipse(this.x + 0, this.y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
+            crc2.closePath();
+            crc2.fill();
 
         }
 

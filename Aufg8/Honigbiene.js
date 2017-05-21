@@ -13,7 +13,7 @@ var Aufg8_Main;
             this.flowers = _flowers;
             this.pausecounter = 0;
         }
-        HoneyBee.prototype.HoneybeeUpdate = function () {
+        HoneyBee.prototype.update = function () {
             this.draw();
             this.FlowerSelect();
             this.moveToFlower();
@@ -26,8 +26,8 @@ var Aufg8_Main;
             this.flower = this.flowers[Math.floor(Math.random() * 100)];
         };
         HoneyBee.prototype.moveToFlower = function () {
-            if (this.hungry == true) {
-                this.x += Math.floor(Math.random() * 8) - 4;
+            if (this.hungry = true) {
+                this.x += Math.floor(Math.random() * 1);
                 this.y += (this.flowery - this.y) * 0.05;
                 if (this.x < 0)
                     this.x = 400;

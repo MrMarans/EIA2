@@ -34,36 +34,36 @@ namespace Aufg8_Main{
         update():void{
          
         this.draw();
-            this.move();    
+        this.move();    
         }
         
         draw():void{
-             crc3.beginPath();
-        crc3.fillStyle = "#000000";
-        crc3.strokeStyle = "#000000";
-        crc3.lineTo(this.x - 1, this.y + 0);
-        crc3.lineTo(this.x - 1, this.y + 1);
-        crc3.lineTo(this.x + 0, this.y + 1);
-        crc3.lineTo(this.x + 0, this.y - 2);
-        crc3.lineTo(this.x - 1, this.y - 2);
-        crc3.lineTo(this.x - 1, this.y - 1);
-        crc3.lineTo(this.x - 2, this.y + 0);
-        crc3.closePath();
-        crc3.fill();
-        crc3.stroke();
-        crc3.beginPath();
-        crc3.fillStyle = this.color;
-        crc3.lineTo(this.x + 4, this.y + 0);
-        crc3.lineTo(this.x + 4, this.y - 1);
-        crc3.lineTo(this.x + 5, this.y - 1);
-        crc3.lineTo(this.x + 5, this.y - 2);
-        crc3.lineTo(this.x + 4, this.y - 2);
-        crc3.lineTo(this.x + 4, this.y - 3);
-        crc3.lineTo(this.x + 0, this.y - 3);
-        crc3.lineTo(this.x + 0, this.y + 0);
-        crc3.closePath();
-        crc3.fill();
-        crc3.stroke();
+             crc2.beginPath();
+        crc2.fillStyle = "#000000";
+        crc2.strokeStyle = "#000000";
+        crc2.lineTo(this.x - 1, this.y + 0);
+        crc2.lineTo(this.x - 1, this.y + 1);
+        crc2.lineTo(this.x + 0, this.y + 1);
+        crc2.lineTo(this.x + 0, this.y - 2);
+        crc2.lineTo(this.x - 1, this.y - 2);
+        crc2.lineTo(this.x - 1, this.y - 1);
+        crc2.lineTo(this.x - 2, this.y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
+        crc2.beginPath();
+        crc2.fillStyle = this.color;
+        crc2.lineTo(this.x + 4, this.y + 0);
+        crc2.lineTo(this.x + 4, this.y - 1);
+        crc2.lineTo(this.x + 5, this.y - 1);
+        crc2.lineTo(this.x + 5, this.y - 2);
+        crc2.lineTo(this.x + 4, this.y - 2);
+        crc2.lineTo(this.x + 4, this.y - 3);
+        crc2.lineTo(this.x + 0, this.y - 3);
+        crc2.lineTo(this.x + 0, this.y + 0);
+        crc2.closePath();
+        crc2.fill();
+        crc2.stroke();
         }
         
 
@@ -103,5 +103,8 @@ namespace Aufg8_Main{
                 this.y = 0;
 
         }
+        
+        
+        
     }
 }
