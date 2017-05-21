@@ -55,11 +55,21 @@ var Aufg8_Main;
         }
         saveBG = Aufg8_Main.crc3.getImageData(0, 0, canvas.width, canvas.height);
         for (var i = 0; i < n; i++) {
-            var b = new Aufg8_Main.bee(150, 60);
-            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-                + Math.floor(Math.random() * 0) + ")";
-            bees[i] = b;
+            if (i % 2 == 0) {
+                var b = new Aufg8_Main.bee(0, 0);
+                bees.push(b);
+            }
+            else {
+                var honeyb = new Aufg8_Main.HoneyBee(0, 0);
+                bees.push(honeyb);
+            }
         }
+        //  for (let i: number = 0; i < n; i++) {
+        //      let b: bee = new bee(150, 60);
+        //     b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+        //     + Math.floor(Math.random() * 0) + ")";
+        //     bees[i] = b;              
+        // }
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
         //            yBiene[i] = Math.floor(Math.random() * 0) + 60;
@@ -69,18 +79,9 @@ var Aufg8_Main;
         Aufg8_Main.crc3.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         Aufg8_Main.crc3.fillStyle = "#FF0000";
-        //    for (let i: number = 0; i < n; i++) {
-        //      let b: bee = bees[i];
-        //    bees[i].update();
         for (var i = 0; i < n; i++) {
-            if (i % 2 == 0) {
-                var b = bees[i];
-                bees[i].update();
-            }
-            else {
-                var honeyb = Aufg8_Main.HoneyBee[i];
-                Aufg8_Main.HoneyBee[i].HoneybeeUpdate();
-            }
+            var b = bees[i];
+            bees[i].update();
         }
         console.log(bees);
         //            xBiene[i] += Math.floor(Math.random() * 11) - 6;

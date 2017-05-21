@@ -73,13 +73,23 @@ namespace Aufg8_Main {
 
 
 
-        for (let i: number = 0; i < n; i++) {
-            let b: bee = new bee(150, 60);
-            b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-            + Math.floor(Math.random() * 0) + ")";
-            bees[i] = b;
-                       
+            for (let i: number = 0; i<n; i++) {
+            if (i%2==0) {
+                 let b: bee = new bee(0,0);
+                bees.push(b)
+            }
+            else {
+                  let honeyb: HoneyBee = new HoneyBee(0,0);
+                bees.push(honeyb)
+            }
         }
+        
+      //  for (let i: number = 0; i < n; i++) {
+      //      let b: bee = new bee(150, 60);
+       //     b.color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+       //     + Math.floor(Math.random() * 0) + ")";
+       //     bees[i] = b;              
+       // }
 
         /////Bienen, also Anfang Auf        
         //            xBiene[i] = Math.floor(Math.random() * 0) + 160;
@@ -92,22 +102,13 @@ namespace Aufg8_Main {
         console.log("Animate startet");
         crc3.fillStyle = "#FF0000";
        
-    //    for (let i: number = 0; i < n; i++) {
-      //      let b: bee = bees[i];
-    //    bees[i].update();
+        for (let i: number = 0; i < n; i++) {
+           let b: bee = bees[i];
+        bees[i].update();
           
             
           
-         for (let i: number = 0; i<n; i++) {
-            if (i%2==0) {
-                let b: bee = bees[i];
-                 bees[i].update();
-            }
-            else {
-                  let honeyb: bee = HoneyBee[i];
-                HoneyBee[i].HoneybeeUpdate();
-            }
-        }
+         }
         console.log(bees);   
            
 
