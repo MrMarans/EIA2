@@ -70,6 +70,7 @@ var Aufg8_Main;
                             this.FlowerSelect();
                             this.statusVoll = "Leer";
                         }
+                        console.log("Die Biene ist jetzt " + this.statusVoll + " und sucht eine Neue Blume!");
                         break;
                 }
             }

@@ -84,7 +84,8 @@ namespace Aufg8_Main {
               {this.status="SIE FLIEGEN";
               this.pausecounter=0;
               this.FlowerSelect();
-              this.statusVoll="Leer"}    
+              this.statusVoll="Leer"}  
+              console.log("Die Biene ist jetzt "+ this.statusVoll+ " und sucht eine Neue Blume!");  
                 break;         
            
              }   
