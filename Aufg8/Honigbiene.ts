@@ -15,10 +15,10 @@ namespace Aufg8_Main {
             this.hungry = _hungry;
             this.flowers = _flowers;
             this.pausecounter = 0;  
+            this.FlowerSelect();
         }
             update(): void {
             this.draw();
-            this.FlowerSelect();
             this.moveToFlower();
         }
         FlowerSelect(): void {
@@ -30,35 +30,30 @@ namespace Aufg8_Main {
         }
         moveToFlower():void{
             
-            if(this.hungry=true)
-            {
-                this.x += Math.floor(Math.random() * 1);
+            if(this.hungry=true) {
+                
+                this.x += Math.floor(Math.random() * -1);
                 this.y += (this.flowery - this.y)*0.05;
                 
-                 if (this.x < 0)
-                this.x = 400;
+                if (this.x < 0) this.x = 400; 
 
-            if (this.x > 400)
-                this.x = 0;
+                if (this.x > 400) this.x = 0;
 
-            if (this.y < 0)
-                this.y = 400;
+                if (this.y < 0) this.y = 400;
 
-            if (this.y > 400)
-                this.y = 0;
+                if (this.y > 400) this.y = 0;
                 
                 
                 
-         if ((this.flowerx - this.x < 12 && this.flowerx - this.x > -12) && (this.flowery - this.y < 12 && this.flowery - this.y > -12)) {
-                    this.status = "pause";
-         }
-         else {
-              this.pausecounter += 1;     
-         }
+                 if ((Math.abs(this.flowerx - this.x) < 12) && (Math.abs(this.flowery - this.y) < 12)) {
+                            this.status = "pause";
+                            this.FlowerSelect();
+                 }
+                 else {
+                      this.pausecounter += 1;  
+                                            
+                 }
             }
-        }
-        
-        
-
-    }
+       }
+      }
 }

@@ -78,14 +78,8 @@ var Aufg8_Main;
         console.log("Animate startet");
         Aufg8_Main.crc2.fillStyle = "#FF0000";
         for (var i = 0; i < bees.length; i++) {
-            if (i % 2 == 0) {
-                var b = bees[i];
-                b.update();
-            }
-            else {
-                var hb = bees[1];
-                hb.update();
-            }
+            var b = bees[i];
+            b.update();
         }
         window.setTimeout(animate, 20);
     }

@@ -101,37 +101,9 @@ console.log(bees);
         console.log("Animate startet");
         crc2.fillStyle = "#FF0000";
        
-        for (let i: number = 0; i < bees.length; i++) { // Zufällige Bewegung der Bienen
-             if (i%2==0) {
+        for (let i: number = 0; i < bees.length; i++) { // Zufällige Bewegung der Bienens
                let b: bee = bees[i];
-                b.update();
-             }
-            else{
-                let hb: any = bees[1];
-                hb.update(); 
-                 }
-   
-           
-
-
-
-
-            //            xBiene[i] += Math.floor(Math.random() * 11) - 6;
-            //            yBiene[i] += Math.floor(Math.random() * 11) - 5;
-            //
-            //            if (xBiene[i] < 0) {
-            //                xBiene[i] = 400;
-            //            }
-            //            if (xBiene[i] > 400) {
-            //                xBiene[i] = 0;
-            //            }
-            //            if (yBiene[i] < 0) {
-            //                yBiene[i] = 400;
-            //            }
-            //            if (yBiene[i] > 400) {
-            //                yBiene[i] = 0;
-            //            }
-            //            drawBiene(xBiene[i], yBiene[i]);
+                b.update();   
         }
         window.setTimeout(animate, 20);
     }
