@@ -46,7 +46,7 @@ namespace Aufg8_Main {
                 
                 
                 
-                 if ((Math.abs(this.flowerx - this.x) < 4) && (Math.abs(this.flowery - this.y) < 4)) {
+                 if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 6)) {
                             this.status = "pause";
                             this.FlowerSelect();
                  }

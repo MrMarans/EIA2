@@ -38,7 +38,7 @@ var Aufg8_Main;
                     this.y = 400;
                 if (this.y > 400)
                     this.y = 0;
-                if ((Math.abs(this.flowerx - this.x) < 4) && (Math.abs(this.flowery - this.y) < 4)) {
+                if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 6)) {
                     this.status = "pause";
                     this.FlowerSelect();
                 }

@@ -48,11 +48,12 @@ namespace Aufg8_Main {
             crc2.fill();
             crc2.stroke();
             crc2.beginPath();
-            crc2.fillStyle = "#FFFFFF";
-            crc2.strokeStyle = "#FFFFFF";
+            crc2.fillStyle = "#FFFF00";
+            crc2.strokeStyle = "#FFFF00";
             crc2.ellipse(this.x + 0, this.y + 0, 4, 4, 0 * Math.PI / 180, 0, 2 * Math.PI);
             crc2.closePath();
             crc2.fill();
+            crc2.stroke();
 
         }
 
