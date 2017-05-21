@@ -13,6 +13,7 @@ var Aufg8_Main;
             this.flowers = _flowers;
             this.pausecounter = 0;
             this.FlowerSelect();
+            this.statusVoll = "Leer";
         }
         HoneyBee.prototype.update = function () {
             this.draw();
@@ -38,19 +39,35 @@ var Aufg8_Main;
                     this.y = 400;
                 if (this.y > 400)
                     this.y = 0;
-                if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 6)) {
+                if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 20)) {
                     this.status = "pause";
-                    this.FlowerSelect();
                 }
                 else {
                     this.y += Math.floor(Math.random() * 4) - 2;
                 }
             }
             else {
-                this.pausecounter += 1;
-                console.log("Sie Saugen gerade und sind zu " + this.pausecounter + "% voll");
-                if (this.pausecounter > 99) {
-                    this.status = "SIE FLIEGEN";
+                switch (this.statusVoll) {
+                    case "Leer":
+                        this.pausecounter += 1;
+                        console.log("Sie Saugen gerade und sind zu " + this.pausecounter + "% voll");
+                        if (this.pausecounter > 99) {
+                            this.status = "Nest";
+                            this.pausecounter = 0;
+                            this.flowerx = 160;
+                            this.flowery = 60;
+                            this.statusVoll = "Voll";
+                        }
+                        break;
+                    case "Voll":
+                        this.pausecounter += 1;
+                        console.log("Sie Kotzen gerade und sind zu " + this.pausecounter + "% fertig");
+                        if (this.pausecounter > 99) {
+                            this.status = "SIE FLIEGEN";
+                            this.pausecounter = 0;
+                            this.FlowerSelect();
+                        }
+                        break;
                 }
             }
         };

@@ -5,6 +5,7 @@ namespace Aufg8_Main {
     export class HoneyBee extends bee {
         hungry: boolean;
         status:string;
+        statusVoll:string;
         flowers: flowerSettings[];
         flower: flowerSettings;
         pausecounter : number;
@@ -16,6 +17,7 @@ namespace Aufg8_Main {
             this.flowers = _flowers;
             this.pausecounter = 0;  
             this.FlowerSelect();
+            this.statusVoll= "Leer";
         }
             update(): void {
             this.draw();
@@ -31,7 +33,7 @@ namespace Aufg8_Main {
         moveToFlower():void{
             
             if(this.status!="pause") {
-                this.pausecounter=0;
+             this.pausecounter=0;   
                 
                 this.x += Math.floor(Math.random() * -1);
                 this.y += (this.flowery - this.y)*0.05;
@@ -46,9 +48,10 @@ namespace Aufg8_Main {
                 
                 
                 
-                 if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 6)) {
-                            this.status = "pause";
-                            this.FlowerSelect();
+                 if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 20)) {
+                            
+                           this.status="pause";    
+                                                
                  }
                  else {
                       
@@ -57,11 +60,32 @@ namespace Aufg8_Main {
                  }
             }
             else{
+                switch(this.statusVoll){
+            case "Leer":        
             this.pausecounter+=1;
-                console.log("Sie Saugen gerade und sind zu " + this.pausecounter + "% voll");
-                if(this.pausecounter>99)
-                {this.status="SIE FLIEGEN"}    
-            }
+              console.log("Sie Saugen gerade und sind zu " + this.pausecounter + "% voll");
+              if(this.pausecounter>99){
+                  this.status="Nest";
+              this.pausecounter=0;
+                  this.flowerx=160;
+                  this.flowery=60;
+                  this.statusVoll="Voll";
+              }
+                break;    
+            
+                
+           case "Voll":
+              this.pausecounter+=1;
+              console.log("Sie Kotzen gerade und sind zu " + this.pausecounter + "% fertig");
+              if(this.pausecounter>99)
+              {this.status="SIE FLIEGEN";
+              this.pausecounter=0;
+              this.FlowerSelect();}    
+                break;         
+           
+             }   
+                
        }
-      }
+        
+      }}
 }
