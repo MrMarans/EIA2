@@ -30,7 +30,8 @@ namespace Aufg8_Main {
         }
         moveToFlower():void{
             
-            if(this.hungry=true) {
+            if(this.status!="pause") {
+                this.pausecounter=0;
                 
                 this.x += Math.floor(Math.random() * -1);
                 this.y += (this.flowery - this.y)*0.05;
@@ -45,14 +46,21 @@ namespace Aufg8_Main {
                 
                 
                 
-                 if ((Math.abs(this.flowerx - this.x) < 12) && (Math.abs(this.flowery - this.y) < 12)) {
+                 if ((Math.abs(this.flowerx - this.x) < 4) && (Math.abs(this.flowery - this.y) < 4)) {
                             this.status = "pause";
                             this.FlowerSelect();
                  }
                  else {
-                      this.pausecounter += 1;  
+                      
+                         this.y  += Math.floor(Math.random() * 4)-2;
                                             
                  }
+            }
+            else{
+            this.pausecounter+=1;
+                console.log(this.pausecounter);
+                if(this.pausecounter>100)
+                {this.status="SIE FLIEGEN"}    
             }
        }
       }

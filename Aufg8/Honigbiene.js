@@ -26,7 +26,8 @@ var Aufg8_Main;
             // this.flower = this.flowers[Math.floor(Math.random() * 100)];
         };
         HoneyBee.prototype.moveToFlower = function () {
-            if (this.hungry = true) {
+            if (this.status != "pause") {
+                this.pausecounter = 0;
                 this.x += Math.floor(Math.random() * -1);
                 this.y += (this.flowery - this.y) * 0.05;
                 if (this.x < 0)
@@ -37,12 +38,19 @@ var Aufg8_Main;
                     this.y = 400;
                 if (this.y > 400)
                     this.y = 0;
-                if ((Math.abs(this.flowerx - this.x) < 12) && (Math.abs(this.flowery - this.y) < 12)) {
+                if ((Math.abs(this.flowerx - this.x) < 4) && (Math.abs(this.flowery - this.y) < 4)) {
                     this.status = "pause";
                     this.FlowerSelect();
                 }
                 else {
-                    this.pausecounter += 1;
+                    this.y += Math.floor(Math.random() * 4) - 2;
+                }
+            }
+            else {
+                this.pausecounter += 1;
+                console.log(this.pausecounter);
+                if (this.pausecounter > 100) {
+                    this.status = "SIE FLIEGEN";
                 }
             }
         };

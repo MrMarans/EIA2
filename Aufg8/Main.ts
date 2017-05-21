@@ -13,7 +13,7 @@ Janett hatte mir zu Anfang mit der Aufgabe geholfen.
 namespace Aufg8_Main {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
-    let flowerN: number = 100;
+    let flowerN: number = 10;
     let flowers:flowerSettings[] = [];
     let bees: bee[] = [];
     let n: number = 10;
