@@ -103,12 +103,12 @@ console.log(bees);
        
         for (let i: number = 0; i < bees.length; i++) { // Zufällige Bewegung der Bienen
              if (i%2==0) {
-               let b: any = bees[i];
+               let b: bee = bees[i];
                 b.update();
              }
             else{
-                let b: bee = bees[i];
-                 b.update;
+                let hb: any = bees[1];
+                hb.update(); 
                  }
    
            

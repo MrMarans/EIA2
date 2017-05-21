@@ -83,8 +83,8 @@ var Aufg8_Main;
                 b.update();
             }
             else {
-                var b = bees[i];
-                b.update;
+                var hb = bees[1];
+                hb.update();
             }
         }
         window.setTimeout(animate, 20);

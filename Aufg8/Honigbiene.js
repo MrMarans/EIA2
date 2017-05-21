@@ -19,11 +19,11 @@ var Aufg8_Main;
             this.moveToFlower();
         };
         HoneyBee.prototype.FlowerSelect = function () {
-            this.hungry = true;
-            //  let i: number = Math.floor(Math.random() * (flowerSettings.length - 1));
-            //  this.flowerx = flowerSettings[i].x;
-            //  this.flowery = flowerSettings[i].y;
-            this.flower = this.flowers[Math.floor(Math.random() * 100)];
+            this.hungry == true;
+            var i = Math.floor(Math.random() * (Aufg8_Main.flowerSettings.length - 1));
+            this.flowerx = Aufg8_Main.flowerSettings[i].x;
+            this.flowery = Aufg8_Main.flowerSettings[i].y;
+            // this.flower = this.flowers[Math.floor(Math.random() * 100)];
         };
         HoneyBee.prototype.moveToFlower = function () {
             if (this.hungry = true) {

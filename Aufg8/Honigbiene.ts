@@ -23,11 +23,11 @@ namespace Aufg8_Main {
             this.moveToFlower();
         }
         FlowerSelect(): void {
-            this.hungry=true;
-        //  let i: number = Math.floor(Math.random() * (flowerSettings.length - 1));
-          //  this.flowerx = flowerSettings[i].x;
-          //  this.flowery = flowerSettings[i].y;
-            this.flower = this.flowers[Math.floor(Math.random() * 100)];
+            this.hungry==true;
+        let i: number = Math.floor(Math.random() * (flowerSettings.length - 1));
+            this.flowerx = flowerSettings[i].x;
+            this.flowery = flowerSettings[i].y;
+           // this.flower = this.flowers[Math.floor(Math.random() * 100)];
         }
         moveToFlower():void{
             
