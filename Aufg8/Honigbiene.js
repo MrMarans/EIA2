@@ -19,7 +19,7 @@ var Aufg8_Main;
             this.moveToFlower();
         };
         HoneyBee.prototype.FlowerSelect = function () {
-            this.hungry == true;
+            this.hungry = true;
             var i = Math.floor(Math.random() * (Aufg8_Main.flowerSettings.length - 1));
             this.flowerx = Aufg8_Main.flowerSettings[i].x;
             this.flowery = Aufg8_Main.flowerSettings[i].y;

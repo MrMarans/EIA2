@@ -15,7 +15,6 @@ namespace Aufg8_Main {
             this.hungry = _hungry;
             this.flowers = _flowers;
             this.pausecounter = 0;  
-
         }
             update(): void {
             this.draw();
@@ -23,7 +22,7 @@ namespace Aufg8_Main {
             this.moveToFlower();
         }
         FlowerSelect(): void {
-            this.hungry==true;
+            this.hungry=true;
         let i: number = Math.floor(Math.random() * (flowerSettings.length - 1));
             this.flowerx = flowerSettings[i].x;
             this.flowery = flowerSettings[i].y;
