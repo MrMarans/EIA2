@@ -50,7 +50,8 @@ namespace Aufg8_Main {
                 
                  if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 20)) {
                             
-                           this.status="pause";    
+                           this.status="pause";
+                     this.status="Leer";    
                                                 
                  }
                  else {

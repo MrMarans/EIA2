@@ -41,6 +41,7 @@ var Aufg8_Main;
                     this.y = 0;
                 if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 20)) {
                     this.status = "pause";
+                    this.status = "Leer";
                 }
                 else {
                     this.y += Math.floor(Math.random() * 4) - 2;
