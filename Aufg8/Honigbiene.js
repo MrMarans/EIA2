@@ -41,7 +41,6 @@ var Aufg8_Main;
                     this.y = 0;
                 if ((Math.abs(this.flowerx - this.x) < 1) && (Math.abs(this.flowery - this.y) < 20)) {
                     this.status = "pause";
-                    this.status = "Leer";
                 }
                 else {
                     this.y += Math.floor(Math.random() * 4) - 2;
@@ -54,10 +53,12 @@ var Aufg8_Main;
                         console.log("Sie Saugen gerade und sind zu " + this.pausecounter + "% voll");
                         if (this.pausecounter > 99) {
                             this.status = "Nest";
+                            console.log("Die Biene will ins " + this.status);
                             this.pausecounter = 0;
                             this.flowerx = 160;
                             this.flowery = 60;
                             this.statusVoll = "Voll";
+                            console.log("Die Biene ist " + this.statusVoll);
                         }
                         break;
                     case "Voll":
@@ -67,6 +68,7 @@ var Aufg8_Main;
                             this.status = "SIE FLIEGEN";
                             this.pausecounter = 0;
                             this.FlowerSelect();
+                            this.statusVoll = "Leer";
                         }
                         break;
                 }
