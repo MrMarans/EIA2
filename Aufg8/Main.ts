@@ -17,7 +17,7 @@ namespace Aufg8_Main {
     let flowers:flowerSettings[] = [];
     let bees: bee[] = [];
     let n: number = 10;
-    let Honeybee: number = 10;
+    let HoneybeeN: number = 10;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
     let saveBG: ImageData;
@@ -64,9 +64,6 @@ namespace Aufg8_Main {
             LF.randomFlowerPos();
             flowers[i] = LF;
             console.log(LF);
-            
-            
-         
         }
 
 
@@ -95,9 +92,23 @@ namespace Aufg8_Main {
         console.log("Animate startet");
         crc3.fillStyle = "#FF0000";
        
-        for (let i: number = 0; i < n; i++) {
-            let b: bee = bees[i];
-        bees[i].update();
+    //    for (let i: number = 0; i < n; i++) {
+      //      let b: bee = bees[i];
+    //    bees[i].update();
+          
+            
+          
+         for (let i: number = 0; i<n; i++) {
+            if (i%2==0) {
+                let b: bee = bees[i];
+                 bees[i].update();
+            }
+            else {
+                  let honeyb: bee = HoneyBee[i];
+                HoneyBee[i].HoneybeeUpdate();
+            }
+        }
+        console.log(bees);   
            
 
 
@@ -119,7 +130,8 @@ namespace Aufg8_Main {
             //                yBiene[i] = 0;
             //            }
             //            drawBiene(xBiene[i], yBiene[i]);
-        }
+        
+      
         window.setTimeout(animate, 20);
     }
 

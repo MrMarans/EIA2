@@ -14,7 +14,7 @@ var Aufg8_Main;
     var flowers = [];
     var bees = [];
     var n = 10;
-    var Honeybee = 10;
+    var HoneybeeN = 10;
     //    let xBiene: number[] = []
     //    let yBiene: number[] = []
     var saveBG;
@@ -69,10 +69,36 @@ var Aufg8_Main;
         Aufg8_Main.crc3.putImageData(saveBG, 0, 0);
         console.log("Animate startet");
         Aufg8_Main.crc3.fillStyle = "#FF0000";
+        //    for (let i: number = 0; i < n; i++) {
+        //      let b: bee = bees[i];
+        //    bees[i].update();
         for (var i = 0; i < n; i++) {
-            var b = bees[i];
-            bees[i].update();
+            if (i % 2 == 0) {
+                var b = bees[i];
+                bees[i].update();
+            }
+            else {
+                var honeyb = Aufg8_Main.HoneyBee[i];
+                Aufg8_Main.HoneyBee[i].HoneybeeUpdate();
+            }
         }
+        console.log(bees);
+        //            xBiene[i] += Math.floor(Math.random() * 11) - 6;
+        //            yBiene[i] += Math.floor(Math.random() * 11) - 5;
+        //
+        //            if (xBiene[i] < 0) {
+        //                xBiene[i] = 400;
+        //            }
+        //            if (xBiene[i] > 400) {
+        //                xBiene[i] = 0;
+        //            }
+        //            if (yBiene[i] < 0) {
+        //                yBiene[i] = 400;
+        //            }
+        //            if (yBiene[i] > 400) {
+        //                yBiene[i] = 0;
+        //            }
+        //            drawBiene(xBiene[i], yBiene[i]);
         window.setTimeout(animate, 20);
     }
     function drawNest(_x, _y) {

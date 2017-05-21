@@ -7,17 +7,42 @@ var Aufg8_Main;
 (function (Aufg8_Main) {
     var HoneyBee = (function (_super) {
         __extends(HoneyBee, _super);
-        function HoneyBee(_x, _y, _leftpush, _rightpush, _color, _hungry) {
+        function HoneyBee(_x, _y, _leftpush, _rightpush, _color, _hungry, _flowers) {
             _super.call(this, _x, _y, _leftpush, _rightpush, _color);
             this.hungry = _hungry;
+            this.flowers = _flowers;
+            this.pausecounter = 0;
         }
         HoneyBee.prototype.HoneybeeUpdate = function () {
             this.draw();
-            this.update();
+            this.FlowerSelect();
+            this.moveToFlower();
         };
-        HoneyBee.prototype.Flowermove = function () {
-            if (this.hungry = true) {
-                Aufg8_Main.flowerSettings[Math.random() * 100] = y;
+        HoneyBee.prototype.FlowerSelect = function () {
+            this.hungry = true;
+            //  let i: number = Math.floor(Math.random() * (flowerSettings.length - 1));
+            //  this.flowerx = flowerSettings[i].x;
+            //  this.flowery = flowerSettings[i].y;
+            this.flower = this.flowers[Math.floor(Math.random() * 100)];
+        };
+        HoneyBee.prototype.moveToFlower = function () {
+            if (this.hungry == true) {
+                this.x += Math.floor(Math.random() * 8) - 4;
+                this.y += (this.flowery - this.y) * 0.05;
+                if (this.x < 0)
+                    this.x = 400;
+                if (this.x > 400)
+                    this.x = 0;
+                if (this.y < 0)
+                    this.y = 400;
+                if (this.y > 400)
+                    this.y = 0;
+                if ((this.flowerx - this.x < 12 && this.flowerx - this.x > -12) && (this.flowery - this.y < 12 && this.flowery - this.y > -12)) {
+                    this.status = "pause";
+                }
+                else {
+                    this.pausecounter += 1;
+                }
             }
         };
         return HoneyBee;
