@@ -6,7 +6,7 @@ Name: Metzger, Ron
 Matrikel: 254878
 Datum: 11.06.2017
     
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Hier0mit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
     window.addEventListener("load", start);
     var sorts = ["Erdbeer", "Himbeer", "Erdbeere"];

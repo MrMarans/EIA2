@@ -51,7 +51,8 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
             createRadio(behaelters[i]);
         }
     }
-
+  
+    
     function createInput(_sort: string): void {
         let label: HTMLLabelElement = document.createElement("label");
         let input: HTMLInputElement = document.createElement("input");
