@@ -1,3 +1,12 @@
+/*
+Aufgabe: 10
+Name: Metzger, Ron
+Matrikel: 254878
+Datum: 25.06.2017
+
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+Der Code wurde durch Unterst�tzung von Dominik Braun entwickelt
+*/
 "use strict";
 console.log("Server starting");
 var Http = require("http");
