@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                     else {
                         let elem: HTMLDivElement = document.createElement('div');
-                           console.log("erstes IF weis");
+                         console.log("erstes IF weis");
                          Brett.appendChild(elem);
                         elem.className = "weis";
                         elem.textContent=(Korn+"");
