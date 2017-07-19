@@ -2,6 +2,7 @@ namespace Aufg8_Main {
     window.addEventListener("load", init);
     export let crc2: CanvasRenderingContext2D;
     let saveBG: ImageData;
+    let n: number = 1;
 
 
 
@@ -15,9 +16,15 @@ namespace Aufg8_Main {
         console.log(crc2);
         drawFace();
         //alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");        
-        let doorHit = document.getElementById("DoorHitBox");
+
 
     }
+
+    document.getElementById("DoorHitBox").addEventListener("click", void {
+        if(n = 2) {
+            drawGoneTeeth();
+        }
+    })
 
     function drawFace(): void {
 
