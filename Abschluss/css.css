@@ -1,0 +1,12 @@
+#DoorHitBox {
+	width: 25vw;
+	height: 36vw;
+	position: absolute;
+	top: 6vw;
+	right: 18vw;
+}
+
+canvas {
+	width: 80%;
+	height: auto;
+}
