@@ -24,6 +24,10 @@ namespace Aufg8_Main {
             crc2.putImageData(saveBG, 0, 0);
             drawGoneTeeth();
         });
+        document.getElementById("DoorHitBox").addEventListener("touchstart", function() {
+            crc2.putImageData(saveBG, 0, 0);
+            drawGoneTeeth();
+        });
     }
     function drawFace(): void {
 
