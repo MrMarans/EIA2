@@ -4,6 +4,7 @@
 	position: absolute;
 	top: 6vw;
 	right: 18vw;
+	background-color: rgba(0, 0, 255, 0.5);
 }
 
 canvas {
