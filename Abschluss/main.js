@@ -1,32 +1,23 @@
-namespace Aufg8_Main {
+var Aufg8_Main;
+(function (Aufg8_Main) {
     window.addEventListener("load", init);
-   let crc2: CanvasRenderingContext2D;
-    let saveBG: ImageData;
-
-
-    
-    function init(_event: Event): void {
-
-        let canvas: HTMLCanvasElement;
+    var crc2;
+    var saveBG;
+    function init(_event) {
+        var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-
         crc2 = canvas.getContext("2d");
         console.log(crc2);
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         drawFace();
         alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
-
-
-
-
-        document.getElementById("DoorHitBox").addEventListener("click", function() {
+        document.getElementById("DoorHitBox").addEventListener("click", function () {
             crc2.putImageData(saveBG, 0, 0);
             drawGoneTeeth();
         });
     }
-    function drawFace(): void {
-
+    function drawFace() {
         // ebene1/Pfad
         crc2.save();
         crc2.beginPath();
@@ -55,7 +46,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(253, 212, 182)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(103.9, 436.8);
@@ -67,7 +57,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 165)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(229.5, 473.2);
@@ -77,9 +66,7 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(223, 223, 223)";
         crc2.fill();
-
         // ebene1/Gruppe
-
         // ebene1/Gruppe/Ellipse
         crc2.save();
         crc2.beginPath();
@@ -91,7 +78,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(9, 197, 40)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(237.8, 474.8);
@@ -106,7 +92,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(215, 175, 131)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(188.2, 460.8);
@@ -117,7 +102,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(0, 0, 0)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(202.2, 445.9);
@@ -126,7 +110,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(218, 218, 218)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(194.0, 459.1);
@@ -137,7 +120,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(205, 205, 205)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.restore();
         crc2.beginPath();
@@ -148,7 +130,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(55, 51, 9)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(372.6, 603.8);
@@ -157,7 +138,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(369.3, 607.1, 372.6, 603.8, 372.6, 603.8);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(251.0, 612.0);
@@ -169,7 +149,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 164)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(320.4, 671.5);
@@ -179,7 +158,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(206.4, 698.0, 252.7, 741.0, 320.4, 747.6);
         crc2.fillStyle = "rgb(218, 109, 109)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(320.3, 671.5);
@@ -187,7 +165,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(369.9, 661.6, 427.7, 684.8, 431.0, 691.4);
         crc2.bezierCurveTo(434.3, 698.0, 388.1, 741.0, 320.3, 747.6);
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(237.7, 681.5);
@@ -201,7 +178,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(0, 0, 0)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(237.7, 681.5);
@@ -216,7 +192,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(255, 255, 255)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(510.6, 436.8);
@@ -228,7 +203,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 165)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(385.0, 473.2);
@@ -238,9 +212,7 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(223, 223, 223)";
         crc2.fill();
-
         // ebene1/Gruppe
-
         // ebene1/Gruppe/Ellipse
         crc2.save();
         crc2.beginPath();
@@ -252,7 +224,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(9, 197, 40)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(376.7, 474.8);
@@ -267,7 +238,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(215, 175, 131)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(426.3, 460.8);
@@ -278,7 +248,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(0, 0, 0)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(420.5, 445.9);
@@ -287,7 +256,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(218, 218, 218)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(401.5, 459.9);
@@ -298,7 +266,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(205, 205, 205)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.restore();
         crc2.beginPath();
@@ -313,7 +280,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(136, 110, 28)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(168.3, 96.2);
@@ -322,7 +288,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(168.3, 106.1, 168.3, 96.2, 168.3, 96.2);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(138.6, 92.9);
@@ -331,7 +296,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(186.5, 86.3, 138.6, 92.9, 138.6, 92.9);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(189.8, 51.6);
@@ -341,7 +305,6 @@ namespace Aufg8_Main {
         crc2.lineTo(189.8, 51.6);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(196.4, 36.7);
@@ -350,7 +313,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(270.8, 53.2, 196.4, 36.7, 196.4, 36.7);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(295.6, 21.8);
@@ -359,7 +321,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(338.6, 48.3, 295.6, 21.8, 295.6, 21.8);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(399.8, 48.3);
@@ -368,7 +329,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(436.2, 97.9, 399.8, 48.3, 399.8, 48.3);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(247.7, 590.5);
@@ -379,7 +339,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(386.6, 564.1, 381.6, 590.5, 381.6, 590.5);
         crc2.fillStyle = "rgb(253, 212, 182)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(103.9, 436.8);
@@ -390,7 +349,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(136, 110, 28)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(510.6, 436.8);
@@ -400,7 +358,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(341.9, 421.9, 394.8, 349.2, 510.6, 436.8);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(505.1, 785.3);
@@ -411,7 +368,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 188, 166)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(583.0, 625.3);
@@ -420,7 +376,6 @@ namespace Aufg8_Main {
         crc2.lineTo(583.0, 625.3);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(592.0, 581.5);
@@ -430,7 +385,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(238, 200, 174)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(65.8, 613.7);
@@ -440,7 +394,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 165)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(54.3, 564.1);
@@ -450,7 +403,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(238, 200, 174)";
         crc2.fill();
-
         // ebene1/Rechteck
         crc2.beginPath();
         crc2.moveTo(1550.4, 771.1);
@@ -464,7 +416,6 @@ namespace Aufg8_Main {
         crc2.strokeStyle = "rgb(28, 28, 26)";
         crc2.lineCap = "round";
         crc2.stroke();
-
         // ebene1/Rechteck
         crc2.beginPath();
         crc2.moveTo(1536.9, 766.2);
@@ -476,7 +427,6 @@ namespace Aufg8_Main {
         crc2.fillStyle = "rgb(241, 241, 241)";
         crc2.fill();
         crc2.stroke();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(1151.3, 187.5);
@@ -488,7 +438,6 @@ namespace Aufg8_Main {
         crc2.fillStyle = "rgb(155, 241, 229)";
         crc2.fill();
         crc2.stroke();
-
         // ebene1/Ellipse
         crc2.beginPath();
         crc2.moveTo(1315.8, 464.5);
@@ -499,7 +448,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(255, 255, 255)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(247.7, 590.5);
@@ -513,7 +461,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(236, 200, 175)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(383.5, 590.5);
@@ -526,7 +473,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(376.9, 590.5, 383.5, 590.5, 383.5, 590.5);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(350.8, 680.8);
@@ -537,7 +483,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(220, 123, 123)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(350.8, 685.9);
@@ -552,7 +497,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(243, 243, 243)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(352.0, 726.0);
@@ -562,7 +506,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(200, 200, 200)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(355.0, 726.0);
@@ -571,7 +514,6 @@ namespace Aufg8_Main {
         crc2.lineTo(355.0, 726.0);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(358.0, 726.0);
@@ -580,7 +522,6 @@ namespace Aufg8_Main {
         crc2.lineTo(358.0, 726.0);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(350.8, 720.0);
@@ -593,9 +534,7 @@ namespace Aufg8_Main {
         crc2.fill();
         crc2.restore();
     }
-
-    function drawGoneTeeth(): void {
-
+    function drawGoneTeeth() {
         // ebene1/Pfad
         crc2.save();
         crc2.beginPath();
@@ -624,7 +563,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(253, 212, 182)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(103.9, 436.8);
@@ -636,7 +574,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 165)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(229.5, 473.2);
@@ -646,9 +583,7 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(223, 223, 223)";
         crc2.fill();
-
         // ebene1/Gruppe
-
         // ebene1/Gruppe/Ellipse
         crc2.save();
         crc2.beginPath();
@@ -660,7 +595,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(9, 197, 40)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(237.8, 474.8);
@@ -675,7 +609,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(215, 175, 131)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(188.2, 460.8);
@@ -686,7 +619,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(0, 0, 0)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(202.2, 445.9);
@@ -695,7 +627,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(218, 218, 218)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(194.0, 459.1);
@@ -706,7 +637,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(205, 205, 205)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.restore();
         crc2.beginPath();
@@ -717,7 +647,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(55, 51, 9)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(372.6, 603.8);
@@ -726,7 +655,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(369.3, 607.1, 372.6, 603.8, 372.6, 603.8);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(251.0, 612.0);
@@ -738,7 +666,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 164)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(320.4, 671.5);
@@ -748,7 +675,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(206.4, 698.0, 252.7, 741.0, 320.4, 747.6);
         crc2.fillStyle = "rgb(218, 109, 109)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(320.3, 671.5);
@@ -756,7 +682,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(369.9, 661.6, 427.7, 684.8, 431.0, 691.4);
         crc2.bezierCurveTo(434.3, 698.0, 388.1, 741.0, 320.3, 747.6);
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(237.7, 681.5);
@@ -770,7 +695,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(0, 0, 0)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(237.7, 681.5);
@@ -785,7 +709,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(255, 255, 255)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(510.6, 436.8);
@@ -797,7 +720,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 165)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(385.0, 473.2);
@@ -807,9 +729,7 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(223, 223, 223)";
         crc2.fill();
-
         // ebene1/Gruppe
-
         // ebene1/Gruppe/Ellipse
         crc2.save();
         crc2.beginPath();
@@ -821,7 +741,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(9, 197, 40)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(376.7, 474.8);
@@ -836,7 +755,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(215, 175, 131)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(426.3, 460.8);
@@ -847,7 +765,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(0, 0, 0)";
         crc2.fill();
-
         // ebene1/Gruppe/Pfad
         crc2.beginPath();
         crc2.moveTo(420.5, 445.9);
@@ -856,7 +773,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(218, 218, 218)";
         crc2.fill();
-
         // ebene1/Gruppe/Ellipse
         crc2.beginPath();
         crc2.moveTo(401.5, 459.9);
@@ -867,7 +783,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(205, 205, 205)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.restore();
         crc2.beginPath();
@@ -882,7 +797,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(136, 110, 28)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(168.3, 96.2);
@@ -891,7 +805,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(168.3, 106.1, 168.3, 96.2, 168.3, 96.2);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(138.6, 92.9);
@@ -900,7 +813,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(186.5, 86.3, 138.6, 92.9, 138.6, 92.9);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(189.8, 51.6);
@@ -910,7 +822,6 @@ namespace Aufg8_Main {
         crc2.lineTo(189.8, 51.6);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(196.4, 36.7);
@@ -919,7 +830,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(270.8, 53.2, 196.4, 36.7, 196.4, 36.7);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(295.6, 21.8);
@@ -928,7 +838,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(338.6, 48.3, 295.6, 21.8, 295.6, 21.8);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(399.8, 48.3);
@@ -937,7 +846,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(436.2, 97.9, 399.8, 48.3, 399.8, 48.3);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(247.7, 590.5);
@@ -948,7 +856,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(386.6, 564.1, 381.6, 590.5, 381.6, 590.5);
         crc2.fillStyle = "rgb(253, 212, 182)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(103.9, 436.8);
@@ -959,7 +866,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(136, 110, 28)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(510.6, 436.8);
@@ -969,7 +875,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(341.9, 421.9, 394.8, 349.2, 510.6, 436.8);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(505.1, 785.3);
@@ -980,7 +885,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 188, 166)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(583.0, 625.3);
@@ -989,7 +893,6 @@ namespace Aufg8_Main {
         crc2.lineTo(583.0, 625.3);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(592.0, 581.5);
@@ -999,7 +902,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(238, 200, 174)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(65.8, 613.7);
@@ -1009,7 +911,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(224, 187, 165)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(54.3, 564.1);
@@ -1019,7 +920,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(238, 200, 174)";
         crc2.fill();
-
         // ebene1/Rechteck
         crc2.beginPath();
         crc2.moveTo(1550.4, 771.1);
@@ -1033,7 +933,6 @@ namespace Aufg8_Main {
         crc2.strokeStyle = "rgb(28, 28, 26)";
         crc2.lineCap = "round";
         crc2.stroke();
-
         // ebene1/Rechteck
         crc2.beginPath();
         crc2.moveTo(1536.9, 766.2);
@@ -1045,7 +944,6 @@ namespace Aufg8_Main {
         crc2.fillStyle = "rgb(241, 241, 241)";
         crc2.fill();
         crc2.stroke();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(1151.3, 187.5);
@@ -1057,7 +955,6 @@ namespace Aufg8_Main {
         crc2.fillStyle = "rgb(155, 241, 229)";
         crc2.fill();
         crc2.stroke();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(247.7, 590.5);
@@ -1071,7 +968,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(236, 200, 175)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(383.5, 590.5);
@@ -1084,7 +980,6 @@ namespace Aufg8_Main {
         crc2.bezierCurveTo(376.9, 590.5, 383.5, 590.5, 383.5, 590.5);
         crc2.closePath();
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(350.8, 680.8);
@@ -1096,7 +991,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(220, 123, 123)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(350.8, 685.0);
@@ -1108,7 +1002,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(164, 97, 97)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(359.8, 687.0);
@@ -1119,7 +1012,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(0, 0, 0)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(1462.8, 715.0);
@@ -1131,7 +1023,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(255, 255, 255)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(1472.3, 468.5);
@@ -1142,7 +1033,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(75, 60, 14)";
         crc2.fill();
-
         // ebene1/Ellipse
         crc2.beginPath();
         crc2.moveTo(1472.8, 468.5);
@@ -1153,7 +1043,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(255, 255, 255)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(1502.8, 725.0);
@@ -1163,21 +1052,18 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(215, 215, 215)";
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(1505.8, 722.0);
         crc2.bezierCurveTo(1505.8, 722.0, 1502.8, 723.0, 1502.8, 721.0);
         crc2.bezierCurveTo(1502.8, 719.0, 1505.8, 719.8, 1505.8, 719.8);
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(1505.8, 718.0);
         crc2.bezierCurveTo(1505.8, 718.0, 1502.8, 719.0, 1502.8, 717.0);
         crc2.bezierCurveTo(1502.8, 715.0, 1505.8, 715.8, 1505.8, 715.8);
         crc2.fill();
-
         // ebene1/Pfad
         crc2.beginPath();
         crc2.moveTo(378.3, 476.5);
@@ -1188,7 +1074,6 @@ namespace Aufg8_Main {
         crc2.closePath();
         crc2.fillStyle = "rgb(155, 241, 229)";
         crc2.fill();
-
         // ebene1/Ellipse
         crc2.beginPath();
         crc2.moveTo(380.5, 523.5);
@@ -1201,5 +1086,5 @@ namespace Aufg8_Main {
         crc2.fill();
         crc2.restore();
     }
-
-}
+})(Aufg8_Main || (Aufg8_Main = {}));
+//# sourceMappingURL=main.js.map
