@@ -14,3 +14,11 @@ canvas {
 HTML {
 	background-color: black;
 }
+
+#TeethHitBox {
+	position: absolute;
+	top: 35vw;
+	left: 18vw; height : 100px;
+	width: 25px;
+	height: 60px;
+}

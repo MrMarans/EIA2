@@ -20,10 +20,10 @@ namespace Abschluss {
         }
 
         move() {
-            this.y += Math.random()*(30);
-            this.x += (Math.random() * (22)- -22)+(Math.random() * (-22)-22);
+            this.y += Math.random() * (30);
+            this.x += (Math.random() * (22) - -22) + (Math.random() * (-22) - 22);
             if (this.y > 900) {
-            this.y = 10;
+                this.y = 10;
                 console.log("teleport nach oben")
             }
 
@@ -36,7 +36,7 @@ namespace Abschluss {
             crc2.lineTo(this.x, this.y + 10);
             crc2.lineTo(this.x, this.y);
             crc2.closePath();
-            crc2.fillStyle= this.color;
+            crc2.fillStyle = this.color;
             crc2.fill();
             crc2.stroke();
             console.log("drawed")
