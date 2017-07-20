@@ -15,28 +15,30 @@ namespace Abschluss {
 
 
         update(): void {
-            
+
             console.log("TestUpdate");
             this.drawConfetti();
             this.move();
         }
 
         move() {
-            this.x += Math.floor(Math.random() * 1);
-            this.y += Math.floor(Math.random() * 1);
-            
+            this.x += Math.floor(Math.random() * +100);
+            this.y += Math.floor(Math.random() * +100);
+
         }
 
         drawConfetti(): void {
             crc2.beginPath();
-            crc2.moveTo(this.x + 10, this.y);
-            crc2.moveTo(this.x + 10, this.y + 10);
-            crc2.moveTo(this.x, this.y + 10);
+            crc2.fillStyle = "#FF0000";
+            crc2.strokeStyle = "#00FF00";
+            crc2.moveTo(this.x + 100, this.y);
+            crc2.moveTo(this.x + 100, this.y + 100);
+            crc2.moveTo(this.x, this.y + 100);
             crc2.moveTo(this.x, this.y);
             crc2.closePath();
-            crc2.fillStyle = this.color;
             crc2.fill();
             crc2.stroke();
+            console.log("drawed")
         }
     }
 }

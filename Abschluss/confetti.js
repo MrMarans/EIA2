@@ -12,19 +12,21 @@ var Abschluss;
             this.move();
         };
         confetti.prototype.move = function () {
-            this.x += Math.floor(Math.random() * 1);
-            this.y += Math.floor(Math.random() * 1);
+            this.x += Math.floor(Math.random() * +100);
+            this.y += Math.floor(Math.random() * +100);
         };
         confetti.prototype.drawConfetti = function () {
             Abschluss.crc2.beginPath();
-            Abschluss.crc2.moveTo(this.x + 10, this.y);
-            Abschluss.crc2.moveTo(this.x + 10, this.y + 10);
-            Abschluss.crc2.moveTo(this.x, this.y + 10);
+            Abschluss.crc2.fillStyle = "#FF0000";
+            Abschluss.crc2.strokeStyle = "#00FF00";
+            Abschluss.crc2.moveTo(this.x + 100, this.y);
+            Abschluss.crc2.moveTo(this.x + 100, this.y + 100);
+            Abschluss.crc2.moveTo(this.x, this.y + 100);
             Abschluss.crc2.moveTo(this.x, this.y);
             Abschluss.crc2.closePath();
-            Abschluss.crc2.fillStyle = this.color;
             Abschluss.crc2.fill();
             Abschluss.crc2.stroke();
+            console.log("drawed");
         };
         return confetti;
     }());
