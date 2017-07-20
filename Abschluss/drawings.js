@@ -1,42 +1,5 @@
-/*
-Aufgabe: Abschlussaufgabe
-Name: Ron Metzger
-Matrikel:  254878
-Datum: 21.07.17
-    
-Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
-*/
 var Abschluss;
 (function (Abschluss) {
-    window.addEventListener("load", init);
-    var saveBG;
-    function init(_event) {
-        var ToothOut = 0;
-        var confettiN = Math.random() * (500 - 100) + 100;
-        var confettis = [];
-        var canvas;
-        canvas = document.getElementsByTagName("canvas")[0];
-        console.log(canvas);
-        Abschluss.crc2 = canvas.getContext("2d");
-        console.log(Abschluss.crc2);
-        saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
-        drawFace();
-        alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
-        document.getElementById("DoorHitBox").addEventListener("click", function () {
-            Abschluss.crc2.putImageData(saveBG, 0, 0);
-            drawGoneTeeth();
-            ToothOut++;
-        });
-        if (ToothOut = 1) {
-            for (var i = 0; i < confettiN; i++) {
-                var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-                    + Math.floor(Math.random() * 0) + ")";
-                var c = new Abschluss.confetti(10, 10, color);
-                confettis.push(c);
-            }
-            console.log(confettis);
-        }
-    }
     function drawFace() {
         //Gesicht
         Abschluss.crc2.save();
@@ -189,7 +152,7 @@ var Abschluss;
         Abschluss.crc2.closePath();
         Abschluss.crc2.fillStyle = "rgb(0, 0, 0)";
         Abschluss.crc2.fill();
-        // Zähne
+        // Z�hne
         Abschluss.crc2.beginPath();
         Abschluss.crc2.moveTo(237.7, 681.5);
         Abschluss.crc2.bezierCurveTo(237.7, 681.5, 251.2, 677.7, 272.5, 679.8);
@@ -1013,4 +976,4 @@ var Abschluss;
         Abschluss.crc2.restore();
     }
 })(Abschluss || (Abschluss = {}));
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=drawings.js.map
