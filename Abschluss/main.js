@@ -12,7 +12,7 @@ var Abschluss;
     var saveBG;
     function init(_event) {
         var ToothOut = 0;
-        var confettiN = Math.floor(Math.random() * (500 - 200) + 200);
+        var confettiN = Math.floor(Math.random() * (1000 - 300) + 300);
         console.log(confettiN + " Konfettis berechnet");
         var confettis = [];
         var canvas;
@@ -23,25 +23,30 @@ var Abschluss;
         saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
         drawFace();
         alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
-        document.getElementById("DoorHitBox").addEventListener("click", clicked);
+        document.getElementById("DoorHitBox").addEventListener("click", function () {
+            ToothOut++;
+            if (ToothOut = 1) {
+                clicked();
+            }
+            else { }
+        });
         function clicked() {
             Abschluss.crc2.putImageData(saveBG, 0, 0);
             drawGoneTeeth();
-            ToothOut++;
             saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
             for (var i = 0; i < confettiN; i++) {
                 var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                     + Math.floor(Math.random() * 0) + ")";
                 var x = Math.floor(Math.random() * (1551));
-                var y = 5;
+                var y = Math.floor(Math.random() * (-700));
                 var c = new Abschluss.confetti(x, y, color);
                 confettis.push(c);
             }
             console.log(confettis);
             animate();
+            console.log("Animate startet");
             function animate() {
                 Abschluss.crc2.putImageData(saveBG, 0, 0);
-                console.log("Animate startet");
                 for (var i = 0; i < confettis.length; i++) {
                     var c = confettis[i];
                     c.update();

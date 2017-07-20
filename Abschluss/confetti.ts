@@ -20,19 +20,23 @@ namespace Abschluss {
         }
 
         move() {
-            this.y += 1;
+            this.y += Math.random()*(30);
+            this.x += (Math.random() * (22)- -22)+(Math.random() * (-22)-22);
+            if (this.y > 900) {
+            this.y = 10;
+                console.log("teleport nach oben")
+            }
 
         }
 
         drawConfetti(): void {
             crc2.beginPath();
-            crc2.fillStyle = "#FF0000";
-            crc2.strokeStyle = "#00FF00";
-            crc2.moveTo(this.x + 1, this.y);
-            crc2.moveTo(this.x + 1, this.y + 1);
-            crc2.moveTo(this.x, this.y + 1);
-            crc2.moveTo(this.x, this.y);
+            crc2.lineTo(this.x + 10, this.y);
+            crc2.lineTo(this.x + 10, this.y + 10);
+            crc2.lineTo(this.x, this.y + 10);
+            crc2.lineTo(this.x, this.y);
             crc2.closePath();
+            crc2.fillStyle= this.color;
             crc2.fill();
             crc2.stroke();
             console.log("drawed")

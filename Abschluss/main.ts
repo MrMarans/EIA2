@@ -16,7 +16,7 @@ namespace Abschluss {
 
     function init(_event: Event): void {
         let ToothOut: number = 0;
-        let confettiN: number = Math.floor(Math.random() * (500 - 200) + 200)
+        let confettiN: number = Math.floor(Math.random() * (1000 - 300) + 300)
         console.log(confettiN + " Konfettis berechnet");
         let confettis: confetti[] = [];
         let canvas: HTMLCanvasElement;
@@ -28,27 +28,32 @@ namespace Abschluss {
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         drawFace();
         alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
-        document.getElementById("DoorHitBox").addEventListener("click", clicked)
+        document.getElementById("DoorHitBox").addEventListener("click", function() {
+            ToothOut++;
+            if (ToothOut = 1)
+            { clicked(); }
+            else { }
+        })
 
 
         function clicked() {
             crc2.putImageData(saveBG, 0, 0);
             drawGoneTeeth();
-            ToothOut++;
             saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
             for (let i: number = 0; i < confettiN; i++) {
                 let color: string = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                     + Math.floor(Math.random() * 0) + ")";
                 let x: number = Math.floor(Math.random() * (1551));
-                let y: number = 5;
+                let y: number = Math.floor(Math.random() * (-700));
                 let c: confetti = new confetti(x, y, color);
                 confettis.push(c)
             }
             console.log(confettis);
-          animate();
+            animate();
+            console.log("Animate startet");
             function animate() {
                 crc2.putImageData(saveBG, 0, 0);
-                console.log("Animate startet");
+
                 for (let i: number = 0; i < confettis.length; i++) { // Zufällige Bewegung der Konfetti
                     let c: confetti = confettis[i];
                     c.update();
