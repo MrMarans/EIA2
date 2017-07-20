@@ -2,6 +2,8 @@ var Abschluss;
 (function (Abschluss) {
     var confetti = (function () {
         function confetti(_x, _y, _color) {
+            this.x = 5;
+            this.y = Math.random() * (893 - 0) + 0;
             this.x = _x;
             this.y = _y;
             this.color = _color;
@@ -25,6 +27,7 @@ var Abschluss;
             Abschluss.crc2.closePath();
             Abschluss.crc2.fillStyle = this.color;
             Abschluss.crc2.fill();
+            Abschluss.crc2.stroke();
         };
         return confetti;
     }());

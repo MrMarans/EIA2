@@ -39,9 +39,24 @@ namespace Abschluss {
             for (let i: number = 0; i < confettiN; i++) {
                 let color: string = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                     + Math.floor(Math.random() * 0) + ")";
-                let c: confetti = new confetti(10, 10, color);
+                let c: confetti = new confetti(10,10,color);
                 confettis.push(c)
             }
+
+            window.setTimeout(animate, 20);
+            function animate() {
+                crc2.putImageData(saveBG, 0, 0);
+                console.log("Animate startet");
+
+
+                for (let i: number = 0; i < confettis.length; i++) { // Zufällige Bewegung der Konfetti
+                    let c: confetti = confettis[i];
+                    c.update();
+                }
+                window.setTimeout(animate, 20);
+            }
+
+
         });
         console.log(confettis);
 

@@ -2,8 +2,8 @@ namespace Abschluss {
 
 
     export class confetti {
-        x: number;
-        y: number;
+        x: number = 5;
+        y: number = Math.random()* (893 - 0) + 0;
         color: string;
 
 
@@ -36,6 +36,7 @@ namespace Abschluss {
             crc2.closePath();
             crc2.fillStyle = this.color;
             crc2.fill();
+            crc2.stroke();
         }
     }
 }
