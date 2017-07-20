@@ -27,7 +27,7 @@ namespace Abschluss {
         console.log(crc2);
         saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
         drawFace();
-        //alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
+        alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
         document.getElementById("DoorHitBox").addEventListener("click", clicked)
 
 
