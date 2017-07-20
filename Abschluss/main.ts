@@ -39,7 +39,9 @@ namespace Abschluss {
             for (let i: number = 0; i < confettiN; i++) {
                 let color: string = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                     + Math.floor(Math.random() * 0) + ")";
-                let c: confetti = new confetti(10,10,color);
+                let x: number = 5;
+                let y: number = Math.random() * (893 - 0) + 0;
+                let c: confetti = new confetti(x, y, color);
                 confettis.push(c)
             }
 
