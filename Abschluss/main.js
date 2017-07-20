@@ -52,9 +52,9 @@ var Abschluss;
             saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
             generateConfetti();
             console.log(confettis);
+            alert("JAAA, du hast es geschafft! Timmy freut sich jetzt. Aber bist du dir sicher, dass das die einzige Möglichkeit ist, den Zahn zu entfernen? Lade die Seite neu und versuche mal etwas rum!");
             animate();
             console.log("Animate startet");
-            alert("JAAA, du hast es geschafft! Timmy freut sich jetzt. Aber bist du dir sicher, dass das die einzige Möglichkeit ist, den Zahn zu entfernen? Lade die Seite neu und versuche mal etwas rum!");
         }
         function generateConfetti() {
             for (var i = 0; i < confettiN; i++) {
