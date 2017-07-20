@@ -2,8 +2,8 @@ namespace Abschluss {
 
 
     export class confetti {
-        x: number = 5;
-        y: number = Math.random()* (893 - 0) + 0;
+        x: number;
+        y: number;
         color: string;
 
 
@@ -15,16 +15,16 @@ namespace Abschluss {
 
 
         update(): void {
-
+            
+            console.log("TestUpdate");
             this.drawConfetti();
             this.move();
         }
 
         move() {
-            this.x += Math.floor(Math.random() * 11) - 5;
-            this.y += Math.floor(Math.random() * 11) - 6;
-            if (this.y > 893)
-                this.color = "rgba(0, 0, 0, 0)"
+            this.x += Math.floor(Math.random() * 1);
+            this.y += Math.floor(Math.random() * 1);
+            
         }
 
         drawConfetti(): void {

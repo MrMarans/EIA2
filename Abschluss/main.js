@@ -12,7 +12,8 @@ var Abschluss;
     var saveBG;
     function init(_event) {
         var ToothOut = 0;
-        var confettiN = Math.random() * (500 - 100) + 100;
+        var confettiN = Math.floor(Math.random() * (500 - 200) + 200);
+        console.log(confettiN + " Konfettis berechnet");
         var confettis = [];
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
@@ -21,20 +22,31 @@ var Abschluss;
         console.log(Abschluss.crc2);
         saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
         drawFace();
-        alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
-        document.getElementById("DoorHitBox").addEventListener("click", function () {
+        //alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
+        document.getElementById("DoorHitBox").addEventListener("click", clicked);
+        function clicked() {
             Abschluss.crc2.putImageData(saveBG, 0, 0);
             drawGoneTeeth();
             ToothOut++;
-        });
-        if (ToothOut = 1) {
+            saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
             for (var i = 0; i < confettiN; i++) {
                 var color = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
                     + Math.floor(Math.random() * 0) + ")";
-                var c = new Abschluss.confetti(10, 10, color);
+                var x = Math.floor(Math.random() * (1551));
+                var y = 5;
+                var c = new Abschluss.confetti(x, y, color);
                 confettis.push(c);
             }
             console.log(confettis);
+            window.setTimeout(animate, 20);
+            function animate() {
+                console.log("Animate startet");
+                for (var i = 0; i < confettis.length; i++) {
+                    var c = confettis[i];
+                    c.update();
+                }
+                window.setTimeout(animate, 20);
+            }
         }
     }
     function drawFace() {

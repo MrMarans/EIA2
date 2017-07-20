@@ -2,21 +2,18 @@ var Abschluss;
 (function (Abschluss) {
     var confetti = (function () {
         function confetti(_x, _y, _color) {
-            this.x = 5;
-            this.y = Math.random() * (893 - 0) + 0;
             this.x = _x;
             this.y = _y;
             this.color = _color;
         }
         confetti.prototype.update = function () {
+            console.log("TestUpdate");
             this.drawConfetti();
             this.move();
         };
         confetti.prototype.move = function () {
-            this.x += Math.floor(Math.random() * 11) - 5;
-            this.y += Math.floor(Math.random() * 11) - 6;
-            if (this.y > 893)
-                this.color = "rgba(0, 0, 0, 0)";
+            this.x += Math.floor(Math.random() * 1);
+            this.y += Math.floor(Math.random() * 1);
         };
         confetti.prototype.drawConfetti = function () {
             Abschluss.crc2.beginPath();
