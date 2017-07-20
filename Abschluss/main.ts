@@ -45,8 +45,9 @@ namespace Abschluss {
                 confettis.push(c)
             }
             console.log(confettis);
-            window.setTimeout(animate, 20);
+          animate();
             function animate() {
+                crc2.putImageData(saveBG, 0, 0);
                 console.log("Animate startet");
                 for (let i: number = 0; i < confettis.length; i++) { // Zufällige Bewegung der Konfetti
                     let c: confetti = confettis[i];

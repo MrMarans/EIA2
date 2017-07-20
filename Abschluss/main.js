@@ -38,8 +38,9 @@ var Abschluss;
                 confettis.push(c);
             }
             console.log(confettis);
-            window.setTimeout(animate, 20);
+            animate();
             function animate() {
+                Abschluss.crc2.putImageData(saveBG, 0, 0);
                 console.log("Animate startet");
                 for (var i = 0; i < confettis.length; i++) {
                     var c = confettis[i];
