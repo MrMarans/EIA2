@@ -86,7 +86,7 @@ var Abschluss;
                 generateConfetti();
                 animate();
                 ToothOut++;
-                alert("Beim Versuch das Zeug aus seinem Ohr zu hohlen musste er niesen. Dabei ist ihm der Zahn rausgefallen.");
+                alert("Beim Versuch das Zeug aus seinem Ohr zu holen musste er niesen. Dabei ist ihm der Zahn rausgefallen.");
             }
             if (mouth == 1) {
                 mouth++;
