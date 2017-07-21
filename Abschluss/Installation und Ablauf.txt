@@ -10,6 +10,19 @@ Studiengang: MKB
 Timmy hat ein Problem. Sein Zahn fällt raus. Kannst du im helfen?
 
 Durch einfaches klicken an Objekte werden aktionen ausgelöst. Diese entfernen Timmys Zahn oder machen andere Dinge.
+Wer sich Spoilern lassen will, was man so machen kann:
+Augen anklickbar bis zu 5 mal.
+Nase anklickbar
+Mund anklickbar
+Zahn anklickbar
+rechtes Ohr anklickbar
+Tür anklickbar
+
+Zahn fällt raus bei:
+Tür anklicken
+Zahn 11 mal anklicken
+Auge 6 mal anklicken
+Mund und Nase einmal, dann rechtes Ohr
 
 Die Fakultät Digitale Medien Furtwangen darf dieses Programm mit explizitem Verweis zum Author an Tagen wie dem "Tag der Medien" vorzeigen. 
 
