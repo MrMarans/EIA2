@@ -23,6 +23,9 @@ namespace Abschluss {
         let canvas: HTMLCanvasElement;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
+        let Eye: number = 0;
+        let mouth: number = 0;
+        let nose: number = 0;
 
         crc2 = canvas.getContext("2d");
         console.log(crc2);
@@ -51,6 +54,63 @@ namespace Abschluss {
                 }
             }
         })
+        document.getElementById("EyeLeft").addEventListener("click", Auge)
+        document.getElementById("EyeRight").addEventListener("click", Auge)
+        function Auge(): void {
+            if (Eye == 0) {
+                alert("Whoah, man drückt einem doch nicht einfach so im Auge rum!");
+                Eye++;
+            }
+            else {
+                Eye++;
+                if (Eye == 5) {
+                    crc2.putImageData(saveBG, 0, 0);
+                    drawTeethOutHit();
+                    saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
+                    generateConfetti();
+                    animate();
+                    ToothOut++;
+                    alert("Timmy wollte deine Maus wegschlagen, hat sich dabei aber den Zahn weggeschlafen. Das ist wohl auch eine Möglichkeit, denke ich...");
+                }
+            }
+        }
+
+        document.getElementById("Mouth").addEventListener("click", function() {
+            if (mouth == 0) {
+                mouth++;
+                alert("Deine Maus ist jetzt irgendwie echt feucht von Timmys Speichel.... EKELHAFT");
+            }
+        })
+        document.getElementById("Ear").addEventListener("click", function() {
+            if (nose == 1 && mouth == 1) {
+                alert("Was ist schlimmer als Speichel und Popel in dem Ohr? Richtig! Beides zusammen. Du bist das letzte...");
+                nose++;
+                mouth++;
+                crc2.putImageData(saveBG, 0, 0);
+                drawTeethOutHit();
+                saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
+                generateConfetti();
+                animate();
+                ToothOut++;
+                alert("Beim Versuch das Zeug aus seinem Ohr zu hohlen musste er niesen. Dabei ist ihm der Zahn rausgefallen.");
+
+            }
+            if (mouth == 1) {
+                mouth++;
+                alert("Wow.... Du hast ihm jetzt nicht wirklich seinen Speichel in sein Ort getan, oder? Okay, das ist ekelhaft. Schäm dich, ernsthaft. Warum geht sowas überhaupt? Wer programmiert so ein scheiß?");
+            }
+            if (nose == 1) {
+                alert("Seine Popel in sein Ohr? Alter....")
+                nose++;
+            }
+        })
+        document.getElementById("Nose").addEventListener("click", function() {
+            if (nose == 0) {
+                alert("Du popelst jetzt in seiner Nase? Boah... Ich kann nicht hinsehen...")
+                nose++;
+            }
+        })
+
 
         function clicked() {
             crc2.putImageData(saveBG, 0, 0);

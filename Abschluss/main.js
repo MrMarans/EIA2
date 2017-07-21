@@ -19,6 +19,9 @@ var Abschluss;
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
+        var Eye = 0;
+        var mouth = 0;
+        var nose = 0;
         Abschluss.crc2 = canvas.getContext("2d");
         console.log(Abschluss.crc2);
         saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
@@ -44,6 +47,60 @@ var Abschluss;
                     ToothOut++;
                     alert("BIST DU WAHNSINNIG? Das war eine grandiose Idee! Einfach den Zahn abzuschlagen. Woaw. Der kleine Timmy hat jetzt zwar ganz dolle schmerzen, aber er wird es überlegeben!");
                 }
+            }
+        });
+        document.getElementById("EyeLeft").addEventListener("click", Auge);
+        document.getElementById("EyeRight").addEventListener("click", Auge);
+        function Auge() {
+            if (Eye == 0) {
+                alert("Whoah, man drückt einem doch nicht einfach so im Auge rum!");
+                Eye++;
+            }
+            else {
+                Eye++;
+                if (Eye == 5) {
+                    Abschluss.crc2.putImageData(saveBG, 0, 0);
+                    drawTeethOutHit();
+                    saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
+                    generateConfetti();
+                    animate();
+                    ToothOut++;
+                    alert("Timmy wollte deine Maus wegschlagen, hat sich dabei aber den Zahn weggeschlafen. Das ist wohl auch eine Möglichkeit, denke ich...");
+                }
+            }
+        }
+        document.getElementById("Mouth").addEventListener("click", function () {
+            if (mouth == 0) {
+                mouth++;
+                alert("Deine Maus ist jetzt irgendwie echt feucht von Timmys Speichel.... EKELHAFT");
+            }
+        });
+        document.getElementById("Ear").addEventListener("click", function () {
+            if (nose == 1 && mouth == 1) {
+                alert("Was ist schlimmer als Speichel und Popel in dem Ohr? Richtig! Beides zusammen. Du bist das letzte...");
+                nose++;
+                mouth++;
+                Abschluss.crc2.putImageData(saveBG, 0, 0);
+                drawTeethOutHit();
+                saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
+                generateConfetti();
+                animate();
+                ToothOut++;
+                alert("Beim Versuch das Zeug aus seinem Ohr zu hohlen musste er niesen. Dabei ist ihm der Zahn rausgefallen.");
+            }
+            if (mouth == 1) {
+                mouth++;
+                alert("Wow.... Du hast ihm jetzt nicht wirklich seinen Speichel in sein Ort getan, oder? Okay, das ist ekelhaft. Schäm dich, ernsthaft. Warum geht sowas überhaupt? Wer programmiert so ein scheiß?");
+            }
+            if (nose == 1) {
+                alert("Seine Popel in sein Ohr? Alter....");
+                nose++;
+            }
+        });
+        document.getElementById("Nose").addEventListener("click", function () {
+            if (nose == 0) {
+                alert("Du popelst jetzt in seiner Nase? Boah... Ich kann nicht hinsehen...");
+                nose++;
             }
         });
         function clicked() {
