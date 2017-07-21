@@ -50,7 +50,7 @@ namespace Abschluss {
                     generateConfetti();
                     animate();
                     ToothOut++;
-                    alert("BIST DU WAHNSINNIG? Das war eine grandiose Idee! Einfach den Zahn abzuschlagen. Woaw. Der kleine Timmy hat jetzt zwar ganz dolle schmerzen, aber er wird es überlegeben!");
+                    alert("BIST DU WAHNSINNIG? Das war eine grandiose Idee! Einfach den Zahn abzuschlagen. Woaw. Der kleine Timmy hat jetzt zwar ganz dolle schmerzen, aber er wird es überleben!");
                 }
             }
         })
@@ -70,7 +70,7 @@ namespace Abschluss {
                     generateConfetti();
                     animate();
                     ToothOut++;
-                    alert("Timmy wollte deine Maus wegschlagen, hat sich dabei aber den Zahn weggeschlafen. Das ist wohl auch eine Möglichkeit, denke ich...");
+                    alert("Timmy wollte deine Maus wegschlagen, hat sich dabei aber den Zahn weggeschlagen. Das ist wohl auch eine Möglichkeit, denke ich...");
                 }
             }
         }
