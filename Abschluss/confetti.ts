@@ -7,13 +7,11 @@ namespace Abschluss {
         color: string;
         teleport: number;
 
-
         constructor(_x: number, _y: number, _color: string) {
             this.x = _x;
             this.y = _y;
             this.color = _color;
         }
-
 
         update(): void {
             this.drawConfetti();
@@ -25,16 +23,17 @@ namespace Abschluss {
             this.x += (Math.random() * (22) - -22) + (Math.random() * (-22) - 22);
             if (this.y > 900) {
                 this.teleport = Math.random() * (5);
-                if (this.teleport < 3) {
+                if (this.teleport<2) {
                     this.y = 10;
-                    console.log("teleport")
+                    console.log("teleport");
+                    let c: confetti = new confetti(this.x, this.y, this.color);
+                    confettis.push(c);
                 }
                 else {
-                    confettis.splice(0, Math.random() * (2))
-                    console.log("deleted");
+                     confettis.splice(0, Math.random() * (2))
+                     console.log("deleted");
                 }
             }
-
         }
 
         drawConfetti(): void {

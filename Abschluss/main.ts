@@ -12,21 +12,23 @@ namespace Abschluss {
     export let crc2: CanvasRenderingContext2D;
     let saveBG: ImageData;
     export let confettis: confetti[] = [];
-
+    let ToothOut: number = 0;
+    let TeethHit: number = 0;
+    let confettiN: number = Math.floor(Math.random() * (1000 - 300) + 300);
+    let Eye: number = 0;
+    let mouth: number = 0;
+    let nose: number = 0;
+    let canvas: HTMLCanvasElement;
 
 
     function init(_event: Event): void {
-        let ToothOut: number = 0;
-        let TeethHit: number = 0;
-        let confettiN: number = Math.floor(Math.random() * (1000 - 300) + 300)
+
         console.log(confettiN + " Konfettis berechnet");
 
-        let canvas: HTMLCanvasElement;
+
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
-        let Eye: number = 0;
-        let mouth: number = 0;
-        let nose: number = 0;
+
 
         crc2 = canvas.getContext("2d");
         console.log(crc2);
@@ -36,126 +38,135 @@ namespace Abschluss {
         document.getElementById("DoorHitBox").addEventListener("click", Door)
         document.getElementById("DoorHitBox").addEventListener("touchstart", Door)
 
-        function Door(): void {
-            ToothOut++;
-            if (ToothOut == 1)
-            { clicked(); }
-            else { }
-        }
+
         document.getElementById("TeethHitBox").addEventListener("click", teeth)
         document.getElementById("TeethHitBox").addEventListener("touchstart", teeth)
-        function teeth(): void {
-            if (ToothOut != 1) {
-                TeethHit++;
-                if (TeethHit == 10) {
-                    crc2.putImageData(saveBG, 0, 0);
-                    drawTeethOutHit();
-                    saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
-                    generateConfetti();
-                    animate();
-                    ToothOut++;
-                    alert("BIST DU WAHNSINNIG? Das war eine grandiose Idee! Einfach den Zahn abzuschlagen. Woaw. Der kleine Timmy hat jetzt zwar ganz dolle schmerzen, aber er wird es überleben!");
-                }
-            }
-        }
+
         document.getElementById("EyeLeft").addEventListener("click", Auge)
         document.getElementById("EyeLeft").addEventListener("touchstart", Auge)
         document.getElementById("EyeRight").addEventListener("click", Auge)
         document.getElementById("EyeRight").addEventListener("touchstart", Auge)
-        function Auge(): void {
-            if (Eye == 0) {
-                alert("Whoah, man drückt einem doch nicht einfach so im Auge rum!");
-                Eye++;
-            }
-            else {
-                Eye++;
-                if (Eye == 5) {
-                    crc2.putImageData(saveBG, 0, 0);
-                    drawTeethOutHit();
-                    saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
-                    generateConfetti();
-                    animate();
-                    ToothOut++;
-                    alert("Timmy wollte deine Maus wegschlagen, hat sich dabei aber den Zahn weggeschlagen. Das ist wohl auch eine Möglichkeit, denke ich...");
-                }
-            }
-        }
 
         document.getElementById("Mouth").addEventListener("click", mouthClick);
         document.getElementById("Mouth").addEventListener("touchstart", mouthClick);
 
-        function mouthClick(): void {
-            if (mouth == 0) {
-                mouth++;
-                alert("Deine Maus ist jetzt irgendwie echt feucht von Timmys Speichel.... EKELHAFT");
-            }
-        }
+
         document.getElementById("Ear").addEventListener("click", EarClick)
         document.getElementById("Ear").addEventListener("touchstart", EarClick)
 
-        function EarClick(): void {
-            if (nose == 1 && mouth == 1) {
-                alert("Was ist schlimmer als Speichel und Popel in dem Ohr? Richtig! Beides zusammen. Du bist das letzte...");
-                nose++;
-                mouth++;
+
+        document.getElementById("Nose").addEventListener("click", noseClick)
+        document.getElementById("Nose").addEventListener("touchstart", noseClick)
+    }
+    function Door(): void {
+        ToothOut++;
+        if (ToothOut == 1)
+        { clicked(); }
+        else { }
+    }
+
+    function teeth(): void {
+        if (ToothOut != 1) {
+            TeethHit++;
+            if (TeethHit == 10) {
                 crc2.putImageData(saveBG, 0, 0);
                 drawTeethOutHit();
                 saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
                 generateConfetti();
                 animate();
                 ToothOut++;
-                alert("Beim Versuch das Zeug aus seinem Ohr zu holen musste er niesen. Dabei ist ihm der Zahn rausgefallen.");
-
-            }
-            if (mouth == 1) {
-                mouth++;
-                alert("Wow.... Du hast ihm jetzt nicht wirklich seinen Speichel in sein Ort getan, oder? Okay, das ist ekelhaft. Schäm dich, ernsthaft. Warum geht sowas überhaupt? Wer programmiert so ein scheiß?");
-            }
-            if (nose == 1) {
-                alert("Seine Popel in sein Ohr? Alter....")
-                nose++;
+                alert("BIST DU WAHNSINNIG? Das war eine grandiose Idee! Einfach den Zahn abzuschlagen. Woaw. Der kleine Timmy hat jetzt zwar ganz dolle schmerzen, aber er wird es überleben!");
             }
         }
-        document.getElementById("Nose").addEventListener("click", noseClick)
-        function noseClick(): void {
-            if (nose == 0) {
-                alert("Du popelst jetzt in seiner Nase? Boah... Ich kann nicht hinsehen...")
-                nose++;
+    }
+
+    function Auge(): void {
+        if (Eye == 0) {
+            alert("Whoah, man drückt einem doch nicht einfach so im Auge rum!");
+            Eye++;
+        }
+        else {
+            Eye++;
+            if (Eye == 5) {
+                crc2.putImageData(saveBG, 0, 0);
+                drawTeethOutHit();
+                saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
+                generateConfetti();
+                animate();
+                ToothOut++;
+                alert("Timmy wollte deine Maus wegschlagen, hat sich dabei aber den Zahn weggeschlagen. Das ist wohl auch eine Möglichkeit, denke ich...");
             }
         }
+    }
 
+    function mouthClick(): void {
+        if (mouth == 0) {
+            mouth++;
+            alert("Deine Maus ist jetzt irgendwie echt feucht von Timmys Speichel.... EKELHAFT");
+        }
+    }
 
-        function clicked() {
+    function EarClick(): void {
+        if (nose == 1 && mouth == 1) {
+            alert("Was ist schlimmer als Speichel und Popel in dem Ohr? Richtig! Beides zusammen. Du bist das letzte...");
+            nose++;
+            mouth++;
             crc2.putImageData(saveBG, 0, 0);
-            drawGoneTeeth();
+            drawTeethOutHit();
             saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
             generateConfetti();
-            console.log(confettis);
-            alert("JAAA, du hast es geschafft! Timmy freut sich jetzt. Aber bist du dir sicher, dass das die einzige Möglichkeit ist, den Zahn zu entfernen? Lade die Seite neu und versuche mal etwas rum!")
             animate();
-            console.log("Animate startet");
-        }
-        function generateConfetti() {
-            for (let i: number = 0; i < confettiN; i++) {
-                let color: string = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
-                    + Math.floor(Math.random() * 0) + ")";
-                let x: number = Math.floor(Math.random() * (1551));
-                let y: number = Math.floor(Math.random() * (-700));
-                let c: confetti = new confetti(x, y, color);
-                confettis.push(c)
-            }
-        }
+            ToothOut++;
+            alert("Beim Versuch das Zeug aus seinem Ohr zu holen musste er niesen. Dabei ist ihm der Zahn rausgefallen.");
 
-
-        function animate() {
-            crc2.putImageData(saveBG, 0, 0);
-
-            for (let i: number = 0; i < confettis.length; i++) { // Zufällige Bewegung der Konfetti
-                let c: confetti = confettis[i];
-                c.update();
-            }
-            window.setTimeout(animate, 20);
         }
+        if (mouth == 1) {
+            mouth++;
+            alert("Wow.... Du hast ihm jetzt nicht wirklich seinen Speichel in sein Ort getan, oder? Okay, das ist ekelhaft. Schäm dich, ernsthaft. Warum geht sowas überhaupt? Wer programmiert so ein scheiß?");
+        }
+        if (nose == 1) {
+            alert("Seine Popel in sein Ohr? Alter....")
+            nose++;
+        }
+    }
+
+    function noseClick(): void {
+        if (nose == 0) {
+            alert("Du popelst jetzt in seiner Nase? Boah... Ich kann nicht hinsehen...")
+            nose++;
+        }
+    }
+
+    function clicked() {
+        crc2.putImageData(saveBG, 0, 0);
+        drawGoneTeeth();
+        saveBG = crc2.getImageData(0, 0, canvas.width, canvas.height);
+        generateConfetti();
+        console.log(confettis);
+        alert("JAAA, du hast es geschafft! Timmy freut sich jetzt. Aber bist du dir sicher, dass das die einzige Möglichkeit ist, den Zahn zu entfernen? Lade die Seite neu und versuche mal etwas rum!")
+        animate();
+        console.log("Animate startet");
+    }
+
+    function generateConfetti() {
+        for (let i: number = 0; i < confettiN; i++) {
+            let color: string = "rgb(" + Math.floor(Math.random() * 255) + "," + Math.floor(Math.random() * 255) + ","
+                + Math.floor(Math.random() * 0) + ")";
+            let x: number = Math.floor(Math.random() * (1551));
+            let y: number = Math.floor(Math.random() * (-700));
+            let c: confetti = new confetti(x, y, color);
+            confettis.push(c)
+        }
+    }
+
+    function animate() {
+        crc2.putImageData(saveBG, 0, 0);
+
+        for (let i: number = 0; i < confettis.length; i++) { // Zufällige Bewegung der Konfetti
+            let c: confetti = confettis[i];
+            c.update();
+        }
+        window.setTimeout(animate, 20);
     }
 
     function drawFace(): void {
