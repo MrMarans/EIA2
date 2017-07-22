@@ -14,8 +14,15 @@ var Abschluss;
             this.y += Math.random() * (30);
             this.x += (Math.random() * (22) - -22) + (Math.random() * (-22) - 22);
             if (this.y > 900) {
-                this.y = 10;
-                console.log("teleport nach oben");
+                this.teleport = Math.random() * (5);
+                if (this.teleport < 3) {
+                    this.y = 10;
+                    console.log("teleport");
+                }
+                else {
+                    Abschluss.confettis.splice(0, Math.random() * (2));
+                    console.log("deleted");
+                }
             }
         };
         confetti.prototype.drawConfetti = function () {

@@ -10,12 +10,12 @@ var Abschluss;
 (function (Abschluss) {
     window.addEventListener("load", init);
     var saveBG;
+    Abschluss.confettis = [];
     function init(_event) {
         var ToothOut = 0;
         var TeethHit = 0;
         var confettiN = Math.floor(Math.random() * (1000 - 300) + 300);
         console.log(confettiN + " Konfettis berechnet");
-        var confettis = [];
         var canvas;
         canvas = document.getElementsByTagName("canvas")[0];
         console.log(canvas);
@@ -27,16 +27,19 @@ var Abschluss;
         saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
         drawFace();
         alert("Oh nein, der kleine Timmy verliert einen Zahn! Er hat den Zahn schon an die Tür geschnürrt, er traut sich aber nicht, sie zuzuschlagen. Kannst du das für ihn Übernehmen?");
-        document.getElementById("DoorHitBox").addEventListener("click", function () {
+        document.getElementById("DoorHitBox").addEventListener("click", Door);
+        document.getElementById("DoorHitBox").addEventListener("touchstart", Door);
+        function Door() {
             ToothOut++;
             if (ToothOut == 1) {
                 clicked();
             }
             else { }
-        });
-        document.getElementById("TeethHitBox").addEventListener("click", function () {
-            if (ToothOut == 1) { }
-            else {
+        }
+        document.getElementById("TeethHitBox").addEventListener("click", teeth);
+        document.getElementById("TeethHitBox").addEventListener("touchstart", teeth);
+        function teeth() {
+            if (ToothOut != 1) {
                 TeethHit++;
                 if (TeethHit == 10) {
                     Abschluss.crc2.putImageData(saveBG, 0, 0);
@@ -48,9 +51,11 @@ var Abschluss;
                     alert("BIST DU WAHNSINNIG? Das war eine grandiose Idee! Einfach den Zahn abzuschlagen. Woaw. Der kleine Timmy hat jetzt zwar ganz dolle schmerzen, aber er wird es überleben!");
                 }
             }
-        });
+        }
         document.getElementById("EyeLeft").addEventListener("click", Auge);
+        document.getElementById("EyeLeft").addEventListener("touchstart", Auge);
         document.getElementById("EyeRight").addEventListener("click", Auge);
+        document.getElementById("EyeRight").addEventListener("touchstart", Auge);
         function Auge() {
             if (Eye == 0) {
                 alert("Whoah, man drückt einem doch nicht einfach so im Auge rum!");
@@ -69,13 +74,17 @@ var Abschluss;
                 }
             }
         }
-        document.getElementById("Mouth").addEventListener("click", function () {
+        document.getElementById("Mouth").addEventListener("click", mouthClick);
+        document.getElementById("Mouth").addEventListener("touchstart", mouthClick);
+        function mouthClick() {
             if (mouth == 0) {
                 mouth++;
                 alert("Deine Maus ist jetzt irgendwie echt feucht von Timmys Speichel.... EKELHAFT");
             }
-        });
-        document.getElementById("Ear").addEventListener("click", function () {
+        }
+        document.getElementById("Ear").addEventListener("click", EarClick);
+        document.getElementById("Ear").addEventListener("touchstart", EarClick);
+        function EarClick() {
             if (nose == 1 && mouth == 1) {
                 alert("Was ist schlimmer als Speichel und Popel in dem Ohr? Richtig! Beides zusammen. Du bist das letzte...");
                 nose++;
@@ -96,19 +105,20 @@ var Abschluss;
                 alert("Seine Popel in sein Ohr? Alter....");
                 nose++;
             }
-        });
-        document.getElementById("Nose").addEventListener("click", function () {
+        }
+        document.getElementById("Nose").addEventListener("click", noseClick);
+        function noseClick() {
             if (nose == 0) {
                 alert("Du popelst jetzt in seiner Nase? Boah... Ich kann nicht hinsehen...");
                 nose++;
             }
-        });
+        }
         function clicked() {
             Abschluss.crc2.putImageData(saveBG, 0, 0);
             drawGoneTeeth();
             saveBG = Abschluss.crc2.getImageData(0, 0, canvas.width, canvas.height);
             generateConfetti();
-            console.log(confettis);
+            console.log(Abschluss.confettis);
             alert("JAAA, du hast es geschafft! Timmy freut sich jetzt. Aber bist du dir sicher, dass das die einzige Möglichkeit ist, den Zahn zu entfernen? Lade die Seite neu und versuche mal etwas rum!");
             animate();
             console.log("Animate startet");
@@ -120,13 +130,13 @@ var Abschluss;
                 var x = Math.floor(Math.random() * (1551));
                 var y = Math.floor(Math.random() * (-700));
                 var c = new Abschluss.confetti(x, y, color);
-                confettis.push(c);
+                Abschluss.confettis.push(c);
             }
         }
         function animate() {
             Abschluss.crc2.putImageData(saveBG, 0, 0);
-            for (var i = 0; i < confettis.length; i++) {
-                var c = confettis[i];
+            for (var i = 0; i < Abschluss.confettis.length; i++) {
+                var c = Abschluss.confettis[i];
                 c.update();
             }
             window.setTimeout(animate, 20);
