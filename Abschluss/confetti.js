@@ -15,7 +15,7 @@ var Abschluss;
             this.x += (Math.random() * (22) - -22) + (Math.random() * (-22) - 22);
             if (this.y > 900) {
                 this.teleport = Math.random() * (5);
-                if (this.teleport < 2) {
+                if (this.teleport < 1) {
                     this.y = 10;
                     console.log("teleport");
                     var c = new confetti(this.x, this.y, this.color);
@@ -24,6 +24,7 @@ var Abschluss;
                 else {
                     Abschluss.confettis.splice(0, Math.random() * (2));
                     console.log("deleted");
+                    this.y = 10;
                 }
             }
         };
